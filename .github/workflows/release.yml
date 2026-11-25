@@ -1,6 +1,6 @@
 name: Release
 
-# On a tag v*, build one zip per skill and attach them, with their SHA-256 sums, to the GitHub release of the tag.
+# On a tag v*, build one zip per skill (the skills only: the plugin itself is not published here) and attach them, with their SHA-256 sums, to the GitHub release of the tag.
 # The site links to releases/latest/download/<skill>.zip.
 
 on:
@@ -12,17 +12,27 @@ on:
         description: Existing tag to (re)attach the zips to
         required: true
 
-permissions:
-  contents: write
+# Actions are pinned by commit SHA (the tag in the comment); only this job may write, to the release.
+permissions: {}
 
 jobs:
   skills:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      # Build from the tag itself, also when the workflow is started by hand from another branch.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
       - run: node scripts/check-skills.mjs
       - run: scripts/build-skill-zips.sh
       - name: Attach the zips to the release
