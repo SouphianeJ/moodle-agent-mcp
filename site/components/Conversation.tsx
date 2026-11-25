@@ -5,8 +5,8 @@ import type { Dict } from '@/content/types';
 import { Rich } from './Rich';
 
 /**
- * The conversation of the home page: request, plan, agreement, result. Shown whole from the first render; the replay button
- * plays it message by message (static under prefers-reduced-motion).
+ * The conversation of the home page: a clear request done and checked, then a vague one answered by a question. Shown
+ * whole from the first render; the replay button plays it message by message (static under prefers-reduced-motion).
  */
 export function Conversation({ t }: { t: Dict['home']['demo'] }) {
   const [run, setRun] = useState(0);
@@ -27,31 +27,24 @@ export function Conversation({ t }: { t: Dict['home']['demo'] }) {
           <span className="who">{t.who}</span>
           {t.request}
         </div>
-        <div className="msg bot">
-          <span className="who">{t.assistant}</span>
-          <strong className="label">{t.planTitle}</strong>
-          <ol>
-            {t.plan.map((step) => (
-              <li key={step}>
-                <Rich text={step} />
-              </li>
-            ))}
-          </ol>
-        </div>
-        <div className="msg user">
-          <span className="who">{t.who}</span>
-          {t.confirm}
-        </div>
         <div className="msg bot result">
           <span className="who">{t.assistant}</span>
-          <strong className="label">✓ {t.resultTitle}</strong>
+          <strong className="label">✓ {t.doneTitle}</strong>
           <ul>
-            {t.result.map((line) => (
+            {t.done.map((line) => (
               <li key={line}>
                 <Rich text={line} />
               </li>
             ))}
           </ul>
+        </div>
+        <div className="msg user">
+          <span className="who">{t.who}</span>
+          {t.followUp}
+        </div>
+        <div className="msg bot">
+          <span className="who">{t.assistant}</span>
+          {t.question}
         </div>
       </div>
       <figcaption className="chat-note">{t.illustrative}</figcaption>

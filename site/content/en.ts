@@ -28,9 +28,9 @@ const en: Dict = {
     eyebrow: 'Free Moodle plugin · GPL v3',
     title: 'An AI assistant that works in Moodle, with your rights.',
     titleAccent: 'with your rights',
-    aside: 'Plan first. Checked result after.',
+    aside: 'Clear: it acts, then checks. Vague: it asks.',
     lead:
-      'Ask in plain words for what you would do by hand: build a course, grade submissions, remind a group. The assistant proposes a plan, acts with **your** Moodle rights and nothing more, then checks the result.',
+      'Ask in plain words for what you would do by hand: build a course, grade submissions, remind a group. When the request is clear, the assistant acts with **your** Moodle rights and nothing more, then checks the result; when it is not, it asks you.',
     ctaPrimary: 'See how to install it',
     ctaSecondary: 'Browse examples',
     facts: [
@@ -46,9 +46,9 @@ const en: Dict = {
         text: 'A four-week course, a quiz with its questions, a weighted gradebook: described in one sentence, set up in minutes, in your own Moodle.',
       },
       {
-        tag: 'A preview before the irreversible',
+        tag: 'A plan if you want one, a check where it matters',
         title: 'Hmm… yes, that looks about right. Go for it.',
-        text: 'Grades start as drafts. Deletions, messages and released grades first return a preview: the assistant checks it against your request and asks you at the slightest gap. Your institution can also require your click in Moodle.',
+        text: 'Ask, and it shows its plan first. For what cannot be taken back (deletions, messages, released grades), the server requires a consent ticket: the assistant reviews the preview it returns and only asks you when it differs from your request. Your institution can also require your click in Moodle.',
       },
       {
         tag: 'Your rights, no more',
@@ -62,24 +62,19 @@ const en: Dict = {
       },
     ],
     demo: {
-      title: 'One request, one plan, one result',
+      title: 'A clear request, a vague one',
       lead: 'This is how a typical conversation goes. The assistant follows the plan of the scenario that the plugin gives it.',
       who: 'Teacher',
       assistant: 'Assistant',
-      request: 'In my course "Project management", set up the assignment "Progress report" due on 12 March, then tell me who has not handed it in.',
-      planTitle: 'Proposed plan',
-      plan: [
-        'Read the course and its sections (`course_get`, `course_sections_list`).',
-        'Create the assignment in section 3: instructions, file submission, due on 12 March at 23:59.',
-        'After the due date: list the students without a submission and show them to you before any reminder.',
-      ],
-      confirm: 'Fine, go ahead.',
-      resultTitle: 'Checked result',
-      result: [
-        'Assignment "Progress report" created in section 3, visible, due on 12 March.',
+      request: 'In my course "Project management", create the assignment "Progress report" in section 3, file submission, due on 12 March at 23:59.',
+      doneTitle: 'Done, and checked',
+      done: [
+        'Course and sections read (`course_get`, `course_sections_list`).',
+        'Assignment "Progress report" created in section 3: file submission, due on 12 March at 23:59.',
         '`activity_list` confirms it; the operation can be undone.',
-        'I will come back with the missing submissions: no message is sent without your agreement.',
       ],
+      followUp: 'And chase the late ones.',
+      question: 'One thing before I write anything: everyone with no submission by the evening of 12 March, or just one group?',
       replay: 'Play the conversation',
       illustrative: 'Illustrative example, no real data.',
     },
@@ -96,9 +91,9 @@ const en: Dict = {
         text: 'Claude, ChatGPT, Mistral Le Chat or any MCP client: paste an address, authorize it in Moodle, as for any app.',
       },
       {
-        tag: 'You ask, it plans, you approve',
-        title: 'Walk me through it before you touch anything.',
-        text: 'The assistant picks the right scenario, states its plan, acts step by step, then checks and quotes what Moodle returns.',
+        tag: 'You ask, it acts, it checks',
+        title: 'Just do it, and tell me what you checked.',
+        text: 'The assistant picks the right scenario. Clear request: it acts step by step, then checks and quotes what Moodle returns. Vague request: it asks one short question. It shows its plan first if you ask for it.',
       },
     ],
     scenariosTitle: '41 scenarios for recurring tasks',
@@ -121,8 +116,8 @@ const en: Dict = {
       },
       {
         tag: 'Consent ticket',
-        title: 'Show me before you send it?',
-        text: 'Consent ticket for what cannot be taken back: messages, deletions, released grades.',
+        title: 'A sent message stays sent.',
+        text: 'Server consent ticket for what cannot be taken back: messages, deletions, released grades. The assistant reviews the preview; your click in Moodle if your institution requires it.',
       },
       { tag: 'Log and stop switch', title: 'Who did what, and when?', text: 'Every write logged, undo, emergency switch.' },
     ],
@@ -191,7 +186,7 @@ const en: Dict = {
         id: 'consent',
         title: 'The consent ticket',
         text:
-          'What cannot be taken back (a deletion, a sent message, released grades) does not run on the first call: the server answers with a preview and a single-use ticket. The assistant compares the preview with your request and asks you at the slightest gap. This is the default “ticket” mode: the assistant reviews the preview itself. In “ticket and click” mode, the writes that reach people (a message, an announcement, released grades, a cleanup request) also wait for the person’s click in Moodle.',
+          'What cannot be taken back (a deletion, a sent message, released grades) does not run on the first call: the server answers with a preview and a single-use ticket. The assistant reviews the preview itself and only asks you when it differs from your request. This is the default “ticket” mode: the assistant reviews the preview itself. In “ticket and click” mode, the writes that reach people (a message, an announcement, released grades, a cleanup request) also wait for the person’s click in Moodle.',
       },
       {
         id: 'journal',
@@ -381,7 +376,11 @@ const en: Dict = {
       },
       {
         q: 'What if the assistant makes a mistake? (It happens.)',
-        a: 'Ask it to undo: the undo tool reverts many writes, with your rights. For a wide change, a course snapshot taken before lets you go back. What cannot be taken back (a sent message, a permanent deletion) first goes through a preview that the assistant checks against your request.',
+        a: 'Ask it to undo: the undo tool reverts many writes, with your rights. For a wide change, a course snapshot taken before lets you go back. What cannot be taken back (a sent message, a permanent deletion) first goes through a preview and a server consent ticket: the assistant checks the preview against your request.',
+      },
+      {
+        q: 'Does it ask for permission every time?',
+        a: 'No. When the request is clear, it acts, then checks and quotes what Moodle returns; when it is not, it asks one short question. Ask for its plan first if you prefer to approve it. For what cannot be taken back (deletions, messages, released grades), the server requires a consent ticket: the assistant reviews the preview and only asks you when something differs; your institution can also require your click in Moodle.',
       },
       {
         q: 'Are grades published automatically?',

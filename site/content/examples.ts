@@ -15,8 +15,8 @@ export const examples: Record<Locale, Example[]> = {
         'Construis mon cours “Initiation à la comptabilité” sur quatre semaines : une ressource et une activité par semaine, et un quiz de synthèse à la fin.',
       plan: [
         'Lit le cours, ses sections et ses activités pour savoir s’il est vide.',
-        'Propose quatre sections avec une étiquette d’introduction, une ressource et une activité chacune, plus un quiz final, et attend votre accord.',
-        'Crée le squelette en une opération, puis relit les sections et la liste des activités.',
+        'Le cours est vide : crée le squelette en une opération, quatre sections avec une étiquette d’introduction, une ressource et une activité chacune, plus un quiz final.',
+        'Relit les sections et la liste des activités.',
       ],
       result: [
         '« Les quatre semaines sont en place : chacune a son introduction, une page de cours et un forum ou un exercice. Le quiz de synthèse compte 10 questions. Voici la liste relue dans Moodle. La création du squelette peut être annulée si besoin. »',
@@ -168,8 +168,8 @@ export const examples: Record<Locale, Example[]> = {
         'Build my course "Introduction to accounting" over four weeks: one resource and one activity per week, and a recap quiz at the end.',
       plan: [
         'Reads the course, its sections and activities to know whether it is empty.',
-        'Proposes four sections, each with an intro label, a resource and an activity, plus a final quiz, and waits for your agreement.',
-        'Creates the skeleton in one operation, then reads the sections and the activity list back.',
+        'The course is empty: creates the skeleton in one operation, four sections each with an intro label, a resource and an activity, plus a final quiz.',
+        'Reads the sections and the activity list back.',
       ],
       result: [
         '"The four weeks are in place: each has its introduction, a course page and a forum or an exercise. The recap quiz has 10 questions. Here is the list as Moodle returns it. The skeleton can be undone if needed."',

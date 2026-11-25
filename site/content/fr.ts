@@ -28,9 +28,9 @@ const fr: Dict = {
     eyebrow: 'Plugin Moodle libre · GPL v3',
     title: 'Un assistant IA qui travaille dans Moodle, avec vos droits.',
     titleAccent: 'avec vos droits',
-    aside: "Le plan d'abord. Le résultat, vérifié ensuite.",
+    aside: 'Clair : il agit, puis vérifie. Flou : il demande.',
     lead:
-      "Demandez en français ce que vous feriez à la main : construire un cours, corriger des copies, relancer un groupe. L'assistant propose un plan, agit avec **vos** droits Moodle et rien de plus, puis vérifie le résultat.",
+      "Demandez en français ce que vous feriez à la main : construire un cours, corriger des copies, relancer un groupe. Quand c'est clair, l'assistant agit avec **vos** droits Moodle et rien de plus, puis vérifie le résultat ; quand ça ne l'est pas, il vous pose la question.",
     ctaPrimary: "Voir comment l'installer",
     ctaSecondary: 'Parcourir des exemples',
     facts: [
@@ -46,9 +46,9 @@ const fr: Dict = {
         text: "Un cours de quatre semaines, un quiz avec ses questions, un carnet de notes pondéré : décrits en une phrase, montés en quelques minutes, dans votre Moodle.",
       },
       {
-        tag: "Un aperçu avant l'irréversible",
+        tag: 'Un plan si vous le voulez, un contrôle là où il faut',
         title: 'Hmm… oui, ça me semble pas mal. Vas-y.',
-        text: "Les notes partent en brouillon. Suppressions, messages et notes publiées renvoient d'abord un aperçu : l'assistant le compare à votre demande et vous consulte au moindre écart. L'établissement peut exiger en plus votre clic dans Moodle.",
+        text: "Si vous le demandez, il montre d'abord son plan. Pour ce qui ne se reprend pas (suppressions, messages, notes publiées), le serveur exige un jeton d'accord : l'assistant relit l'aperçu rendu et ne vous sollicite qu'en cas d'écart avec votre demande. L'établissement peut exiger en plus votre clic dans Moodle.",
       },
       {
         tag: 'Vos droits, pas plus',
@@ -62,25 +62,20 @@ const fr: Dict = {
       },
     ],
     demo: {
-      title: 'Une demande, un plan, un résultat',
+      title: 'Une demande claire, une demande floue',
       lead: "Voici comment se déroule une conversation type. L'assistant suit le plan du scénario que le plugin lui fournit.",
       who: 'Enseignante',
       assistant: 'Assistant',
       request:
-        'Dans mon cours « Gestion de projet », prépare le devoir « Rapport d’étape » pour le 12 mars, puis dis-moi qui ne l’a pas encore rendu.',
-      planTitle: 'Plan proposé',
-      plan: [
-        'Lire le cours et ses sections (`course_get`, `course_sections_list`).',
-        'Créer le devoir dans la section 3 : consignes, remise en fichier, date limite le 12 mars à 23 h 59.',
-        'Après la date : lister les étudiants sans remise, et vous les montrer avant toute relance.',
-      ],
-      confirm: "D'accord, vas-y.",
-      resultTitle: 'Résultat vérifié',
-      result: [
-        'Devoir « Rapport d’étape » créé en section 3, visible, date limite le 12 mars.',
+        'Dans mon cours « Gestion de projet », crée le devoir « Rapport d’étape » en section 3, remise en fichier, pour le 12 mars à 23 h 59.',
+      doneTitle: 'Fait, et vérifié',
+      done: [
+        'Cours et sections lus (`course_get`, `course_sections_list`).',
+        'Devoir « Rapport d’étape » créé en section 3 : remise en fichier, date limite le 12 mars à 23 h 59.',
         '`activity_list` le confirme ; l’opération peut être annulée.',
-        'Je reviendrai vers vous avec la liste des remises manquantes : aucun message ne part sans votre accord.',
       ],
+      followUp: 'Et relance ceux qui sont en retard.',
+      question: 'Une précision avant d’écrire : tous ceux qui n’auront rien remis le 12 mars au soir, ou un seul groupe ?',
       replay: 'Animer la conversation',
       illustrative: 'Exemple illustratif, sans données réelles.',
     },
@@ -97,9 +92,9 @@ const fr: Dict = {
         text: "Claude, ChatGPT, Mistral Le Chat ou tout client MCP : une adresse à coller, une autorisation à donner dans Moodle, comme pour une application.",
       },
       {
-        tag: 'Vous demandez, il planifie, vous validez',
-        title: "Explique-moi d'abord ce que tu vas faire.",
-        text: "L'assistant choisit le scénario adapté, annonce son plan, agit étape par étape, puis vérifie et cite ce que Moodle répond.",
+        tag: 'Vous demandez, il agit, il vérifie',
+        title: 'Fais-le, et dis-moi ce que tu as vérifié.',
+        text: "L'assistant choisit le scénario adapté. Demande claire : il agit étape par étape, puis vérifie et cite ce que Moodle répond. Demande floue : il pose une question courte. Il montre d'abord son plan si vous le lui demandez.",
       },
     ],
     scenariosTitle: '41 scénarios pour les tâches qui reviennent',
@@ -126,8 +121,8 @@ const fr: Dict = {
       },
       {
         tag: "Jeton d'accord",
-        title: "Tu me montres avant d'envoyer\u00a0?",
-        text: "Jeton d'accord pour ce qui ne se reprend pas : messages, suppressions, notes publiées.",
+        title: 'Un message envoyé, ça ne se reprend pas.',
+        text: "Jeton d'accord du serveur pour ce qui ne se reprend pas : messages, suppressions, notes publiées. L'assistant relit l'aperçu ; votre clic dans Moodle si l'établissement l'exige.",
       },
       {
         tag: 'Journal et arrêt',
@@ -201,7 +196,7 @@ const fr: Dict = {
         id: 'consent',
         title: "Le jeton d'accord",
         text:
-          "Ce qui ne se reprend pas (une suppression, un message envoyé, des notes publiées) ne s'exécute pas au premier appel : le serveur renvoie un aperçu et un jeton à usage unique. L'assistant compare l'aperçu à votre demande et vous consulte au moindre écart. C'est le mode « ticket », par défaut : l'assistant relit lui-même l'aperçu. En mode « ticket et clic », les écritures qui atteignent des personnes (message, annonce, notes publiées, demande de nettoyage) attendent en plus le clic de la personne dans Moodle.",
+          "Ce qui ne se reprend pas (une suppression, un message envoyé, des notes publiées) ne s'exécute pas au premier appel : le serveur renvoie un aperçu et un jeton à usage unique. L'assistant relit lui-même l'aperçu et ne vous sollicite que s'il s'écarte de votre demande. C'est le mode « ticket », par défaut : l'assistant relit lui-même l'aperçu. En mode « ticket et clic », les écritures qui atteignent des personnes (message, annonce, notes publiées, demande de nettoyage) attendent en plus le clic de la personne dans Moodle.",
       },
       {
         id: 'journal',
@@ -393,7 +388,11 @@ const fr: Dict = {
       },
       {
         q: 'Et si l’assistant se trompe\u00a0? (Ça arrive.)',
-        a: "Demandez-lui d'annuler : l'outil d'annulation défait une grande partie des écritures, avec vos droits. Pour un changement large, un instantané de cours pris avant permet de revenir en arrière. Ce qui ne se reprend pas (message envoyé, suppression définitive) passe d'abord par un aperçu que l'assistant compare à votre demande.",
+        a: "Demandez-lui d'annuler : l'outil d'annulation défait une grande partie des écritures, avec vos droits. Pour un changement large, un instantané de cours pris avant permet de revenir en arrière. Ce qui ne se reprend pas (message envoyé, suppression définitive) passe d'abord par un aperçu et un jeton d'accord du serveur : l'assistant compare l'aperçu à votre demande.",
+      },
+      {
+        q: 'Me demande-t-il la permission à chaque fois\u00a0?',
+        a: "Non. Si la demande est claire, il agit, puis vérifie et vous cite ce que Moodle répond ; si elle ne l'est pas, il pose une question courte. Demandez-lui son plan d'abord si vous préférez le valider. Pour ce qui ne se reprend pas (suppressions, messages, notes publiées), le serveur exige un jeton d'accord : l'assistant relit l'aperçu et ne vous sollicite qu'en cas d'écart ; l'établissement peut exiger en plus votre clic dans Moodle.",
       },
       {
         q: 'Les notes sont-elles publiées automatiquement ?',

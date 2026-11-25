@@ -61,11 +61,10 @@ export type Dict = {
       who: string;
       assistant: string;
       request: string;
-      planTitle: string;
-      plan: string[];
-      confirm: string;
-      resultTitle: string;
-      result: string[];
+      doneTitle: string;
+      done: string[];
+      followUp: string;
+      question: string;
       replay: string;
       illustrative: string;
     };
