@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  skills:
+    name: Skills and manifests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check skills against the Agent Skills specification
+        run: node scripts/check-skills.mjs
+      - name: Check the French text of the scenarios
+        run: node scripts/check-i18n.mjs
+      - name: Build the skill zips
+        run: scripts/build-skill-zips.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: skill-zips
+          path: dist/skills/
+          retention-days: 14
+
+  site:
+    name: Site (lint, typecheck, build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+      - name: The export has every page, in both languages
+        run: |
+          for lang in fr en; do
+            for page in "" examples/ scenarios/ security/ install/ skills/ faq/ legal/ missing/; do
+              test -f "out/$lang/${page}index.html" || { echo "missing out/$lang/${page}index.html"; exit 1; }
+            done
+          done
+      - name: No external resource in the pages
+        run: |
+          if grep -rhoE '(src|href)="https?://[^"]+"' out --include=*.html | grep -E '^src=' ; then
+            echo "external resource loaded by a page"; exit 1
+          fi
+          if grep -rhoE '@import url\(https?:|url\(https?://' out --include=*.css ; then
+            echo "external resource in CSS"; exit 1
+          fi
