@@ -8,7 +8,8 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props) {
   const lang = asLocale((await params).lang);
-  return pageMeta(lang, 'legal', getDict(lang).legal.title);
+  const t = getDict(lang).legal;
+  return pageMeta(lang, 'legal', t.title, t.description);
 }
 
 export default async function LegalPage({ params }: Props) {

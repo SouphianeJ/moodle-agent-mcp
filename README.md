@@ -15,9 +15,9 @@ This repository publishes what surrounds the free Moodle plugin `local_mcpcourse
 | --- | --- |
 | Claude Code | `/plugin marketplace add SouphianeJ/moodle-agent-mcp`, then `/plugin install moodle-agent-mcp@moodle-agent-mcp` ([docs](https://code.claude.com/docs/en/plugin-marketplaces)) |
 | claude.ai, Claude Desktop | Download a zip from the [latest release](https://github.com/SouphianeJ/moodle-agent-mcp/releases/latest), then Customize > Skills > Upload a skill ([help](https://support.claude.com/en/articles/12512180-using-skills-in-claude)) |
-| ChatGPT (Business, Enterprise, Edu) | Skills > Create > Upload from your computer, with the zip ([help](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)) |
+| ChatGPT (Business, Enterprise, Healthcare, Edu) | Sidebar > Plugins > Skills tab > Create > Upload from your computer, with the zip ([help](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)) |
 | Codex | Copy a skill folder into `.agents/skills/` or `~/.agents/skills/` ([docs](https://learn.chatgpt.com/docs/build-skills)) |
-| Gemini CLI | Copy into `.gemini/skills/` or `~/.gemini/skills/`, or `gemini skills link skills/` ([docs](https://geminicli.com/docs/cli/skills/)) |
+| Gemini CLI | `gemini skills install https://github.com/SouphianeJ/moodle-agent-mcp.git --path skills/<name>`, or copy into `.gemini/skills/` or `~/.gemini/skills/` ([docs](https://geminicli.com/docs/cli/skills/)) |
 | Cursor | Copy into `.cursor/skills/` ([docs](https://cursor.com/docs/skills)) |
 | Mistral Vibe Work | Context > Skills > New Skill, paste the `SKILL.md` ([docs](https://docs.mistral.ai/getting-started/quickstarts/vibe-work/create-first-skill)) |
 

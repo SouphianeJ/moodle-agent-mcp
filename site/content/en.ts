@@ -43,8 +43,8 @@ const en: Dict = {
         text: 'A four-week course, a quiz with its questions, a weighted gradebook: described in one sentence, set up in minutes, in your own Moodle.',
       },
       {
-        title: 'A person always approves',
-        text: 'Grades start as drafts; messages and deletions wait for your agreement on a preview. Nothing irreversible happens without you.',
+        title: 'A preview before the irreversible',
+        text: 'Grades start as drafts. Deletions, messages and released grades first return a preview: the assistant checks it against your request and asks you at the slightest gap. Your institution can also require your click in Moodle.',
       },
       {
         title: 'Your rights, no more',
@@ -74,7 +74,7 @@ const en: Dict = {
         '`activity_list` confirms it; the operation can be undone.',
         'I will come back with the missing submissions: no message is sent without your agreement.',
       ],
-      replay: 'Replay the animation',
+      replay: 'Play the conversation',
       illustrative: 'Illustrative example, no real data.',
     },
     howTitle: 'How it works',
@@ -169,7 +169,7 @@ const en: Dict = {
         id: 'consent',
         title: 'The consent ticket',
         text:
-          'What cannot be taken back (a deletion, a sent message, released grades) does not run on the first call: the server answers with a preview and a single-use ticket. The assistant compares the preview with your request and asks you at the slightest gap. Optionally, a click of the person in Moodle is required.',
+          'What cannot be taken back (a deletion, a sent message, released grades) does not run on the first call: the server answers with a preview and a single-use ticket. The assistant compares the preview with your request and asks you at the slightest gap. This is the default “ticket” mode: the assistant reviews the preview itself. In “ticket and click” mode, the writes that reach people (a message, an announcement, released grades, a cleanup request) also wait for the person’s click in Moodle.',
       },
       {
         id: 'journal',
@@ -219,7 +219,7 @@ const en: Dict = {
     adminSteps: [
       {
         title: 'Requirements',
-        text: 'Moodle 4.1 to 5.3, PHP 8.1 or later, site served over https. Take a backup, as before any plugin installation.',
+        text: 'Moodle 4.1 to 5.3, PHP 8.1 or later, site served over https. Moodle 4.1 no longer gets security fixes since 8 December 2025: prefer 4.5 LTS or 5.x. Take a backup, as before any plugin installation.',
       },
       {
         title: 'Upload the zip',
@@ -231,7 +231,7 @@ const en: Dict = {
         text: 'The plugin installs closed: gateway mode without secrets, empty access gate, only the course content family on, `_EDITABLE` marker required.',
       },
     ],
-    download: 'The zip will be published in the Moodle plugins directory. Until then, it is provided on request, with its SHA-256 checksum.',
+    download: 'Get the plugin: coming soon on Moodle Marketplace; until then, on request, with its SHA-256 checksum:',
     modesTitle: 'Choose the authentication mode',
     modes: [
       {
@@ -252,6 +252,16 @@ const en: Dict = {
           'An external gateway authenticates the person and signs their identity on every request (HMAC-SHA256, single-use nonce). For institutions that already run such infrastructure; the gateway is not shipped with the plugin.',
       },
     ],
+    apikeysTitle: 'Personal API keys',
+    apikeysText:
+      'For a client that speaks neither OAuth nor through a gateway (a script, a command-line tool), each person can create their own keys, on top of the chosen mode. The setting “Accept API keys” is off by default.',
+    apikeysPoints: [
+      'Each person creates their own on “My API keys” (editing teachers and managers by default): a name, a scope, read only or read and write, and a mandatory expiry (90 days by default, 365 at most). The key is shown once.',
+      'The same barriers as everything else: the key acts for its owner, under the access gate and its level, the families, `_EDITABLE`, the Moodle permissions, the log and the emergency cut-off.',
+      'People revoke their own keys; the administrator sees and revokes every key of the site. No key is ever created for someone else.',
+    ],
+    apikeysSync:
+      'An institutional sync with no person behind it: no site key, but a dedicated Moodle account with a narrow role, let through the gate by name at the read level, which creates its own read-only key (administrator guide, §3.7).',
     gateTitle: 'Open the access gate',
     gateText:
       'The gate decides who may use the connector, on every request. Two levels: read, or read and write. A level only restricts: Moodle permissions always apply on top.',
@@ -297,8 +307,8 @@ const en: Dict = {
     centralText:
       "Your host does not let you add the `/.well-known/…` rules? The central service publishes the public OAuth discovery document for your site. The link is made from the plugin's \"Link to the discovery relay\" page, with a button or a manual registration. Only public information about the site goes through it; sign-ins, tokens and data go straight from the assistant to your Moodle.",
     centralCta: 'Open the central registration',
-    marketTitle: 'Moodle plugins directory',
-    marketText: 'The listing of the plugin in the official Moodle plugins directory is being prepared.',
+    marketTitle: 'Moodle Marketplace',
+    marketText: 'The listing of the plugin on Moodle Marketplace is being prepared. Until then, the plugin is provided on request.',
     marketSoon: 'Coming soon',
     marketCta: 'See the listing',
   },
@@ -343,11 +353,11 @@ const en: Dict = {
       },
       {
         q: 'What if the assistant makes a mistake?',
-        a: 'Ask it to undo: the undo tool reverts many writes, with your rights. For a wide change, a course snapshot taken before lets you go back. What cannot be taken back (a sent message, a permanent deletion) needs your agreement first.',
+        a: 'Ask it to undo: the undo tool reverts many writes, with your rights. For a wide change, a course snapshot taken before lets you go back. What cannot be taken back (a sent message, a permanent deletion) first goes through a preview that the assistant checks against your request.',
       },
       {
         q: 'Are grades published automatically?',
-        a: 'No. Grades proposed by the assistant are drafts. They are published only after your confirmation, and the grade release family must be opened by the administrator.',
+        a: 'No. Grades proposed by the assistant are drafts. Releasing them needs the grade release family, opened by the administrator, then goes through a preview and a consent ticket; if your institution chose the “ticket and click” mode, it also waits for your click in Moodle.',
       },
       {
         q: 'Do I need to change Moodle core?',
@@ -373,6 +383,8 @@ const en: Dict = {
   },
   legal: {
     title: 'Licence, contact and legal notice',
+    description:
+      'Licences of the plugin, the skills and the site; publisher, publication director and host; personal data: this site sets no cookie and collects nothing.',
     sections: [
       {
         id: 'licence',
@@ -389,8 +401,17 @@ const en: Dict = {
         id: 'publisher',
         title: 'Publisher and hosting',
         points: [
-          'Publisher of the site: the author of the Moodle Agent MCP project, reachable at the address above.',
-          'Hosting: OVH SAS, 2 rue Kellermann, 59100 Roubaix, France.',
+          'Publisher of the site: Souphiane Jender, contact: souphianejender@gmail.com.',
+          'Publication director: Souphiane Jender.',
+          'Host: OVH SAS, simplified joint-stock company with a capital of €50,000,000, RCS Lille Métropole 424 761 419, 2 rue Kellermann, 59100 Roubaix, France, phone: +33 9 72 10 10 07.',
+        ],
+      },
+      {
+        id: 'gdpr',
+        title: 'Your rights',
+        points: [
+          'This site collects no data: no form, no account, no cookie, no audience measurement.',
+          'For any question about your data (technical log of the server, an e-mail exchange) or to exercise your rights of access, rectification or erasure: souphianejender@gmail.com.',
         ],
       },
       {

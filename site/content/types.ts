@@ -99,6 +99,10 @@ export type Dict = {
     download: string;
     modesTitle: string;
     modes: Section[];
+    apikeysTitle: string;
+    apikeysText: string;
+    apikeysPoints: string[];
+    apikeysSync: string;
     gateTitle: string;
     gateText: string;
     gatePoints: string[];
@@ -130,6 +134,6 @@ export type Dict = {
     descriptions: Record<string, string>;
   };
   faq: { title: string; lead: string; items: { q: string; a: string }[] };
-  legal: { title: string; sections: Section[] };
+  legal: { title: string; description: string; sections: Section[] };
   footer: { tagline: string; licence: string; contact: string; source: string; noCookies: string };
 };

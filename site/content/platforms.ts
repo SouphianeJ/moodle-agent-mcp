@@ -2,7 +2,7 @@ import type { Locale } from '@/lib/i18n';
 import type { SkillPlatform } from './types';
 
 /**
- * How each assistant takes skills, as documented by its publisher (checked November 2026). Only what the sources say:
+ * How each assistant takes skills, as documented by its publisher (checked 25 November 2026). Only what the sources say:
  * update this file when a platform changes, and keep the sources.
  */
 const sources = {
@@ -48,10 +48,10 @@ export const platforms: Record<Locale, SkillPlatform[]> = {
     },
     {
       name: 'ChatGPT',
-      status: 'Offres Business, Enterprise, Edu',
+      status: 'Offres Business, Enterprise, Healthcare, Edu',
       steps: [
-        'Skills, Créer, « Envoyer depuis votre ordinateur », puis choisir le zip de la skill (un seul `SKILL.md` par envoi).',
-        'ChatGPT analyse la skill avant de la rendre disponible ; l’espace de travail doit autoriser les skills.',
+        'Barre latérale : Plugins, onglet Skills du répertoire, Create, puis « Upload from your computer » et choisir le zip de la skill.',
+        'Selon les réglages de l’espace de travail : l’administrateur active les skills et leur envoi (Permissions & roles).',
       ],
       sources: [sources.chatgpt],
     },
@@ -64,7 +64,10 @@ export const platforms: Record<Locale, SkillPlatform[]> = {
     {
       name: 'Gemini CLI',
       status: 'Dossier de skills',
-      steps: ['Copier le dossier dans `.gemini/skills/` (ou `.agents/skills/`) du projet, ou `~/.gemini/skills/`.', 'Ou `gemini skills link <dossier skills/ de ce dépôt>`.'],
+      steps: [
+        '`gemini skills install https://github.com/SouphianeJ/moodle-agent-mcp.git --path skills/moodle-follow-class` (une skill par `--path` ; `--scope workspace` pour le seul projet).',
+        'Ou copier le dossier dans `.gemini/skills/` ou `.agents/skills/` du projet, ou `~/.gemini/skills/` ; dans une session, `/skills link <dossier>` puis `/skills list`.',
+      ],
       sources: [sources.gemini],
     },
     {
@@ -118,10 +121,10 @@ export const platforms: Record<Locale, SkillPlatform[]> = {
     },
     {
       name: 'ChatGPT',
-      status: 'Business, Enterprise, Edu plans',
+      status: 'Business, Enterprise, Healthcare, Edu plans',
       steps: [
-        'Skills, Create, "Upload from your computer", then pick the zip of the skill (one `SKILL.md` per upload).',
-        'ChatGPT scans the skill before it becomes available; the workspace must allow skills.',
+        'Sidebar: Plugins, Skills tab of the directory, Create, then "Upload from your computer" and pick the zip of the skill.',
+        'Subject to workspace settings: the administrator enables skills and skill uploading (Permissions & roles).',
       ],
       sources: [sources.chatgpt],
     },
@@ -134,7 +137,10 @@ export const platforms: Record<Locale, SkillPlatform[]> = {
     {
       name: 'Gemini CLI',
       status: 'Skills folder',
-      steps: ['Copy the folder into `.gemini/skills/` (or `.agents/skills/`) of the project, or `~/.gemini/skills/`.', 'Or `gemini skills link <the skills/ folder of this repository>`.'],
+      steps: [
+        '`gemini skills install https://github.com/SouphianeJ/moodle-agent-mcp.git --path skills/moodle-follow-class` (one skill per `--path`; `--scope workspace` for the project only).',
+        'Or copy the folder into `.gemini/skills/` or `.agents/skills/` of the project, or `~/.gemini/skills/`; in a session, `/skills link <folder>` then `/skills list`.',
+      ],
       sources: [sources.gemini],
     },
     {

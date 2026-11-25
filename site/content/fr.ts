@@ -43,8 +43,8 @@ const fr: Dict = {
         text: "Un cours de quatre semaines, un quiz avec ses questions, un carnet de notes pondéré : décrits en une phrase, montés en quelques minutes, dans votre Moodle.",
       },
       {
-        title: "L'humain valide, toujours",
-        text: "Les notes partent en brouillon, les messages et suppressions attendent votre accord sur un aperçu. Rien d'irréversible ne se fait sans vous.",
+        title: "Un aperçu avant l'irréversible",
+        text: "Les notes partent en brouillon. Suppressions, messages et notes publiées renvoient d'abord un aperçu : l'assistant le compare à votre demande et vous consulte au moindre écart. L'établissement peut exiger en plus votre clic dans Moodle.",
       },
       {
         title: 'Vos droits, pas plus',
@@ -75,7 +75,7 @@ const fr: Dict = {
         '`activity_list` le confirme ; l’opération peut être annulée.',
         'Je reviendrai vers vous avec la liste des remises manquantes : aucun message ne part sans votre accord.',
       ],
-      replay: "Rejouer l'animation",
+      replay: 'Animer la conversation',
       illustrative: 'Exemple illustratif, sans données réelles.',
     },
     howTitle: 'Comment ça marche',
@@ -171,7 +171,7 @@ const fr: Dict = {
         id: 'consent',
         title: "Le jeton d'accord",
         text:
-          "Ce qui ne se reprend pas (une suppression, un message envoyé, des notes publiées) ne s'exécute pas au premier appel : le serveur renvoie un aperçu et un jeton à usage unique. L'assistant compare l'aperçu à votre demande et vous consulte au moindre écart. En option, un clic de la personne dans Moodle est exigé.",
+          "Ce qui ne se reprend pas (une suppression, un message envoyé, des notes publiées) ne s'exécute pas au premier appel : le serveur renvoie un aperçu et un jeton à usage unique. L'assistant compare l'aperçu à votre demande et vous consulte au moindre écart. C'est le mode « ticket », par défaut : l'assistant relit lui-même l'aperçu. En mode « ticket et clic », les écritures qui atteignent des personnes (message, annonce, notes publiées, demande de nettoyage) attendent en plus le clic de la personne dans Moodle.",
       },
       {
         id: 'journal',
@@ -221,7 +221,7 @@ const fr: Dict = {
     adminSteps: [
       {
         title: 'Prérequis',
-        text: 'Moodle 4.1 à 5.3, PHP 8.1 ou plus, site servi en https. Faites une sauvegarde comme avant toute installation de plugin.',
+        text: 'Moodle 4.1 à 5.3, PHP 8.1 ou plus, site servi en https. Moodle 4.1 ne reçoit plus de correctifs de sécurité depuis le 8 décembre 2025 : préférez 4.5 LTS ou 5.x. Faites une sauvegarde comme avant toute installation de plugin.',
       },
       {
         title: 'Déposer le zip',
@@ -234,8 +234,7 @@ const fr: Dict = {
           "Le plugin s'installe fermé : mode passerelle sans secret, porte d'accès vide, seule la famille du contenu des cours active, marqueur `_EDITABLE` exigé.",
       },
     ],
-    download:
-      "Le zip sera publié sur le répertoire des plugins Moodle. D'ici là, il est fourni sur demande, avec son empreinte SHA-256.",
+    download: 'Obtenir le plugin : bientôt sur Moodle Marketplace ; en attendant, sur demande, avec son empreinte SHA-256 :',
     modesTitle: "Choisir le mode d'authentification",
     modes: [
       {
@@ -256,6 +255,16 @@ const fr: Dict = {
           "Une passerelle externe authentifie la personne et signe son identité à chaque requête (HMAC-SHA256, nonce à usage unique). Pour les organismes qui ont déjà une telle infrastructure ; la passerelle n'est pas fournie avec le plugin.",
       },
     ],
+    apikeysTitle: "Clés d'API personnelles",
+    apikeysText:
+      "Pour un client qui ne sait ni OAuth ni passer par une passerelle (un script, un outil en ligne de commande), chaque personne peut créer ses propres clés, en plus du mode choisi. Le réglage « Accepter les clés d'API » est décoché par défaut.",
+    apikeysPoints: [
+      "Chacun crée les siennes sur « Mes clés d'API » (enseignants éditeurs et gestionnaires par défaut) : un nom, une portée lecture seule ou lecture et écriture, une expiration obligatoire (90 jours par défaut, 365 au plus). La clé n'est montrée qu'une fois.",
+      "Mêmes barrières que tout le reste : la clé agit au nom de son propriétaire, sous la porte d'accès et son niveau, les familles, `_EDITABLE`, les droits Moodle, le journal et l'arrêt d'urgence.",
+      "La personne révoque ses clés ; l'administrateur voit et révoque toutes les clés du site. Aucune clé n'est créée pour autrui.",
+    ],
+    apikeysSync:
+      "Synchronisation d'établissement sans personne derrière : pas de clé de site, mais un compte Moodle dédié, avec un rôle restreint, ouvert par personne en lecture, qui crée sa propre clé en lecture seule (guide de l'administrateur, §3.7).",
     gateTitle: "Ouvrir la porte d'accès",
     gateText:
       "La porte décide qui peut utiliser le connecteur, à chaque requête. Deux niveaux : lecture, ou lecture et écriture. Un niveau ne fait que restreindre : les droits Moodle s'appliquent toujours en plus.",
@@ -302,8 +311,8 @@ const fr: Dict = {
     centralText:
       "Votre hébergeur ne permet pas d'ajouter les règles `/.well-known/…` ? Le service central publie pour votre site le document public de découverte OAuth. Le lien se fait depuis la page « Lien avec le relais de découverte » du plugin, par un bouton ou par une inscription manuelle. Seules des informations publiques sur le site y transitent ; connexions, jetons et données vont directement de l'assistant à votre Moodle.",
     centralCta: "Ouvrir l'enregistrement central",
-    marketTitle: 'Moodle Plugins directory',
-    marketText: 'La fiche du plugin dans le répertoire officiel des plugins Moodle est en préparation.',
+    marketTitle: 'Moodle Marketplace',
+    marketText: 'La fiche du plugin sur Moodle Marketplace est en préparation. En attendant, le plugin est fourni sur demande.',
     marketSoon: 'Bientôt',
     marketCta: 'Voir la fiche',
   },
@@ -348,11 +357,11 @@ const fr: Dict = {
       },
       {
         q: 'Et si l’assistant se trompe ?',
-        a: "Demandez-lui d'annuler : l'outil d'annulation défait une grande partie des écritures, avec vos droits. Pour un changement large, un instantané de cours pris avant permet de revenir en arrière. Ce qui ne se reprend pas (message envoyé, suppression définitive) demande un accord préalable.",
+        a: "Demandez-lui d'annuler : l'outil d'annulation défait une grande partie des écritures, avec vos droits. Pour un changement large, un instantané de cours pris avant permet de revenir en arrière. Ce qui ne se reprend pas (message envoyé, suppression définitive) passe d'abord par un aperçu que l'assistant compare à votre demande.",
       },
       {
         q: 'Les notes sont-elles publiées automatiquement ?',
-        a: "Non. Les notes proposées par l'assistant sont des brouillons. Elles ne sont publiées qu'après votre confirmation, et la famille de publication des notes doit être ouverte par l'administrateur.",
+        a: "Non. Les notes proposées par l'assistant sont des brouillons. Leur publication exige que l'administrateur ait ouvert la famille de publication des notes, puis passe par un aperçu et un jeton d'accord ; si l'établissement a choisi le mode « ticket et clic », elle attend aussi votre clic dans Moodle.",
       },
       {
         q: 'Faut-il modifier le cœur de Moodle ?',
@@ -378,6 +387,8 @@ const fr: Dict = {
   },
   legal: {
     title: 'Licence, contact et mentions légales',
+    description:
+      "Licences du plugin, des skills et du site ; éditeur, directeur de la publication et hébergeur ; données personnelles : ce site ne dépose aucun cookie et ne collecte rien.",
     sections: [
       {
         id: 'licence',
@@ -394,8 +405,17 @@ const fr: Dict = {
         id: 'publisher',
         title: 'Éditeur et hébergement',
         points: [
-          "Éditeur du site : l'auteur du projet Moodle Agent MCP, joignable à l'adresse ci-dessus.",
-          'Hébergement : OVH SAS, 2 rue Kellermann, 59100 Roubaix, France.',
+          'Éditeur du site : Souphiane Jender, contact : souphianejender@gmail.com.',
+          'Directeur de la publication : Souphiane Jender.',
+          'Hébergeur : OVH SAS, société par actions simplifiée au capital de 50 000 000 €, RCS Lille Métropole 424 761 419, 2 rue Kellermann, 59100 Roubaix, France, téléphone : +33 9 72 10 10 07.',
+        ],
+      },
+      {
+        id: 'gdpr',
+        title: 'Vos droits',
+        points: [
+          "Ce site ne collecte aucune donnée : pas de formulaire, pas de compte, pas de cookie, pas de mesure d'audience.",
+          "Pour toute question sur vos données (journal technique du serveur, échange par e-mail) ou pour exercer vos droits d'accès, de rectification ou d'effacement : souphianejender@gmail.com.",
         ],
       },
       {

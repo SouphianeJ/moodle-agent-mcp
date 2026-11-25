@@ -19,6 +19,7 @@ export default async function InstallPage({ params }: Props) {
   const toc = [
     ['plugin', t.adminTitle],
     ['mode', t.modesTitle],
+    ['apikeys', t.apikeysTitle],
     ['gate', t.gateTitle],
     ['connect', t.connectTitle],
     ['central', t.centralTitle],
@@ -84,6 +85,27 @@ export default async function InstallPage({ params }: Props) {
                 )}
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="block" id="apikeys" aria-labelledby="h-apikeys">
+          <div className="split">
+            <div>
+              <h2 id="h-apikeys">{t.apikeysTitle}</h2>
+              <p className="card-muted">{t.apikeysText}</p>
+              <ul className="card-muted" style={{ paddingLeft: '1.2em' }}>
+                {t.apikeysPoints.map((p) => (
+                  <li key={p}>
+                    <Rich text={p} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="card">
+              <p className="card-muted" style={{ margin: 0 }}>
+                <Rich text={t.apikeysSync} />
+              </p>
+            </div>
           </div>
         </section>
 
