@@ -4,8 +4,8 @@
 // Usage: php scripts/export-scenarios.php <path to the plugin> [output file]
 //
 // The plugin is the single source: this script only reads its scenario definitions, the English titles and
-// descriptions of its language file, and the family of each scenario as published in skills/ (the "Scenarios:" line of
-// each SKILL.md description). It needs no Moodle installation.
+// descriptions of its language file, and the family of each scenario as published in skills/ (the scenario headings
+// "## <title> (`<slug>`)" of each SKILL.md). It needs no Moodle installation.
 
 declare(strict_types=1);
 
@@ -50,15 +50,14 @@ foreach (glob($root . '/skills/*/SKILL.md') as $skillfile) {
     if (!preg_match('/^---\n(.*?)\n---/s', $text, $m)) {
         continue;
     }
-    $name = preg_match('/^name:\s*(\S+)/m', $m[1], $n) ? $n[1] : basename(dirname($skillfile));
-    if (!preg_match('/Scenarios:\s*([a-z0-9_,\s]+)\.?\s*$/m', $m[1], $s)) {
-        fwrite(STDERR, "ERROR: no 'Scenarios:' list in the description of $skillfile\n");
+    $name = preg_match('/^name:\s*["\']?([a-z0-9-]+)/m', $m[1], $n) ? $n[1] : basename(dirname($skillfile));
+    // Each scenario of a skill is a heading "## <title> (`<slug>`)" of its body.
+    if (!preg_match_all('/^## .*\(`([a-z0-9_]+)`\)\s*$/m', $text, $s) || !$s[1]) {
+        fwrite(STDERR, "ERROR: no scenario heading \"## <title> (`<slug>`)\" in $skillfile\n");
         exit(1);
     }
-    foreach (preg_split('/[\s,]+/', trim($s[1], " .\n")) as $slug) {
-        if ($slug !== '') {
-            $families[$slug] = $name;
-        }
+    foreach ($s[1] as $slug) {
+        $families[$slug] = $name;
     }
 }
 

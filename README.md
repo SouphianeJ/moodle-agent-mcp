@@ -28,7 +28,7 @@ The skills guide the assistant; the connector itself is the plugin, installed in
 
 ```bash
 scripts/sync-skills.sh <path to local_mcpcourse>   # copy agent-kit/skills, check them, refresh site/data/scenarios.json
-node scripts/check-skills.mjs                      # frontmatter, names and lengths per the Agent Skills spec
+npm ci && npm test && npm run check:skills         # YAML frontmatter, names, lengths and licence per the Agent Skills spec
 scripts/build-skill-zips.sh                        # dist/skills/<name>.zip + SHA256SUMS (not committed)
 cd site && npm ci && npm run lint && npm run typecheck && npm run build   # site/out/
 deploy/deploy.sh --target /srv/moodle-agent-mcp    # build and switch the served release; --rollback to go back
@@ -36,7 +36,7 @@ deploy/deploy.sh --target /srv/moodle-agent-mcp    # build and switch the served
 
 The plugin is the single source of the skills and of the scenario list: never edit `skills/` or `site/data/scenarios.json`
 by hand. The French titles of the scenarios live in `site/data/scenarios.fr.json`; the lint fails when one is missing.
-A tag `v*` runs the release workflow, which attaches the skill zips to the GitHub release.
+A tag `v*` runs the release workflow, which attaches the skill zips (the skills only) to the GitHub release.
 
 ## Licences
 

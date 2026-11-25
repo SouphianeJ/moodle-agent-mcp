@@ -40,11 +40,12 @@ cp -R "$tmp"/. "$dest"/
 echo "Skills copied from $src:"
 ls -1 "$dest" | grep -v '^README' | sed 's/^/  /'
 
-# Check the copied skills against the Agent Skills specification.
-if command -v node >/dev/null 2>&1; then
-  node "$root/scripts/check-skills.mjs"
+# Check the copied skills against the Agent Skills specification (YAML parser from the root package).
+if command -v npm >/dev/null 2>&1; then
+  (cd "$root" && npm ci --no-audit --no-fund --silent && node scripts/check-skills.mjs)
 else
-  docker run --rm --user "$(id -u):$(id -g)" -v "$root:/repo:ro" -w /repo node:22-slim node scripts/check-skills.mjs
+  docker run --rm --user "$(id -u):$(id -g)" -e HOME=/tmp -v "$root:/repo" -w /repo node:22-slim \
+    sh -c 'npm ci --no-audit --no-fund --silent && node scripts/check-skills.mjs'
 fi
 
 # Refresh the scenario list of the site from the same plugin.
