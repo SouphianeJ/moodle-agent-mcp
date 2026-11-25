@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://moodle-mcp.petits-detours.fr/sitemap.xml

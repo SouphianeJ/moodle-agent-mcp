@@ -1,0 +1,8 @@
+{
+  "moodle-build-course-content": { "fr": "Construire le contenu", "en": "Build course content", "icon": "build" },
+  "moodle-create-assessment": { "fr": "Créer une évaluation", "en": "Create an assessment", "icon": "assess" },
+  "moodle-grade-student-work": { "fr": "Corriger", "en": "Grade student work", "icon": "grade" },
+  "moodle-follow-class": { "fr": "Suivre une classe", "en": "Follow a class", "icon": "follow" },
+  "moodle-communicate-and-organize": { "fr": "Communiquer et organiser", "en": "Communicate and organize", "icon": "talk" },
+  "moodle-maintain-course": { "fr": "Entretenir un cours", "en": "Maintain a course", "icon": "maintain" }
+}

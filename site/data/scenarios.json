@@ -1,0 +1,334 @@
+{
+    "source": "local_mcpcourse 2.5.2-dev",
+    "count": 41,
+    "scenarios": [
+        {
+            "slug": "course_full_build",
+            "family": "moodle-build-course-content",
+            "title": "Full course build",
+            "summary": "Build the skeleton of a whole course (sections, resources, activities, final quiz) or extend one section.",
+            "goal": "Build a complete course skeleton (sections, intro labels, resources, activities, final quiz) or extend a single section.",
+            "risk": "medium"
+        },
+        {
+            "slug": "database_build",
+            "family": "moodle-build-course-content",
+            "title": "Build a database",
+            "summary": "Build a database activity: its fields, its first entries, and the approval of waiting entries.",
+            "goal": "Build a database activity: define its fields, then add the first entries, and approve the entries that wait for approval.",
+            "risk": "medium"
+        },
+        {
+            "slug": "glossary_populate",
+            "family": "moodle-build-course-content",
+            "title": "Fill a glossary",
+            "summary": "Fill a glossary with categories and entries, and approve the entries that wait.",
+            "goal": "Fill a glossary: create its categories, add the entries (concept, definition, aliases, categories) and approve those that wait for approval.",
+            "risk": "medium"
+        },
+        {
+            "slug": "h5p_create",
+            "family": "moodle-build-course-content",
+            "title": "Create an H5P activity",
+            "summary": "Create an H5P activity from the content of an H5P type or from an .h5p file, then read it back.",
+            "goal": "Create an H5P activity: from the content of an H5P type written as its parameters, or from an .h5p file, then read it back.",
+            "risk": "low"
+        },
+        {
+            "slug": "lesson_build",
+            "family": "moodle-build-course-content",
+            "title": "Lesson building",
+            "summary": "Build a lesson: its content and question pages, and the jumps between them.",
+            "goal": "Build a lesson: create the lesson activity, then its content pages and question pages, and wire the jumps between them.",
+            "risk": "medium"
+        },
+        {
+            "slug": "resource_pack_publish",
+            "family": "moodle-build-course-content",
+            "title": "Course resources",
+            "summary": "Upload files and publish them in the right section of a course as visible resources.",
+            "goal": "Stage files and attach them to the right course section as visible resources.",
+            "risk": "medium"
+        },
+        {
+            "slug": "scorm_publish",
+            "family": "moodle-build-course-content",
+            "title": "Publish a SCORM package",
+            "summary": "Publish a SCORM package as an activity of a course, then check how it is set.",
+            "goal": "Publish a SCORM package as an activity: stage the zip in the course, create the SCORM activity from it, and read back how it is set.",
+            "risk": "low"
+        },
+        {
+            "slug": "wiki_authoring",
+            "family": "moodle-build-course-content",
+            "title": "Write in a wiki",
+            "summary": "Write in a wiki: create a page or save a new version without overwriting someone else.",
+            "goal": "Write in a wiki: find the right subwiki, create a page, or save a new version of a page without overwriting someone else.",
+            "risk": "medium"
+        },
+        {
+            "slug": "course_communication",
+            "family": "moodle-communicate-and-organize",
+            "title": "Course communication",
+            "summary": "Post an announcement, message chosen participants and add deadlines to the course calendar.",
+            "goal": "Announce news, message selected participants and place deadline events on the course calendar.",
+            "risk": "medium"
+        },
+        {
+            "slug": "enrolment_onboarding",
+            "family": "moodle-communicate-and-organize",
+            "title": "Enrolments",
+            "summary": "Check whether people are enrolled in a course and enrol them with the right role when they are not.",
+            "goal": "Check whether a person is enrolled in the course and enrol them only if they are not, with the right role.",
+            "risk": "medium"
+        },
+        {
+            "slug": "group_differentiation",
+            "family": "moodle-communicate-and-organize",
+            "title": "Groups and extra time",
+            "summary": "Create groups and groupings, place their members, and give a group extra time on a quiz or an assignment.",
+            "goal": "Create groups and groupings, place members, and apply per-group quiz overrides or assignment extensions such as extra time.",
+            "risk": "medium"
+        },
+        {
+            "slug": "training_session_open",
+            "family": "moodle-communicate-and-organize",
+            "title": "Open a training session",
+            "summary": "Open a training session step by step: a course from a template with its dates, the accounts of the trainees created in a batch after a preview or found, their enrolment by a cohort, a group and a welcome announcement.",
+            "goal": "Open a training session from start to end: a course from a template with its dates, the accounts of the trainees (created in a batch after a preview, or existing), their enrolment by a cohort or one by one, a group of the session, and a welcome announcement; each step is one write with its own guard.",
+            "risk": "high"
+        },
+        {
+            "slug": "virtual_classroom_setup",
+            "family": "moodle-communicate-and-organize",
+            "title": "Virtual classroom",
+            "summary": "Create a BigBlueButton room in a course, read its settings and list its recordings.",
+            "goal": "Create a BigBlueButton room in a course, read its settings and list the recordings that Moodle knows.",
+            "risk": "low"
+        },
+        {
+            "slug": "assignment_setup",
+            "family": "moodle-create-assessment",
+            "title": "Assignment setup",
+            "summary": "Create an assignment with its instructions, submission settings, dates and, if wanted, a rubric.",
+            "goal": "Create and configure an assignment: instructions, submission settings and dates.",
+            "risk": "medium"
+        },
+        {
+            "slug": "exam_setup_secure",
+            "family": "moodle-create-assessment",
+            "title": "Secure exam",
+            "summary": "Create a graded exam quiz with its own question bank, locked settings and, if needed, extra time.",
+            "goal": "Create a secure graded exam quiz backed by a dedicated question bank, with the locked exam policy.",
+            "risk": "medium"
+        },
+        {
+            "slug": "formative_quiz_practice",
+            "family": "moodle-create-assessment",
+            "title": "Practice quiz",
+            "summary": "Create a practice quiz with immediate explanatory feedback, or an interactive H5P exercise.",
+            "goal": "Create a low-stakes practice quiz with immediate explanatory feedback, or an interactive H5P exercise.",
+            "risk": "medium"
+        },
+        {
+            "slug": "gradebook_setup",
+            "family": "moodle-create-assessment",
+            "title": "Gradebook setup",
+            "summary": "Organise the gradebook of a course: categories, weights, manual items and visibility.",
+            "goal": "Structure the course gradebook: categories, weights, manual items and visibility.",
+            "risk": "medium"
+        },
+        {
+            "slug": "assignment_follow_up",
+            "family": "moodle-follow-class",
+            "title": "Assignment follow-up",
+            "summary": "After the due date of an assignment: who has not handed in, a reminder and extensions, once the teacher agrees.",
+            "goal": "Follow an assignment after its due date: list the students who have not handed in, remind them by message and, for those the teacher decides, grant an extension. Nothing is sent or granted before the teacher has seen the list.",
+            "risk": "medium"
+        },
+        {
+            "slug": "attendance_follow_up",
+            "family": "moodle-follow-class",
+            "title": "Take the attendance",
+            "summary": "Add a session to an attendance activity, take the attendance and read the report.",
+            "goal": "Add a session to an attendance activity (mod_attendance), take the attendance of the students and read the attendance report.",
+            "risk": "medium"
+        },
+        {
+            "slug": "custom_report_compose",
+            "family": "moodle-follow-class",
+            "title": "Compose a custom report",
+            "summary": "Create a custom report from a source, set its columns, conditions and filters, and run it.",
+            "goal": "Compose a custom report of the report builder for a need of the site (e.g. the accounts not logged in for 15 days): pick its source, create it, set its columns, its conditions and its filters, run it.",
+            "risk": "medium"
+        },
+        {
+            "slug": "custom_report_review",
+            "family": "moodle-follow-class",
+            "title": "Run a custom report",
+            "summary": "Find a custom report you may view, read its columns and filters, and run it.",
+            "goal": "Find a custom report of the report builder that the caller may view, read its columns and filters, and run it.",
+            "risk": "low"
+        },
+        {
+            "slug": "learning_plan_follow_up",
+            "family": "moodle-follow-class",
+            "title": "Learning plans",
+            "summary": "Read the learning plans of a learner, create one, add competencies and move its status.",
+            "goal": "Read the learning plans of a learner, create one (blank or from a template), add competencies, and move its status as the buttons of the plan page.",
+            "risk": "medium"
+        },
+        {
+            "slug": "log_fact_check",
+            "family": "moodle-follow-class",
+            "title": "Check the facts in the logs",
+            "summary": "Establish from the logs what a person did in a course and when, and state the facts without judging.",
+            "goal": "Establish from the log what a person did in a course and when (entered the course or an activity, tried an action), before or after a date, and state the facts without concluding in the place of the teacher. Example: a student says they logged in and could not hand in before the deadline.",
+            "risk": "low"
+        },
+        {
+            "slug": "quiz_results_analysis",
+            "family": "moodle-follow-class",
+            "title": "Quiz results analysis",
+            "summary": "Analyse the results of a quiz: the questions that failed, the students who struggle, what to teach again.",
+            "goal": "Analyse the results of a quiz from the statistics of Moodle: which questions failed and why, which students struggle, what to teach again, without writing anything.",
+            "risk": "low"
+        },
+        {
+            "slug": "scorm_progress_review",
+            "family": "moodle-follow-class",
+            "title": "SCORM progress",
+            "summary": "See who started, completed or passed a SCORM package and with which score.",
+            "goal": "See who started, completed or passed a SCORM package and with which score, then read the tracks of one attempt.",
+            "risk": "none"
+        },
+        {
+            "slug": "student_activity_review",
+            "family": "moodle-follow-class",
+            "title": "Student follow-up",
+            "summary": "Review the activity and progress of students, spot those who stopped coming, and suggest follow-up actions.",
+            "goal": "Review student activity and progress, spot the students who stopped coming (no access to the course for N days) and the at-risk ones, and propose follow-up actions without writing anything.",
+            "risk": "low"
+        },
+        {
+            "slug": "training_certificates",
+            "family": "moodle-follow-class",
+            "title": "Certificates of the end of a training",
+            "summary": "Set up and follow the certificates of the end of a training: a certificate activity from a template, who received it, a code checked.",
+            "goal": "Give the learners of a course a certificate of the end of the training: create a certificate activity from a template (mod_customcert), open it only once the course or its last activity is completed, then list who received it and verify a code; or, with tool_certificate, issue the certificate of a template to named users.",
+            "risk": "medium"
+        },
+        {
+            "slug": "assignment_grading_assist",
+            "family": "moodle-grade-student-work",
+            "title": "Assignment grading",
+            "summary": "Read the submissions of an assignment, draft grades and feedback, and publish them only once the teacher confirms.",
+            "goal": "Read the instructions and the rubric, list the submissions, read the files, draft the grades and feedback, and commit only after teacher confirmation.",
+            "risk": "medium"
+        },
+        {
+            "slug": "quiz_essay_grading",
+            "family": "moodle-grade-student-work",
+            "title": "Grade the open questions of a quiz",
+            "summary": "Grade the open questions of finished quiz attempts, after the teacher agrees with each mark.",
+            "goal": "Grade by hand the open (essay) questions of the finished attempts of a quiz: list the attempts that wait for a grade, read each response with the question, apply the mark and the comment after the teacher agrees, and check the grades of the quiz.",
+            "risk": "medium"
+        },
+        {
+            "slug": "workshop_peer_assessment",
+            "family": "moodle-grade-student-work",
+            "title": "Peer-assessment workshop",
+            "summary": "Follow a peer-assessment workshop: who owes work or assessments, reminders, then the grades.",
+            "goal": "Follow a peer-assessment workshop: who handed in a work and who still owes assessments, read the assessments, remind the late reviewers, then compute the grading grades once the assessments are in.",
+            "risk": "medium"
+        },
+        {
+            "slug": "content_backup_restore",
+            "family": "moodle-maintain-course",
+            "title": "Back up and restore an activity or a section",
+            "summary": "Back up one activity or one section to a .mbz kept in Moodle, then restore it into this course or another one.",
+            "goal": "Back up one activity or one section to a .mbz kept in Moodle, read what the backup holds, then restore it into a course (the same one or another), in addition to what that course holds.",
+            "risk": "medium"
+        },
+        {
+            "slug": "course_audit_improvement",
+            "family": "moodle-maintain-course",
+            "title": "Course quality audit",
+            "summary": "Audit the quality of a course and propose a prioritised action plan, without changing anything.",
+            "goal": "Audit course quality and produce a prioritized action plan, without writing anything.",
+            "risk": "none"
+        },
+        {
+            "slug": "course_content_find",
+            "family": "moodle-maintain-course",
+            "title": "Find content in a course",
+            "summary": "Find where a text appears in a course, then read what was found.",
+            "goal": "Find where a text appears in one course (sections, activities, pages, book chapters, glossary entries, wiki pages, forum posts, lesson pages), then read the object found.",
+            "risk": "none"
+        },
+        {
+            "slug": "course_dates_shift",
+            "family": "moodle-maintain-course",
+            "title": "Shift the dates of a course",
+            "summary": "Move every date of a course by one offset: preview the changes, then apply them.",
+            "goal": "Move every date of a course by one offset (start, end, activity dates, access restrictions, calendar, completion): preview the changes, then commit them with the preview fingerprint.",
+            "risk": "high"
+        },
+        {
+            "slug": "course_next_term_setup",
+            "family": "moodle-maintain-course",
+            "title": "Next term setup",
+            "summary": "Prepare the next term: copy the course or start from a template, move its dates, then archive the old one.",
+            "goal": "Prepare next term: clone the course or create it from a template, import content, then archive the old course.",
+            "risk": "medium"
+        },
+        {
+            "slug": "course_recovery_undo",
+            "family": "moodle-maintain-course",
+            "title": "Recovery and undo",
+            "summary": "Review the recent changes made by the AI and revert a mistake, with undo or a snapshot.",
+            "goal": "Inspect recent agent changes and revert mistakes: undo journaled writes or restore a snapshot.",
+            "risk": "high"
+        },
+        {
+            "slug": "course_session_reset",
+            "family": "moodle-maintain-course",
+            "title": "Reset a course for a new session",
+            "summary": "Read what the reset of a course would remove, then empty it for a new session with the options of Moodle's reset form: people by role, submissions, posts, attempts, completion.",
+            "goal": "Empty a course for a new session with Moodle's reset: read what would be removed (people by role, submissions, forum posts, quiz attempts, completions), then reset with the options the teacher chose, optionally with a new start date, and read the course back.",
+            "risk": "high"
+        },
+        {
+            "slug": "course_year_end_archive",
+            "family": "moodle-maintain-course",
+            "title": "Archive a course at the end of the year",
+            "summary": "Hide a course and set its end date, move it to the archive category, and take a backup when asked, saying how long it is kept.",
+            "goal": "Archive a course at the end of the year: hide it and set its end date, move it to the archive category, and take a backup when asked.",
+            "risk": "medium"
+        },
+        {
+            "slug": "storage_cleanup_run",
+            "family": "moodle-maintain-course",
+            "title": "Free the space of backups and recycle bins",
+            "summary": "Delete old backups of a course and purge recycle bins, in batches confirmed after a preview, with the space each frees.",
+            "goal": "Free the space that the backups of a course and the recycle bins of a course or a category hold: list them with what each would free, preview a batch, and after the person agreed, delete it for good with the token of the preview; or restore an item of a recycle bin instead.",
+            "risk": "high"
+        },
+        {
+            "slug": "storage_diagnosis",
+            "family": "moodle-maintain-course",
+            "title": "Storage diagnosis",
+            "summary": "Find what takes the space of the site, read only: the heaviest courses and files, inactive courses and accounts that never logged in.",
+            "goal": "Find what takes the space of the Moodle site and what may be abandoned, read only: the volumes of the site, the heaviest courses and what deleting each would free, the heaviest files of a course, the courses nobody entered for a year, the accounts that never logged in; then a list of proposals for a person to decide; optionally, after the person confirmed, ask the teachers of one course to tidy it by a notification (nothing is deleted).",
+            "risk": "low"
+        },
+        {
+            "slug": "training_offer_structure",
+            "family": "moodle-maintain-course",
+            "title": "Structure of the training offer",
+            "summary": "Read and shape the category tree: create, rename, move or merge categories, place courses, open or hide a category, add a module of another course.",
+            "goal": "Shape the training offer: read the category tree, create, rename, move or merge categories, place courses in them, open or hide a category, and add a module of another course to a course.",
+            "risk": "medium"
+        }
+    ]
+}
