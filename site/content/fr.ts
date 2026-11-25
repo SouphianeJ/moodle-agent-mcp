@@ -48,12 +48,12 @@ const fr: Dict = {
       },
       {
         tag: 'Un plan si vous le voulez, un contrôle là où il faut',
-        title: 'Hmm… oui, ça me semble pas mal. Vas-y.',
+        title: 'Hmm… oui, ça me semble pas mal. Vas\u2011y.',
         text: "Si vous le demandez, il montre d'abord son plan. Pour ce qui ne se reprend pas (suppressions, messages, notes publiées), le serveur exige un jeton d'accord : l'assistant relit l'aperçu rendu et ne vous sollicite qu'en cas d'écart avec votre demande. L'établissement peut exiger en plus votre clic dans Moodle.",
       },
       {
         tag: 'Vos droits, pas plus',
-        title: 'Mêmes clés que moi. Et non, pas le passe-partout.',
+        title: 'Mêmes clés que moi. Et non, pas le passe\u2011partout.',
         text: "L'assistant agit au nom d'une personne identifiée, avec ses permissions Moodle. Ce que vous ne pouvez pas faire à la main, il ne le peut pas non plus.",
       },
       {
@@ -94,7 +94,7 @@ const fr: Dict = {
       },
       {
         tag: 'Vous demandez, il agit, il vérifie',
-        title: 'Fais-le. Et prouve-le-moi.',
+        title: 'Fais-le. Et prouve\u2011le\u2011moi.',
         text: "L'assistant choisit le scénario adapté. Demande claire : il agit étape par étape, puis vérifie et cite ce que Moodle répond. Demande floue : il pose une question courte. Il montre d'abord son plan si vous le lui demandez.",
       },
     ],
