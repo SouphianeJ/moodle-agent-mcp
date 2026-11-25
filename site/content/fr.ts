@@ -84,12 +84,12 @@ const fr: Dict = {
       {
         tag: 'Votre établissement installe le plugin',
         title: "On l'installe, et on garde la clé.",
-        text: "Un zip à déposer dans Moodle, fermé par défaut. L'administrateur choisit qui peut l'utiliser et quelles familles d'outils ouvrir.",
+        text: "Un zip à déposer dans *Administration du site > Plugins*, fermé par défaut. L'administrateur choisit le mode OAuth, ouvre la porte d'accès à un rôle (en lecture pour commencer) et les familles d'outils utiles.",
       },
       {
         tag: 'Vous connectez votre assistant',
         title: 'Une adresse à coller, un clic pour autoriser.',
-        text: "Claude, ChatGPT, Mistral Le Chat ou tout client MCP : une adresse à coller, une autorisation à donner dans Moodle, comme pour une application.",
+        text: "Claude, ChatGPT, Mistral Le Chat ou tout client MCP : l'adresse du connecteur à coller, une autorisation à donner dans Moodle, comme pour une application. Premier essai : « Que peux-tu faire sur ce site Moodle ? »",
       },
       {
         tag: 'Vous demandez, il agit, il vérifie',
@@ -131,12 +131,6 @@ const fr: Dict = {
       },
     ],
     trustCta: 'Lire la page sécurité',
-    startTitle: 'Essayer en trois étapes',
-    start: [
-      { title: 'Installer', text: "Déposez le zip du plugin dans *Administration du site > Plugins*." },
-      { title: 'Ouvrir', text: "Choisissez le mode OAuth, cochez un rôle dans la porte d'accès, en lecture pour commencer." },
-      { title: 'Connecter', text: "Collez l'adresse du connecteur dans votre assistant et demandez : « Que peux-tu faire sur ce site Moodle ? »" },
-    ],
     startCta: "Guide d'installation",
   },
   examples: {

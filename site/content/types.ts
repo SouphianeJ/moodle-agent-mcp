@@ -77,8 +77,6 @@ export type Dict = {
     trustTitle: string;
     trust: Step[];
     trustCta: string;
-    startTitle: string;
-    start: Step[];
     startCta: string;
   };
   examples: { title: string; lead: string; disclaimer: string; request: string; plan: string; result: string; guard: string; scenario: string };

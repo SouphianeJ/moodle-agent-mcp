@@ -1750,27 +1750,14 @@ ol.trust .card-muted {
   }
 }
 
-/* Start: three steps in a row inside a bright frame. */
-.start {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(28px, 5vw, 56px);
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--blob-b) 45%, transparent), transparent 45%),
-    linear-gradient(135deg, var(--accent-soft), var(--surface));
-  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+/* The install button on the dark band. */
+.band .btn-primary {
+  background: var(--band-accent);
+  color: #1d1406;
 }
 
-.steps-row {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 12px;
-}
-
-@media (max-width: 860px) {
-  .steps-row {
-    grid-template-columns: 1fr;
-  }
+.band .actions {
+  margin-top: 40px;
 }
 
 .btn-primary:hover {

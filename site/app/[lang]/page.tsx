@@ -140,10 +140,17 @@ export default async function Home({ params }: Props) {
                 </span>
                 <p className="card-tag">{s.tag}</p>
                 <h3>{s.title}</h3>
-                <p>{s.text}</p>
+                <p>
+                  <Rich text={s.text} />
+                </p>
               </li>
             ))}
           </ol>
+          <div className="actions">
+            <Link className="btn btn-primary btn-big" href={href(lang, 'install')}>
+              {t.startCta} <Arrow />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -214,28 +221,6 @@ export default async function Home({ params }: Props) {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="start">
-        <div className="container">
-          <div className="start">
-            <h2 id="start">{t.startTitle}</h2>
-            <ol className="steps steps-row">
-              {t.start.map((s) => (
-                <li key={s.title}>
-                  <h3>{s.title}</h3>
-                  <p>
-                    <Rich text={s.text} />
-                  </p>
-                </li>
-              ))}
-            </ol>
-            <div className="actions">
-              <Link className="btn btn-primary btn-big" href={href(lang, 'install')}>
-                {t.startCta} <Arrow />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

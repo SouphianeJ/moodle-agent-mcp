@@ -83,12 +83,12 @@ const en: Dict = {
       {
         tag: 'Your institution installs the plugin',
         title: 'We install it. We keep the keys.',
-        text: 'A zip to upload to Moodle, closed by default. The administrator chooses who may use it and which tool families to open.',
+        text: 'A zip to upload in *Site administration > Plugins*, closed by default. The administrator chooses the OAuth mode, opens the access gate to a role (read-only to start) and the useful tool families.',
       },
       {
         tag: 'You connect your assistant',
         title: 'Paste one address, click Authorize.',
-        text: 'Claude, ChatGPT, Mistral Le Chat or any MCP client: paste an address, authorize it in Moodle, as for any app.',
+        text: 'Claude, ChatGPT, Mistral Le Chat or any MCP client: paste the connector address, authorize it in Moodle, as for any app. First try: "What can you do on this Moodle site?"',
       },
       {
         tag: 'You ask, it acts, it checks',
@@ -122,12 +122,6 @@ const en: Dict = {
       { tag: 'Log and stop switch', title: 'Who did what, and when?', text: 'Every write logged, undo, emergency switch.' },
     ],
     trustCta: 'Read the security page',
-    startTitle: 'Try it in three steps',
-    start: [
-      { title: 'Install', text: 'Upload the plugin zip in *Site administration > Plugins*.' },
-      { title: 'Open', text: 'Choose the OAuth mode, tick a role in the access gate, read-only to start.' },
-      { title: 'Connect', text: 'Paste the connector address into your assistant and ask: "What can you do on this Moodle site?"' },
-    ],
     startCta: 'Installation guide',
   },
   examples: {
