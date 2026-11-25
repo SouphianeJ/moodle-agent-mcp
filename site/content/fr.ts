@@ -2,7 +2,7 @@ import type { Dict } from './types';
 
 const fr: Dict = {
   meta: {
-    title: 'Moodle Agent MCP : un assistant IA qui travaille dans Moodle, avec vos droits',
+    title: 'Agent Moodle, pour vous servir · Moodle Agent MCP',
     description:
       "Un plugin Moodle libre qui laisse votre assistant IA (Claude, ChatGPT, Mistral…) construire, corriger et suivre vos cours, avec les droits de l'enseignant et jamais davantage.",
   },
