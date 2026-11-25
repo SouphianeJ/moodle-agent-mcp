@@ -3,36 +3,40 @@
     "fr": "Construire le contenu",
     "en": "Build course content",
     "icon": "build",
-    "quip": { "fr": "Il me faut un cours pour lundi.", "en": "I need a course by Monday." }
+    "quip": { "fr": "Il me faut un cours pour lundi. À l'aide\u00a0!", "en": "I need a course by Monday. Help!" }
   },
   "moodle-create-assessment": {
     "fr": "Créer une évaluation",
     "en": "Create an assessment",
     "icon": "assess",
-    "quip": { "fr": "Un petit quiz, pour voir qui a suivi.", "en": "A quick quiz, to see who was listening." }
+    "quip": { "fr": "Un quiz surprise. Surprise pour eux, pas pour moi.", "en": "A pop quiz. A surprise for them, not for me." }
   },
   "moodle-grade-student-work": {
     "fr": "Corriger",
     "en": "Grade student work",
     "icon": "grade",
-    "quip": { "fr": "Trente-deux copies et un seul dimanche.", "en": "Thirty-two papers, one Sunday." }
+    "quip": {
+      "fr": "Trente-deux copies, un seul dimanche. Tu jettes un coup d'œil pour m'avancer\u00a0?",
+      "en": "Thirty-two papers, one Sunday. Mind taking a first look for me?"
+    },
+    "note": { "fr": "Les notes partent en brouillon ; c'est vous qui validez.", "en": "Grades start as drafts; you are the one who approves them." }
   },
   "moodle-follow-class": {
     "fr": "Suivre une classe",
     "en": "Follow a class",
     "icon": "follow",
-    "quip": { "fr": "Qui n'a pas encore rendu, au juste\u00a0?", "en": "So, who hasn't handed it in yet?" }
+    "quip": { "fr": "Qui n'a pas encore rendu\u00a0? Ils vont m'entendre\u00a0!", "en": "Who hasn't handed it in yet? Oh, they'll hear from me!" }
   },
   "moodle-communicate-and-organize": {
     "fr": "Communiquer et organiser",
     "en": "Communicate and organize",
     "icon": "talk",
-    "quip": { "fr": "Un mot au groupe B, sans oublier personne.", "en": "A word to group B, and nobody left out." }
+    "quip": { "fr": "Un mot au groupe B. Oui, toi aussi, au fond.", "en": "A word to group B. Yes, you too, at the back." }
   },
   "moodle-maintain-course": {
     "fr": "Entretenir un cours",
     "en": "Maintain a course",
     "icon": "maintain",
-    "quip": { "fr": "Rentrée\u00a0: on garde tout, on change les dates.", "en": "New term: keep it all, shift the dates." }
+    "quip": { "fr": "Rentrée\u00a0: même cours, nouvelles dates. Sans une nuit à tout recliquer.", "en": "New term: same course, new dates. Without a night of re-clicking." }
   }
 }

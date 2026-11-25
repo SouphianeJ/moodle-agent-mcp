@@ -36,6 +36,7 @@ export function ScenarioBrowser({ families, labels }: { families: Family[]; labe
               <div>
                 <h2 id={`h-${f.id}`}>{f.label}</h2>
                 <p className="family-voice">{f.quip}</p>
+                {f.note ? <p className="family-note">{f.note}</p> : null}
                 <span className="count">
                   {labels.skill} <code>{f.id}</code> · {f.scenarios.length}
                 </span>

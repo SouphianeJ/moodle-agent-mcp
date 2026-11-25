@@ -53,7 +53,7 @@ const en: Dict = {
       },
       {
         tag: 'Your rights, no more',
-        title: 'Same keys as me. Not one more.',
+        title: 'Same keys as me. And no, not the master key.',
         text: 'The assistant acts on behalf of an identified person, with their Moodle permissions. What you cannot do by hand, it cannot do either.',
       },
       {
@@ -83,17 +83,17 @@ const en: Dict = {
     how: [
       {
         tag: 'Your institution installs the plugin',
-        title: 'We install it. We keep the keys.',
+        title: 'We install it… and double-lock the door.',
         text: 'A zip to upload in *Site administration > Plugins*, closed by default. The administrator chooses the OAuth mode, opens the access gate to a role (read-only to start) and the useful tool families.',
       },
       {
         tag: 'You connect your assistant',
-        title: 'Paste one address, click Authorize.',
+        title: 'One address to paste, one click. Even on a Monday morning.',
         text: 'Claude, ChatGPT, Mistral Le Chat or any MCP client: paste the connector address, authorize it in Moodle, as for any app. First try: "What can you do on this Moodle site?"',
       },
       {
         tag: 'You ask, it acts, it checks',
-        title: 'Just do it, and tell me what you checked.',
+        title: 'Do it. Then prove it.',
         text: 'The assistant picks the right scenario. Clear request: it acts step by step, then checks and quotes what Moodle returns. Vague request: it asks one short question. It shows its plan first if you ask for it.',
       },
     ],
@@ -104,23 +104,23 @@ const en: Dict = {
     trustTitle: 'Built for trust',
     trustLead: 'Five locks that add up. None of them opens by itself.',
     trust: [
-      { tag: "Moodle's own permissions", title: "It can't do anything I couldn't.", text: "Moodle's own permissions on every call." },
+      { tag: "Moodle's own permissions", title: "It can't do anything I couldn't. Not even sneakily.", text: "Moodle's own permissions on every call." },
       {
         tag: 'The `_EDITABLE` marker',
-        title: 'Hands off that course.',
+        title: 'Hands off that course. Unless I hand it over.',
         text: 'A course accepts AI writes only once a person opened it (the `_EDITABLE` marker).',
       },
       {
         tag: 'Access gate',
-        title: 'Closed until further notice.',
+        title: 'Closed until further notice. Mine.',
         text: 'Access gate closed by default, by role or by person, read or read and write.',
       },
       {
         tag: 'Consent ticket',
-        title: 'A sent message stays sent.',
+        title: 'A sent message never comes back. So we read it first.',
         text: 'Server consent ticket for what cannot be taken back: messages, deletions, released grades. The assistant reviews the preview; your click in Moodle if your institution requires it.',
       },
-      { tag: 'Log and stop switch', title: 'Who did what, and when?', text: 'Every write logged, undo, emergency switch.' },
+      { tag: 'Log and stop switch', title: "Who did what, and when? It's all written down.", text: 'Every write logged, undo, emergency switch.' },
     ],
     trustCta: 'Read the security page',
     testsLine: 'Which model should you pick? We measured Claude Haiku, Sonnet and Opus on real Moodle tasks.',
@@ -435,7 +435,7 @@ const en: Dict = {
   },
   missing: {
     kicker: 'Error 404',
-    title: 'Page not found',
+    title: 'This page skipped class.',
     lead: 'Not even undo can bring this one back: the address does not exist, or no longer does.',
     back: 'Back to the home page',
   },
@@ -468,7 +468,7 @@ const en: Dict = {
         a: 'No. Grades proposed by the assistant are drafts. Releasing them needs the grade release family, opened by the administrator, then goes through a preview and a consent ticket; if your institution chose the “ticket and click” mode, it also waits for your click in Moodle.',
       },
       {
-        q: 'Do I need to change Moodle core?',
+        q: 'Do we have to touch Moodle core? (Your administrator is holding their breath.)',
         a: 'No. It is a standard local plugin, without Moodle web services. In OAuth mode, two rewrite rules go into the web server, or the discovery relay takes care of it.',
       },
       {
@@ -480,7 +480,7 @@ const en: Dict = {
         a: 'Optional. The server already gives the assistant the plan of each scenario. The skills are an installable copy of it, useful for the assistant to pick the right approach quickly.',
       },
       {
-        q: 'How much does it cost?',
+        q: 'How much does it cost? (Good news first.)',
         a: 'The plugin is free software under the GNU GPL v3. The subscription to the AI assistant is up to your institution, with the provider of its choice.',
       },
       {

@@ -53,7 +53,7 @@ const fr: Dict = {
       },
       {
         tag: 'Vos droits, pas plus',
-        title: 'Mêmes clés que moi, pas une de plus.',
+        title: 'Mêmes clés que moi. Et non, pas le passe-partout.',
         text: "L'assistant agit au nom d'une personne identifiée, avec ses permissions Moodle. Ce que vous ne pouvez pas faire à la main, il ne le peut pas non plus.",
       },
       {
@@ -84,17 +84,17 @@ const fr: Dict = {
     how: [
       {
         tag: 'Votre établissement installe le plugin',
-        title: "On l'installe, et on garde la clé.",
+        title: "On l'installe… et on ferme à double tour.",
         text: "Un zip à déposer dans *Administration du site > Plugins*, fermé par défaut. L'administrateur choisit le mode OAuth, ouvre la porte d'accès à un rôle (en lecture pour commencer) et les familles d'outils utiles.",
       },
       {
         tag: 'Vous connectez votre assistant',
-        title: 'Une adresse à coller, un clic pour autoriser.',
+        title: 'Une adresse à coller, un clic. Même un lundi matin.',
         text: "Claude, ChatGPT, Mistral Le Chat ou tout client MCP : l'adresse du connecteur à coller, une autorisation à donner dans Moodle, comme pour une application. Premier essai : « Que peux-tu faire sur ce site Moodle ? »",
       },
       {
         tag: 'Vous demandez, il agit, il vérifie',
-        title: 'Fais-le, et dis-moi ce que tu as vérifié.',
+        title: 'Fais-le. Et prouve-le-moi.',
         text: "L'assistant choisit le scénario adapté. Demande claire : il agit étape par étape, puis vérifie et cite ce que Moodle répond. Demande floue : il pose une question courte. Il montre d'abord son plan si vous le lui demandez.",
       },
     ],
@@ -107,27 +107,27 @@ const fr: Dict = {
     trust: [
       {
         tag: 'Droits natifs de Moodle',
-        title: 'Il ne fera rien que je ne puisse faire.',
+        title: 'Il ne fera rien que je ne puisse faire. Même pas en douce.',
         text: 'Droits natifs de Moodle appliqués à chaque appel.',
       },
       {
         tag: 'Marqueur `_EDITABLE`',
-        title: "Ce cours-là, tu n'y touches pas.",
+        title: 'Ce cours-là, pas touche. Sauf si je te le confie.',
         text: "Un cours n'est modifiable par l'IA que si une personne l'a ouvert (marqueur `_EDITABLE`).",
       },
       {
         tag: "Porte d'accès",
-        title: "Fermé jusqu'à nouvel ordre.",
+        title: "Fermé jusqu'à nouvel ordre. Le mien.",
         text: "Porte d'accès fermée par défaut, par rôle ou par personne, en lecture ou en écriture.",
       },
       {
         tag: "Jeton d'accord",
-        title: 'Un message envoyé, ça ne se reprend pas.',
+        title: 'Un message parti ne revient pas. Alors on relit avant.',
         text: "Jeton d'accord du serveur pour ce qui ne se reprend pas : messages, suppressions, notes publiées. L'assistant relit l'aperçu ; votre clic dans Moodle si l'établissement l'exige.",
       },
       {
         tag: 'Journal et arrêt',
-        title: 'Qui a fait quoi, et quand\u00a0?',
+        title: 'Qui a fait quoi, et quand\u00a0? Tout est noté.',
         text: 'Journal de chaque écriture, annulation, interrupteur d’urgence.',
       },
     ],
@@ -447,7 +447,7 @@ const fr: Dict = {
   },
   missing: {
     kicker: 'Erreur 404',
-    title: 'Page introuvable',
+    title: 'Cette page a séché le cours.',
     lead: "Même l'outil d'annulation ne la ramènera pas : cette adresse n'existe pas ou plus.",
     back: "Retour à l'accueil",
   },
@@ -480,7 +480,7 @@ const fr: Dict = {
         a: "Non. Les notes proposées par l'assistant sont des brouillons. Leur publication exige que l'administrateur ait ouvert la famille de publication des notes, puis passe par un aperçu et un jeton d'accord ; si l'établissement a choisi le mode « ticket et clic », elle attend aussi votre clic dans Moodle.",
       },
       {
-        q: 'Faut-il modifier le cœur de Moodle ?',
+        q: 'Faut-il toucher au cœur de Moodle\u00a0? (Votre administrateur retient son souffle.)',
         a: "Non. C'est un plugin local standard, sans service web de Moodle. En mode OAuth, deux règles de réécriture sont à ajouter au serveur web, ou le relais de découverte s'en charge.",
       },
       {
@@ -492,7 +492,7 @@ const fr: Dict = {
         a: "Facultatives. Le serveur donne déjà à l'assistant le plan de chaque scénario. Les skills en sont une copie installable dans l'assistant, utile pour qu'il choisisse vite la bonne démarche.",
       },
       {
-        q: 'Combien ça coûte ?',
+        q: 'Combien ça coûte\u00a0? (La bonne nouvelle d’abord.)',
         a: 'Le plugin est un logiciel libre sous licence GNU GPL v3. L’abonnement à l’assistant d’IA reste à la charge de votre organisme, auprès du fournisseur de son choix.',
       },
       {

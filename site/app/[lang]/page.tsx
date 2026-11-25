@@ -168,6 +168,7 @@ export default async function Home({ params }: Props) {
                 </span>
                 <span className="card-tag">{f.label}</span>
                 <h3 className="family-quip">{f.quip}</h3>
+                {f.note ? <span className="family-note">{f.note}</span> : null}
                 <span className="card-muted family-list">
                   {f.scenarios
                     .slice(0, 3)
