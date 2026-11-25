@@ -16,6 +16,7 @@ const fr: Dict = {
     security: 'Sécurité',
     install: 'Installer',
     skills: 'Skills',
+    tests: 'Essais',
     faq: 'FAQ',
     legal: 'Mentions légales',
     otherLang: 'EN',
@@ -131,6 +132,8 @@ const fr: Dict = {
       },
     ],
     trustCta: 'Lire la page sécurité',
+    testsLine: 'Quel modèle choisir ? Nous avons mesuré Claude Haiku, Sonnet et Opus sur de vraies tâches Moodle.',
+    testsCta: 'Voir les essais des modèles',
     startCta: "Guide d'installation",
   },
   examples: {
@@ -357,6 +360,90 @@ const fr: Dict = {
       'moodle-communicate-and-organize': 'Annonces, groupes et tiers-temps, inscriptions, classe virtuelle, ouverture de session.',
       'moodle-maintain-course': 'Rentrée suivante, dates, réinitialisation, archivage, catégories, annulation, audit, stockage.',
     },
+  },
+  tests: {
+    title: 'Essais des modèles',
+    lead:
+      "Quel modèle d'IA choisir pour piloter Moodle ? Nous avons mis de vrais agents au travail sur un Moodle de test et compté ce qu'ils ont réellement fait, pas ce qu'ils ont raconté.",
+    when: 'Essais du 20 au 24 novembre 2026, banc Moodle 5.3, versions du plugin 2.4 à 2.5.1. Modèles : Claude Haiku, Claude Sonnet, Claude Opus.',
+    verdictTitle: 'En bref',
+    verdict: [
+      {
+        tag: 'Claude Sonnet · milieu de gamme',
+        title: 'Le bon choix pour travailler.',
+        text: "Il fait le travail complet de façon fiable : toutes les étapes de trois scénarios de bout en bout sur cinq, 5/6 et 10/11 sur les deux autres, le bon scénario choisi 37 fois sur 37, aucune question inutile, 96 à 97 % d'appels justes du premier coup.",
+      },
+      {
+        tag: 'Claude Haiku · petit et peu cher',
+        title: "Il s'en sort, avec un œil sur lui.",
+        text: "Il choisit aussi bien le scénario (37/37) et réussit une bonne partie des tâches (5/7, 8/11), mais il demande plus de vérification : 17 questions inutiles, 3 questions nécessaires manquées sur 11, des étapes partielles, et il lui arrive de se déclarer réussi à tort.",
+      },
+      {
+        tag: 'Claude Opus · le plus puissant',
+        title: 'Excellent, mais pas indispensable ici.',
+        text: "Opus n'apporte guère plus que Sonnet sur ces tâches : 7/7, 6/6 et 7/7 étapes, 100 % d'appels justes. Sonnet fait le travail entier avec environ 15 % de tokens en moins (mesure du 20/11).",
+      },
+    ],
+    methodTitle: 'Comment on a mesuré',
+    method: [
+      "De vrais agents IA, neufs à chaque essai, avec une consigne neutre : ils ne savent pas ce qu'on mesure.",
+      "Un vrai Moodle de test, peuplé d'étudiants fictifs créés par script.",
+      "Le verdict se lit dans le journal du serveur (les appels réellement envoyés) et dans l'état du Moodle, jamais dans le récit de l'agent : les petits modèles se déclarent parfois réussis à tort.",
+      'Pour les mesures fines : tirages à l’aveugle, versions mélangées, correcteur automatique testé avant, intervalles de confiance et tests exacts.',
+    ],
+    e2eTitle: 'Des scénarios réels, de bout en bout',
+    e2eLead: "Une demande d'enseignant, l'agent fait tout le travail ; on compte les étapes réellement réussies.",
+    e2e: {
+      head: ['Scénario', 'Sonnet', 'Opus', 'Haiku'],
+      rows: [
+        ['A · Examen QCM de 10 questions, tiers-temps, notes sur 20, badge', '7/7', '7/7', 'partiel'],
+        ['B · Devoir avec grille, copies PDF et DOCX, notation', '5/5', '6/6', 'non exploitable ce jour-là'],
+        ['C · Leçon à branchements et forum', '5/6', '—', 'partiel'],
+        ['D · Glossaire, wiki, base de données, SCORM, H5P', '7/7', '7/7', '5/7'],
+        ['E · Offre de formation en 11 étapes', '10/11', '—', '8/11'],
+      ],
+    },
+    e2eNotes: [
+      'Opus le 20/11 sur A et B ; les autres passes de A à D le 21/11 ; E le 24/11 (plugin 2.5.1-dev). « — » : pas de passe.',
+      'Haiku sur B : passe inexploitable à cause du script de préparation du banc, pas du modèle.',
+      "Haiku varie beaucoup d'une passe à l'autre et sur-déclare sa réussite.",
+    ],
+    routeTitle: 'Comprendre une demande courte',
+    routeLead: '37 demandes courtes en français, le 24/11, plugin 2.5.1 : le modèle doit choisir le bon scénario, et ne poser que les questions utiles.',
+    route: {
+      head: ['Mesure', 'Haiku', 'Sonnet'],
+      rows: [
+        ['Bon scénario choisi', '37/37', '37/37'],
+        ['Questions inutiles posées', '17', '0'],
+        ['Questions nécessaires manquées (sur 11)', '3', '0'],
+      ],
+    },
+    callsTitle: 'Écrire un appel juste du premier coup',
+    callsLead: '1 350 appels sur 10 outils lourds, du 20 au 22/11.',
+    calls: {
+      head: ['Modèle', 'Appels justes du premier coup'],
+      rows: [
+        ['Opus', '100 %'],
+        ['Sonnet', '96 à 97 %'],
+        ['Haiku', '66 à 69 % ; 87,6 % une fois les dates lisibles acceptées'],
+      ],
+    },
+    changedTitle: 'Ce que les essais ont changé dans le plugin',
+    changedLead: 'Les essais servent aussi à corriger le plugin. Quelques exemples :',
+    changed: [
+      'Dates lisibles (ISO 8601) acceptées : Haiku gagne 21 points (p < 0,0001).',
+      "Un argument inconnu est refusé avec une suggestion et un exemple : Haiku gagne 19 points après correction ; aucun modèle ne renvoie l'appel refusé tel quel.",
+      "Aperçu résolu (noms, avant → après) sur les écritures irréversibles qui touchent des personnes : écritures fausses de Sonnet de 12/40 à 2/40 (p = 0,003) ; pas d'effet net sur Haiku.",
+    ],
+    limitsTitle: 'Les limites, honnêtement',
+    limits: [
+      "Un banc de test, des données fictives, des scénarios écrits par l'équipe du plugin.",
+      "Peu de passes par scénario ; Haiku varie d'une passe à l'autre.",
+      'Modèles Claude seulement à ce jour.',
+      'Résultats datés : versions du plugin 2.4 à 2.5.1.',
+    ],
+    othersTitle: 'Et ChatGPT, Mistral ?',
+    othersText: 'Pas encore mesurés ; Mistral est prévu. Le plugin fonctionne avec tout client MCP : seule la mesure manque.',
   },
   missing: {
     kicker: 'Erreur 404',

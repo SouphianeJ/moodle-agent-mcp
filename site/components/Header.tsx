@@ -14,6 +14,7 @@ export function Header({ lang, t }: { lang: Locale; t: Dict['nav'] }) {
     { href: href(lang, 'security'), label: t.security },
     { href: href(lang, 'install'), label: t.install },
     { href: href(lang, 'skills'), label: t.skills },
+    { href: href(lang, 'model-tests'), label: t.tests },
     { href: href(lang, 'faq'), label: t.faq },
   ];
   return (

@@ -15,6 +15,9 @@ export type Example = {
   guard: string;
 };
 
+/** A table of results: the head row, then one row per line; the first cell of a row is its header. */
+export type Table = { head: string[]; rows: string[][] };
+
 export type Assistant = { name: string; steps: string[]; note?: string };
 
 export type SkillPlatform = {
@@ -36,6 +39,7 @@ export type Dict = {
     security: string;
     install: string;
     skills: string;
+    tests: string;
     faq: string;
     legal: string;
     otherLang: string;
@@ -77,6 +81,8 @@ export type Dict = {
     trustTitle: string;
     trust: Step[];
     trustCta: string;
+    testsLine: string;
+    testsCta: string;
     startCta: string;
   };
   examples: { title: string; lead: string; disclaimer: string; request: string; plan: string; result: string; guard: string; scenario: string };
@@ -133,6 +139,32 @@ export type Dict = {
     syncText: string;
     licence: string;
     descriptions: Record<string, string>;
+  };
+  tests: {
+    title: string;
+    lead: string;
+    when: string;
+    verdictTitle: string;
+    verdict: Step[];
+    methodTitle: string;
+    method: string[];
+    e2eTitle: string;
+    e2eLead: string;
+    e2e: Table;
+    e2eNotes: string[];
+    routeTitle: string;
+    routeLead: string;
+    route: Table;
+    callsTitle: string;
+    callsLead: string;
+    calls: Table;
+    changedTitle: string;
+    changedLead: string;
+    changed: string[];
+    limitsTitle: string;
+    limits: string[];
+    othersTitle: string;
+    othersText: string;
   };
   missing: { kicker: string; title: string; lead: string; back: string };
   faq: { title: string; lead: string; items: { q: string; a: string }[] };

@@ -11,7 +11,7 @@ export function asLocale(value: string): Locale {
 }
 
 /** The pages of the site, in menu order; '' is the home page. */
-export const pages = ['', 'examples', 'scenarios', 'security', 'install', 'skills', 'faq', 'legal'] as const;
+export const pages = ['', 'examples', 'scenarios', 'security', 'install', 'skills', 'model-tests', 'faq', 'legal'] as const;
 export type PageKey = (typeof pages)[number];
 
 export function href(lang: Locale, page: PageKey | string = '', hash = ''): string {

@@ -221,6 +221,17 @@ export default async function Home({ params }: Props) {
         </div>
       </section>
 
+      <section className="section tests-teaser" aria-label={t.testsCta}>
+        <div className="container">
+          <div className="callout">
+            <p className="teaser-line">{t.testsLine}</p>
+            <Link className="btn btn-primary" href={href(lang, 'model-tests')}>
+              {t.testsCta} <Arrow />
+            </Link>
+          </div>
+        </div>
+      </section>
+
     </>
   );
 }
