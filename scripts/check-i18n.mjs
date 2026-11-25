@@ -16,6 +16,7 @@ for (const s of scenarios) {
   const t = fr[s.slug];
   if (!Array.isArray(t) || t.length !== 2 || !t[0] || !t[1]) errors.push(`scenarios.fr.json: no French title and summary for ${s.slug}`);
   if (!families[s.family]?.fr || !families[s.family]?.en) errors.push(`families.json: no label for ${s.family}`);
+  if (!families[s.family]?.quip?.fr || !families[s.family]?.quip?.en) errors.push(`families.json: no quip for ${s.family}`);
 }
 for (const slug of Object.keys(fr)) {
   if (!slug.startsWith('_') && !scenarios.some((s) => s.slug === slug)) errors.push(`scenarios.fr.json: ${slug} is not in the plugin any more`);

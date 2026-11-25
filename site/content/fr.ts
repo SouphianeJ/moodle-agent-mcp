@@ -27,6 +27,8 @@ const fr: Dict = {
   home: {
     eyebrow: 'Plugin Moodle libre · GPL v3',
     title: 'Un assistant IA qui travaille dans Moodle, avec vos droits.',
+    titleAccent: 'avec vos droits',
+    aside: "Le plan d'abord. Le résultat, vérifié ensuite.",
     lead:
       "Demandez en français ce que vous feriez à la main : construire un cours, corriger des copies, relancer un groupe. L'assistant propose un plan, agit avec **vos** droits Moodle et rien de plus, puis vérifie le résultat.",
     ctaPrimary: "Voir comment l'installer",
@@ -39,19 +41,23 @@ const fr: Dict = {
     benefitsTitle: 'Ce que vous y gagnez',
     benefits: [
       {
-        title: 'Moins de clics, plus de pédagogie',
+        tag: 'Moins de clics',
+        title: 'Tu me montes ça pendant mon café\u00a0?',
         text: "Un cours de quatre semaines, un quiz avec ses questions, un carnet de notes pondéré : décrits en une phrase, montés en quelques minutes, dans votre Moodle.",
       },
       {
-        title: "Un aperçu avant l'irréversible",
+        tag: "Un aperçu avant l'irréversible",
+        title: 'Hmm… oui, ça me semble pas mal. Vas-y.',
         text: "Les notes partent en brouillon. Suppressions, messages et notes publiées renvoient d'abord un aperçu : l'assistant le compare à votre demande et vous consulte au moindre écart. L'établissement peut exiger en plus votre clic dans Moodle.",
       },
       {
-        title: 'Vos droits, pas plus',
+        tag: 'Vos droits, pas plus',
+        title: 'Mêmes clés que moi, pas une de plus.',
         text: "L'assistant agit au nom d'une personne identifiée, avec ses permissions Moodle. Ce que vous ne pouvez pas faire à la main, il ne le peut pas non plus.",
       },
       {
-        title: "Un retour en arrière possible",
+        tag: 'Un retour en arrière possible',
+        title: "Ah non… finalement, j'ai changé d'avis.",
         text: "Chaque écriture est journalisée ; une grande partie s'annule d'un mot. Les instantanés de cours couvrent les changements plus larges.",
       },
     ],
@@ -81,15 +87,18 @@ const fr: Dict = {
     howTitle: 'Comment ça marche',
     how: [
       {
-        title: '1. Votre établissement installe le plugin',
+        tag: 'Votre établissement installe le plugin',
+        title: "On l'installe, et on garde la clé.",
         text: "Un zip à déposer dans Moodle, fermé par défaut. L'administrateur choisit qui peut l'utiliser et quelles familles d'outils ouvrir.",
       },
       {
-        title: '2. Vous connectez votre assistant',
+        tag: 'Vous connectez votre assistant',
+        title: 'Une adresse à coller, un clic pour autoriser.',
         text: "Claude, ChatGPT, Mistral Le Chat ou tout client MCP : une adresse à coller, une autorisation à donner dans Moodle, comme pour une application.",
       },
       {
-        title: '3. Vous demandez, il planifie, vous validez',
+        tag: 'Vous demandez, il planifie, vous validez',
+        title: "Explique-moi d'abord ce que tu vas faire.",
         text: "L'assistant choisit le scénario adapté, annonce son plan, agit étape par étape, puis vérifie et cite ce que Moodle répond.",
       },
     ],
@@ -98,12 +107,33 @@ const fr: Dict = {
       "Construire, évaluer, corriger, suivre, communiquer, entretenir : chaque scénario dit à l'assistant quoi demander, dans quel ordre agir, quels garde-fous respecter et comment prouver que c'est fait.",
     scenariosCta: 'Voir les 41 scénarios',
     trustTitle: 'Conçu pour la confiance',
+    trustLead: "Cinq verrous qui se cumulent. Aucun ne s'ouvre tout seul.",
     trust: [
-      "Droits natifs de Moodle appliqués à chaque appel.",
-      "Un cours n'est modifiable par l'IA que si une personne l'a ouvert (marqueur `_EDITABLE`).",
-      "Porte d'accès fermée par défaut, par rôle ou par personne, en lecture ou en écriture.",
-      "Jeton d'accord pour ce qui ne se reprend pas : messages, suppressions, notes publiées.",
-      'Journal de chaque écriture, annulation, interrupteur d’urgence.',
+      {
+        tag: 'Droits natifs de Moodle',
+        title: 'Il ne fera rien que je ne puisse faire.',
+        text: 'Droits natifs de Moodle appliqués à chaque appel.',
+      },
+      {
+        tag: 'Marqueur `_EDITABLE`',
+        title: "Ce cours-là, tu n'y touches pas.",
+        text: "Un cours n'est modifiable par l'IA que si une personne l'a ouvert (marqueur `_EDITABLE`).",
+      },
+      {
+        tag: "Porte d'accès",
+        title: "Fermé jusqu'à nouvel ordre.",
+        text: "Porte d'accès fermée par défaut, par rôle ou par personne, en lecture ou en écriture.",
+      },
+      {
+        tag: "Jeton d'accord",
+        title: "Tu me montres avant d'envoyer\u00a0?",
+        text: "Jeton d'accord pour ce qui ne se reprend pas : messages, suppressions, notes publiées.",
+      },
+      {
+        tag: 'Journal et arrêt',
+        title: 'Qui a fait quoi, et quand\u00a0?',
+        text: 'Journal de chaque écriture, annulation, interrupteur d’urgence.',
+      },
     ],
     trustCta: 'Lire la page sécurité',
     startTitle: 'Essayer en trois étapes',
@@ -339,9 +369,15 @@ const fr: Dict = {
       'moodle-maintain-course': 'Rentrée suivante, dates, réinitialisation, archivage, catégories, annulation, audit, stockage.',
     },
   },
+  missing: {
+    kicker: 'Erreur 404',
+    title: 'Page introuvable',
+    lead: "Même l'outil d'annulation ne la ramènera pas : cette adresse n'existe pas ou plus.",
+    back: "Retour à l'accueil",
+  },
   faq: {
     title: 'Questions fréquentes',
-    lead: 'Les réponses courtes. Le détail est dans les guides fournis avec le plugin.',
+    lead: "Celles qu'on se pose avant de laisser une IA entrer dans son cours. Les réponses courtes ; le détail est dans les guides fournis avec le plugin.",
     items: [
       {
         q: "L'IA peut-elle faire plus que moi ?",
@@ -356,7 +392,7 @@ const fr: Dict = {
         a: "Cela ne dépend pas du plugin mais de l'offre souscrite auprès du fournisseur de l'assistant. Vérifiez ses documents contractuels ; préférez une offre professionnelle avec accord de traitement des données (DPA).",
       },
       {
-        q: 'Et si l’assistant se trompe ?',
+        q: 'Et si l’assistant se trompe\u00a0? (Ça arrive.)',
         a: "Demandez-lui d'annuler : l'outil d'annulation défait une grande partie des écritures, avec vos droits. Pour un changement large, un instantané de cours pris avant permet de revenir en arrière. Ce qui ne se reprend pas (message envoyé, suppression définitive) passe d'abord par un aperçu que l'assistant compare à votre demande.",
       },
       {

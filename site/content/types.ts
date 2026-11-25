@@ -1,7 +1,8 @@
 /**
  * The text of the site, one object per language. Inline markup in strings: `code` and **bold** (see components/Rich).
  */
-export type Step = { title: string; text: string };
+/** A card: `title` is what one says to oneself (human voice), `tag` the plain name of the feature, `text` the exact explanation. */
+export type Step = { title: string; text: string; tag?: string };
 export type Section = { id: string; title: string; text?: string; points?: string[] };
 
 export type Example = {
@@ -52,6 +53,8 @@ export type Dict = {
     facts: { value: string; label: string }[];
     benefitsTitle: string;
     benefits: Step[];
+    titleAccent: string;
+    aside: string;
     demo: {
       title: string;
       lead: string;
@@ -71,8 +74,9 @@ export type Dict = {
     scenariosTitle: string;
     scenariosText: string;
     scenariosCta: string;
+    trustLead: string;
     trustTitle: string;
-    trust: string[];
+    trust: Step[];
     trustCta: string;
     startTitle: string;
     start: Step[];
@@ -133,6 +137,7 @@ export type Dict = {
     licence: string;
     descriptions: Record<string, string>;
   };
+  missing: { kicker: string; title: string; lead: string; back: string };
   faq: { title: string; lead: string; items: { q: string; a: string }[] };
   legal: { title: string; description: string; sections: Section[] };
   footer: { tagline: string; licence: string; contact: string; source: string; noCookies: string };

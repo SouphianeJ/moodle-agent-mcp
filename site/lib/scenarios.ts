@@ -11,9 +11,10 @@ export type Scenario = {
   risk: string;
 };
 
-export type Family = { id: string; label: string; icon: string; scenarios: Scenario[] };
+/** `quip` is what a teacher says before reaching for the family: the human voice of its card. */
+export type Family = { id: string; label: string; quip: string; icon: string; scenarios: Scenario[] };
 
-type FamilyLabels = Record<string, { fr: string; en: string; icon: string }>;
+type FamilyLabels = Record<string, { fr: string; en: string; icon: string; quip: { fr: string; en: string } }>;
 const translations = fr as unknown as Record<string, [string, string]>;
 
 /** The scenarios of the plugin (generated list), grouped by family, in the order of the families file. */
@@ -22,6 +23,7 @@ export function scenarioFamilies(lang: Locale): Family[] {
   return Object.entries(labels).map(([id, label]) => ({
     id,
     label: label[lang],
+    quip: label.quip[lang],
     icon: label.icon,
     scenarios: data.scenarios
       .filter((s) => s.family === id)

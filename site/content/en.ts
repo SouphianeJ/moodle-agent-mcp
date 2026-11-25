@@ -27,6 +27,8 @@ const en: Dict = {
   home: {
     eyebrow: 'Free Moodle plugin · GPL v3',
     title: 'An AI assistant that works in Moodle, with your rights.',
+    titleAccent: 'with your rights',
+    aside: 'Plan first. Checked result after.',
     lead:
       'Ask in plain words for what you would do by hand: build a course, grade submissions, remind a group. The assistant proposes a plan, acts with **your** Moodle rights and nothing more, then checks the result.',
     ctaPrimary: 'See how to install it',
@@ -39,19 +41,23 @@ const en: Dict = {
     benefitsTitle: 'What you gain',
     benefits: [
       {
-        title: 'Fewer clicks, more teaching',
+        tag: 'Fewer clicks',
+        title: 'Could you set that up while I grab a coffee?',
         text: 'A four-week course, a quiz with its questions, a weighted gradebook: described in one sentence, set up in minutes, in your own Moodle.',
       },
       {
-        title: 'A preview before the irreversible',
+        tag: 'A preview before the irreversible',
+        title: 'Hmm… yes, that looks about right. Go for it.',
         text: 'Grades start as drafts. Deletions, messages and released grades first return a preview: the assistant checks it against your request and asks you at the slightest gap. Your institution can also require your click in Moodle.',
       },
       {
-        title: 'Your rights, no more',
+        tag: 'Your rights, no more',
+        title: 'Same keys as me. Not one more.',
         text: 'The assistant acts on behalf of an identified person, with their Moodle permissions. What you cannot do by hand, it cannot do either.',
       },
       {
-        title: 'A way back',
+        tag: 'A way back',
+        title: 'Actually… you know what? I changed my mind.',
         text: 'Every write is logged; many can be undone with one word. Course snapshots cover wider changes.',
       },
     ],
@@ -80,15 +86,18 @@ const en: Dict = {
     howTitle: 'How it works',
     how: [
       {
-        title: '1. Your institution installs the plugin',
+        tag: 'Your institution installs the plugin',
+        title: 'We install it. We keep the keys.',
         text: 'A zip to upload to Moodle, closed by default. The administrator chooses who may use it and which tool families to open.',
       },
       {
-        title: '2. You connect your assistant',
+        tag: 'You connect your assistant',
+        title: 'Paste one address, click Authorize.',
         text: 'Claude, ChatGPT, Mistral Le Chat or any MCP client: paste an address, authorize it in Moodle, as for any app.',
       },
       {
-        title: '3. You ask, it plans, you approve',
+        tag: 'You ask, it plans, you approve',
+        title: 'Walk me through it before you touch anything.',
         text: 'The assistant picks the right scenario, states its plan, acts step by step, then checks and quotes what Moodle returns.',
       },
     ],
@@ -97,12 +106,25 @@ const en: Dict = {
       'Build, assess, grade, follow, communicate, maintain: each scenario tells the assistant what to ask, in which order to act, which guards to respect and how to prove it is done.',
     scenariosCta: 'See the 41 scenarios',
     trustTitle: 'Built for trust',
+    trustLead: 'Five locks that add up. None of them opens by itself.',
     trust: [
-      "Moodle's own permissions on every call.",
-      'A course accepts AI writes only once a person opened it (the `_EDITABLE` marker).',
-      'Access gate closed by default, by role or by person, read or read and write.',
-      'Consent ticket for what cannot be taken back: messages, deletions, released grades.',
-      'Every write logged, undo, emergency switch.',
+      { tag: "Moodle's own permissions", title: "It can't do anything I couldn't.", text: "Moodle's own permissions on every call." },
+      {
+        tag: 'The `_EDITABLE` marker',
+        title: 'Hands off that course.',
+        text: 'A course accepts AI writes only once a person opened it (the `_EDITABLE` marker).',
+      },
+      {
+        tag: 'Access gate',
+        title: 'Closed until further notice.',
+        text: 'Access gate closed by default, by role or by person, read or read and write.',
+      },
+      {
+        tag: 'Consent ticket',
+        title: 'Show me before you send it?',
+        text: 'Consent ticket for what cannot be taken back: messages, deletions, released grades.',
+      },
+      { tag: 'Log and stop switch', title: 'Who did what, and when?', text: 'Every write logged, undo, emergency switch.' },
     ],
     trustCta: 'Read the security page',
     startTitle: 'Try it in three steps',
@@ -335,9 +357,15 @@ const en: Dict = {
       'moodle-maintain-course': 'Next term, dates, reset, archive, categories, undo, audit, storage.',
     },
   },
+  missing: {
+    kicker: 'Error 404',
+    title: 'Page not found',
+    lead: 'Not even undo can bring this one back: the address does not exist, or no longer does.',
+    back: 'Back to the home page',
+  },
   faq: {
     title: 'Frequently asked questions',
-    lead: 'Short answers. The details are in the guides shipped with the plugin.',
+    lead: 'The ones people ask before letting an AI into their course. Short answers; the details are in the guides shipped with the plugin.',
     items: [
       {
         q: 'Can the AI do more than I can?',
@@ -352,7 +380,7 @@ const en: Dict = {
         a: "That does not depend on the plugin but on the plan subscribed with the assistant's provider. Check its contractual documents; prefer a business plan with a data processing agreement (DPA).",
       },
       {
-        q: 'What if the assistant makes a mistake?',
+        q: 'What if the assistant makes a mistake? (It happens.)',
         a: 'Ask it to undo: the undo tool reverts many writes, with your rights. For a wide change, a course snapshot taken before lets you go back. What cannot be taken back (a sent message, a permanent deletion) first goes through a preview that the assistant checks against your request.',
       },
       {
