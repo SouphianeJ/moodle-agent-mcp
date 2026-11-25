@@ -26,8 +26,8 @@ const en: Dict = {
   },
   home: {
     eyebrow: 'Free Moodle plugin · GPL v3',
-    title: 'An AI assistant that works in Moodle, with your rights.',
-    titleAccent: 'with your rights',
+    title: 'Moodle Agent, at your service.',
+    titleAccent: 'at your service',
     aside: 'Clear: it acts, then checks. Vague: it asks.',
     lead:
       'Ask in plain words for what you would do by hand: build a course, grade submissions, remind a group. When the request is clear, the assistant acts with **your** Moodle rights and nothing more, then checks the result; when it is not, it asks you.',
@@ -41,9 +41,9 @@ const en: Dict = {
     benefitsTitle: 'What you gain',
     benefits: [
       {
-        tag: 'Fewer clicks',
-        title: 'Could you set that up while I grab a coffee?',
-        text: 'A four-week course, a quiz with its questions, a weighted gradebook: described in one sentence, set up in minutes, in your own Moodle.',
+        tag: 'Time for teaching',
+        title: 'The thinking and the coffee for me, the to-do list for you.',
+        text: 'Hand over the long, repetitive tasks and keep your time for teaching, for varying your activities, for going further. A four-week course, a quiz with its questions, a weighted gradebook: described in one sentence, set up in your own Moodle.',
       },
       {
         tag: 'A plan if you want one, a check where it matters',

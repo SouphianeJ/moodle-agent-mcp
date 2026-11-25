@@ -26,8 +26,8 @@ const fr: Dict = {
   },
   home: {
     eyebrow: 'Plugin Moodle libre · GPL v3',
-    title: 'Un assistant IA qui travaille dans Moodle, avec vos droits.',
-    titleAccent: 'avec vos droits',
+    title: 'Agent Moodle, pour vous servir.',
+    titleAccent: 'pour vous servir',
     aside: 'Clair : il agit, puis vérifie. Flou : il demande.',
     lead:
       "Demandez en français ce que vous feriez à la main : construire un cours, corriger des copies, relancer un groupe. Quand c'est clair, l'assistant agit avec **vos** droits Moodle et rien de plus, puis vérifie le résultat ; quand ça ne l'est pas, il vous pose la question.",
@@ -41,9 +41,9 @@ const fr: Dict = {
     benefitsTitle: 'Ce que vous y gagnez',
     benefits: [
       {
-        tag: 'Moins de clics',
-        title: 'Tu me montes ça pendant mon café\u00a0?',
-        text: "Un cours de quatre semaines, un quiz avec ses questions, un carnet de notes pondéré : décrits en une phrase, montés en quelques minutes, dans votre Moodle.",
+        tag: 'Du temps pour la pédagogie',
+        title: 'Pour moi de la réflexion et un café, pour toi une liste de tâches à faire.',
+        text: "Laissez-lui les tâches longues et répétitives, et gardez votre temps pour la pédagogie, la diversification de vos activités, pour aller plus loin. Un cours de quatre semaines, un quiz avec ses questions, un carnet de notes pondéré : décrits en une phrase, montés dans votre Moodle.",
       },
       {
         tag: 'Un plan si vous le voulez, un contrôle là où il faut',
