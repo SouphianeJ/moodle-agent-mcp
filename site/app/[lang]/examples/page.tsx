@@ -39,9 +39,9 @@ export default async function ExamplesPage({ params }: Props) {
             {examples[lang].map((ex) => (
               <article key={ex.id} id={ex.id} className="card example" aria-labelledby={`ex-${ex.id}`}>
                 <div className="example-head">
-                  <span className="persona" id={`ex-${ex.id}`}>
+                  <h2 className="persona" id={`ex-${ex.id}`}>
                     {ex.persona}
-                  </span>
+                  </h2>
                   <Link className="tag" href={href(lang, 'scenarios', ex.scenario)}>
                     {t.scenario}
                     {colon}

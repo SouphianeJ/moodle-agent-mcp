@@ -16,7 +16,15 @@ export function pageMeta(lang: Locale, page: PageKey, title?: string, descriptio
       canonical: href(lang, page),
       languages: { fr: href('fr', page), en: href('en', page), 'x-default': href('fr', page) },
     },
-    openGraph: { title: fullTitle, description: desc, type: 'website', locale: lang === 'fr' ? 'fr_FR' : 'en_GB', siteName: 'Moodle Agent MCP' },
+    openGraph: {
+      title: fullTitle,
+      description: desc,
+      type: 'website',
+      locale: lang === 'fr' ? 'fr_FR' : 'en_GB',
+      siteName: 'Moodle Agent MCP',
+      images: [{ url: `/${lang}/og.png`, width: 1200, height: 630, alt: t.home.title }],
+    },
+    twitter: { card: 'summary_large_image' },
     icons: { icon: '/favicon.svg' },
   };
 }

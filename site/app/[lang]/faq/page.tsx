@@ -26,7 +26,9 @@ export default async function FaqPage({ params }: Props) {
         <div className="container faq">
           {t.items.map((item) => (
             <details key={item.q}>
-              <summary>{item.q}</summary>
+              <summary>
+                <h2>{item.q}</h2>
+              </summary>
               <p>
                 <Rich text={item.a} />
               </p>

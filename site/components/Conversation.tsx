@@ -4,7 +4,10 @@ import { useState } from 'react';
 import type { Dict } from '@/content/types';
 import { Rich } from './Rich';
 
-/** The animated conversation of the home page: request, plan, agreement, result. Static under prefers-reduced-motion. */
+/**
+ * The conversation of the home page: request, plan, agreement, result. Shown whole from the first render; the replay button
+ * plays it message by message (static under prefers-reduced-motion).
+ */
 export function Conversation({ t }: { t: Dict['home']['demo'] }) {
   const [run, setRun] = useState(0);
   return (
@@ -19,7 +22,7 @@ export function Conversation({ t }: { t: Dict['home']['demo'] }) {
           ↻ {t.replay}
         </button>
       </div>
-      <div className="anim" key={run}>
+      <div className={run > 0 ? 'anim playing' : 'anim'} key={run}>
         <div className="msg user">
           <span className="who">{t.who}</span>
           {t.request}
