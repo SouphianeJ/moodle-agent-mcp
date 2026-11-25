@@ -1,0 +1,17 @@
+{
+  "name": "moodle-agent-mcp",
+  "description": "Skills for AI assistants that work in Moodle through the local_mcpcourse MCP server.",
+  "owner": {
+    "name": "Moodle Agent MCP",
+    "url": "https://github.com/SouphianeJ/moodle-agent-mcp"
+  },
+  "plugins": [
+    {
+      "name": "moodle-agent-mcp",
+      "source": "./",
+      "description": "Six skills for teachers and course managers: build content, create assessments, grade, follow a class, communicate and organize, maintain a course.",
+      "category": "education",
+      "tags": ["moodle", "mcp", "education", "lms"]
+    }
+  ]
+}

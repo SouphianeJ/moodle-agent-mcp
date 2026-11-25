@@ -1,0 +1,19 @@
+{
+  "name": "moodle-agent-mcp",
+  "displayName": "Moodle Agent MCP",
+  "version": "2.5.2-dev",
+  "description": "Skills that guide an AI assistant through the scenarios of the local_mcpcourse MCP server for Moodle: plan, write with the teacher's own rights, then check.",
+  "author": {
+    "name": "Moodle Agent MCP"
+  },
+  "homepage": "https://moodle-mcp.petits-detours.fr",
+  "repository": "https://github.com/SouphianeJ/moodle-agent-mcp",
+  "license": "GPL-3.0-or-later",
+  "keywords": [
+    "moodle",
+    "mcp",
+    "education",
+    "lms",
+    "teacher"
+  ]
+}
