@@ -1,5 +1,6 @@
 import '@fontsource-variable/inter';
 import '@fontsource-variable/fraunces';
+import '@fontsource-variable/fraunces/opsz-italic.css';
 import '../globals.css';
 import type { ReactNode } from 'react';
 import type { Viewport } from 'next';
