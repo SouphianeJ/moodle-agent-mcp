@@ -422,7 +422,7 @@ const fr: Dict = {
         id: 'privacy',
         title: 'Données personnelles',
         text:
-          "Ce site ne dépose aucun cookie, ne contient aucun outil de mesure d'audience et ne charge aucune ressource externe. Le serveur web peut tenir un journal technique des requêtes (adresse IP, page, date) pour la sécurité, conservé peu de temps. Le choix du thème clair ou sombre est gardé dans votre navigateur seulement.",
+          "Ce site ne dépose aucun cookie, ne contient aucun outil de mesure d'audience et ne charge aucune ressource externe. Le serveur web ne tient aucun journal des pages consultées. Ses messages techniques (certificats, erreurs de connexion), qui peuvent contenir une adresse IP, restent dans le journal système du serveur environ deux semaines, puis sont effacés automatiquement. Le choix du thème clair ou sombre est gardé dans votre navigateur seulement.",
       },
     ],
   },

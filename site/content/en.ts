@@ -418,7 +418,7 @@ const en: Dict = {
         id: 'privacy',
         title: 'Personal data',
         text:
-          'This site sets no cookie, has no audience measurement and loads no external resource. The web server may keep a short technical log of requests (IP address, page, date) for security. Your choice of light or dark theme is kept in your browser only.',
+          'This site sets no cookie, has no audience measurement and loads no external resource. The web server keeps no log of the pages viewed. Its technical messages (certificates, connection errors), which may contain an IP address, stay in the system journal of the server for about two weeks, then are deleted automatically. Your choice of light or dark theme is kept in your browser only.',
       },
     ],
   },
