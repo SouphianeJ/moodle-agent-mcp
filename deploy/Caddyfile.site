@@ -17,8 +17,10 @@ moodle-mcp.petits-detours.fr {
 		# Next.js inlines its bootstrap scripts and the theme script: 'unsafe-inline' is needed for script-src.
 		# Nothing is loaded from another origin.
 		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
-		-Server
 	}
+	# Outside the header block: a block with a deferred operation (-Server) is applied only to the responses that the
+	# handlers write, and the 404 of handle_errors lost every security header.
+	header -Server
 
 	# Hashed build assets never change: cache them for a year.
 	@immutable path /_next/static/*
