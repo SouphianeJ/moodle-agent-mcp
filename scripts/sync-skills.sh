@@ -38,7 +38,7 @@ done
 find "$dest" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
 cp -R "$tmp"/. "$dest"/
 echo "Skills copied from $src:"
-ls -1 "$dest" | grep -v '^README' | sed 's/^/  /'
+for dir in "$dest"/*/; do echo "  $(basename "$dir")"; done
 
 # Check the copied skills against the Agent Skills specification (YAML parser from the root package).
 if command -v npm >/dev/null 2>&1; then
