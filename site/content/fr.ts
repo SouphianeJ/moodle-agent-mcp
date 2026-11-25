@@ -270,13 +270,9 @@ const fr: Dict = {
           "Hébergeur qui n'accepte pas ces règles : liez le site au relais de découverte (enregistrement central, ci-dessous).",
         ],
       },
-      {
-        id: 'gateway',
-        title: 'Passerelle',
-        text:
-          "Une passerelle externe authentifie la personne et signe son identité à chaque requête (HMAC-SHA256, nonce à usage unique). Pour les organismes qui ont déjà une telle infrastructure ; la passerelle n'est pas fournie avec le plugin.",
-      },
     ],
+    otherMode:
+      "Une autre voie, la passerelle, ne sert qu'aux établissements qui en ont déjà une : elle est décrite dans les options avancées, en bas de page.",
     apikeysTitle: "Clés d'API personnelles",
     apikeysText:
       "Pour un client qui ne sait ni OAuth ni passer par une passerelle (un script, un outil en ligne de commande), chaque personne peut créer ses propres clés, en plus du mode choisi. Le réglage « Accepter les clés d'API » est décoché par défaut.",
@@ -285,19 +281,28 @@ const fr: Dict = {
       "Mêmes barrières que tout le reste : la clé agit au nom de son propriétaire, sous la porte d'accès et son niveau, les familles, `_EDITABLE`, les droits Moodle, le journal et l'arrêt d'urgence.",
       "La personne révoque ses clés ; l'administrateur voit et révoque toutes les clés du site. Aucune clé n'est créée pour autrui.",
     ],
-    apikeysSync:
-      "Synchronisation d'établissement sans personne derrière : pas de clé de site, mais un compte Moodle dédié, avec un rôle restreint, ouvert par personne en lecture, qui crée sa propre clé en lecture seule (guide de l'administrateur, §3.7).",
     gateTitle: "Ouvrir la porte d'accès",
-    gateText:
-      "La porte décide qui peut utiliser le connecteur, à chaque requête. Deux niveaux : lecture, ou lecture et écriture. Un niveau ne fait que restreindre : les droits Moodle s'appliquent toujours en plus.",
+    gateText: "Fermée à l'installation, administrateurs compris. Vous l'ouvrez en deux niveaux : lecture, ou lecture et écriture.",
     gatePoints: [
-      'Par rôle : cochez par exemple « Enseignant » en lecture pour commencer.',
-      'Par personne : la page « Utilisateurs autorisés » ajoute des volontaires un à un, chacun avec son niveau.',
-      'Puis ouvrez les familles utiles (notation, inscriptions, communication…), et seulement celles-là.',
+      'Par rôle : cochez « Enseignant » en lecture pour commencer.',
+      "Par personne (et par cohorte à partir de 2.5.3) : ajoutez-les un à un, chacun avec son niveau.",
+      "Les droits Moodle s'appliquent toujours en plus ; un retrait compte dès la requête suivante.",
     ],
+    gateFigure: {
+      caption: "Illustration simplifiée des réglages de la porte d'accès.",
+      roles: 'Rôles',
+      read: 'Lecture',
+      readWrite: 'Lecture et écriture',
+      roleNames: ['Enseignant', 'Enseignant non éditeur', 'Étudiant'],
+      add: 'Ajouter',
+      search: 'Utilisateur ou cohorte…',
+      level: 'Lecture',
+      button: 'Ajouter',
+      cohortSoon: 'cohortes : à partir de 2.5.3',
+    },
     familiesTitle: "Familles d'outils",
     familiesText:
-      "Seule `course_activity_work` (le contenu des cours) est active par défaut. Les autres — notation, publication des notes, inscriptions, groupes, cohortes, calendrier et communication, achèvement, compétences, comptes du site, rapports, stockage, certificats — s'ouvrent une à une dans les réglages.",
+      "Seule `course_activity_work` (le contenu des cours) est active par défaut. Ouvrez ensuite, une à une, seulement les familles utiles : notation, inscriptions, communication…",
     connectTitle: 'Connecter les assistants',
     connectText:
       "L'adresse à donner est toujours `https://<votre Moodle>/local/mcpcourse/mcp.php`. En mode OAuth, l'assistant découvre le reste et ouvre une page Moodle où la personne se connecte puis clique sur **Autoriser**. Les offres qui permettent un connecteur MCP personnalisé dépendent du fournisseur et de l'abonnement.",
@@ -337,6 +342,21 @@ const fr: Dict = {
     marketText: 'La fiche du plugin sur Moodle Marketplace est en préparation. En attendant, le plugin est fourni sur demande.',
     marketSoon: 'Bientôt',
     marketCta: 'Voir la fiche',
+    advancedTitle: 'Options avancées',
+    advanced: [
+      {
+        id: 'gateway',
+        title: 'Mode passerelle',
+        text:
+          "Votre établissement a déjà une passerelle ou une plateforme d'intégration qui authentifie les personnes ? Le plugin peut s'y brancher : la passerelle signe l'identité de la personne à chaque requête (HMAC-SHA256, nonce à usage unique). Elle n'est pas fournie avec le plugin ; pour la plupart des sites, OAuth suffit.",
+      },
+      {
+        id: 'sync',
+        title: 'Un outil qui lit Moodle sans personne derrière',
+        text:
+          "Un script ou un outil de l'établissement doit lire Moodle sans personne derrière ? Créez-lui un compte Moodle dédié, avec un rôle limité à ce dont il a besoin et le droit de créer ses propres clés. Autorisez ce compte en lecture dans la porte d'accès, puis connectez-vous avec lui pour créer sa clé d'API en lecture seule, à renouveler avant son expiration (365 jours au plus). Il n'existe pas de clé « de site » qui donnerait tous les droits.",
+      },
+    ],
   },
   skills: {
     title: 'Skills pour votre assistant',

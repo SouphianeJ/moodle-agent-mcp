@@ -106,13 +106,25 @@ export type Dict = {
     download: string;
     modesTitle: string;
     modes: Section[];
+    otherMode: string;
     apikeysTitle: string;
     apikeysText: string;
     apikeysPoints: string[];
-    apikeysSync: string;
     gateTitle: string;
     gateText: string;
     gatePoints: string[];
+    gateFigure: {
+      caption: string;
+      roles: string;
+      read: string;
+      readWrite: string;
+      roleNames: string[];
+      add: string;
+      search: string;
+      level: string;
+      button: string;
+      cohortSoon: string;
+    };
     familiesTitle: string;
     familiesText: string;
     connectTitle: string;
@@ -126,6 +138,8 @@ export type Dict = {
     marketText: string;
     marketSoon: string;
     marketCta: string;
+    advancedTitle: string;
+    advanced: Section[];
   };
   skills: {
     title: string;

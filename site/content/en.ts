@@ -259,13 +259,8 @@ const en: Dict = {
           'Host that does not accept these rules: link the site to the discovery relay (central registration, below).',
         ],
       },
-      {
-        id: 'gateway',
-        title: 'Gateway',
-        text:
-          'An external gateway authenticates the person and signs their identity on every request (HMAC-SHA256, single-use nonce). For institutions that already run such infrastructure; the gateway is not shipped with the plugin.',
-      },
     ],
+    otherMode: 'Another route, the gateway, is only for institutions that already run one: it is described in the advanced options at the bottom of the page.',
     apikeysTitle: 'Personal API keys',
     apikeysText:
       'For a client that speaks neither OAuth nor through a gateway (a script, a command-line tool), each person can create their own keys, on top of the chosen mode. The setting “Accept API keys” is off by default.',
@@ -274,19 +269,28 @@ const en: Dict = {
       'The same barriers as everything else: the key acts for its owner, under the access gate and its level, the families, `_EDITABLE`, the Moodle permissions, the log and the emergency cut-off.',
       'People revoke their own keys; the administrator sees and revokes every key of the site. No key is ever created for someone else.',
     ],
-    apikeysSync:
-      'An institutional sync with no person behind it: no site key, but a dedicated Moodle account with a narrow role, let through the gate by name at the read level, which creates its own read-only key (administrator guide, §3.7).',
     gateTitle: 'Open the access gate',
-    gateText:
-      'The gate decides who may use the connector, on every request. Two levels: read, or read and write. A level only restricts: Moodle permissions always apply on top.',
+    gateText: 'Closed at installation, administrators included. You open it at two levels: read, or read and write.',
     gatePoints: [
-      'By role: for instance tick "Teacher" at the read level to start.',
-      'By person: the page "Users allowed" adds volunteers one by one, each with their level.',
-      'Then open the useful families (grading, enrolments, communication…), and only those.',
+      'By role: tick "Teacher" at the read level to start.',
+      'By person (and by cohort from 2.5.3): add them one by one, each with a level.',
+      'Moodle permissions always apply on top; a removal counts from the next request.',
     ],
+    gateFigure: {
+      caption: 'Simplified illustration of the access gate settings.',
+      roles: 'Roles',
+      read: 'Read',
+      readWrite: 'Read and write',
+      roleNames: ['Teacher', 'Non-editing teacher', 'Student'],
+      add: 'Add',
+      search: 'User or cohort…',
+      level: 'Read',
+      button: 'Add',
+      cohortSoon: 'cohorts: from 2.5.3',
+    },
     familiesTitle: 'Tool families',
     familiesText:
-      'Only `course_activity_work` (course content) is on by default. The others — grading, grade release, enrolments, groups, cohorts, calendar and communication, completion, competencies, site accounts, reports, storage, certificates — are opened one by one in the settings.',
+      'Only `course_activity_work` (course content) is on by default. Then open, one by one, only the families you need: grading, enrolments, communication…',
     connectTitle: 'Connect the assistants',
     connectText:
       'The address to give is always `https://<your Moodle>/local/mcpcourse/mcp.php`. In OAuth mode the assistant discovers the rest and opens a Moodle page where the person signs in and clicks **Allow**. Which plans allow a custom MCP connector depends on the provider and the subscription.',
@@ -325,6 +329,19 @@ const en: Dict = {
     marketText: 'The listing of the plugin on Moodle Marketplace is being prepared. Until then, the plugin is provided on request.',
     marketSoon: 'Coming soon',
     marketCta: 'See the listing',
+    advancedTitle: 'Advanced options',
+    advanced: [
+      {
+        id: 'gateway',
+        title: 'Gateway mode',
+        text: 'Your institution already runs a gateway or an integration platform that authenticates people? The plugin can plug into it: the gateway signs the identity of the person on every request (HMAC-SHA256, single-use nonce). It is not shipped with the plugin; for most sites, OAuth is enough.',
+      },
+      {
+        id: 'sync',
+        title: 'A tool that reads Moodle with no person behind it',
+        text: 'A script or a tool of your institution must read Moodle with no person behind it? Create a dedicated Moodle account for it, with a role limited to what it needs and the right to create its own keys. Let this account through the access gate at the read level, then sign in as this account to create its read-only API key, to renew before it expires (365 days at most). There is no "site" key that would carry every right.',
+      },
+    ],
   },
   skills: {
     title: 'Skills for your assistant',

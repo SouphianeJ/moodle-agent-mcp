@@ -1,5 +1,6 @@
 import { Arrow, External, Info } from '@/components/Icons';
 import { Rich } from '@/components/Rich';
+import type { Dict } from '@/content/types';
 import { getDict } from '@/lib/dict';
 import { asLocale } from '@/lib/i18n';
 import { pageMeta } from '@/lib/meta';
@@ -13,6 +14,46 @@ export async function generateMetadata({ params }: Props) {
   return pageMeta(lang, 'install', t.title, t.lead);
 }
 
+/**
+ * The access gate settings, drawn: role checkboxes in two levels, and the field that adds a person (or a cohort, from
+ * 2.5.3). A picture of the screen, not a form: the controls are hidden from assistive technologies, the caption says it.
+ */
+function GateFigure({ f }: { f: Dict['install']['gateFigure'] }) {
+  const ticked = [[true, false], [false, false], [false, false]];
+  return (
+    <figure className="gate-fig">
+      <div className="gate-ui" aria-hidden="true">
+        <div className="gate-panel">
+          <div className="gate-row gate-head">
+            <span>{f.roles}</span>
+            <span>{f.read}</span>
+            <span>{f.readWrite}</span>
+          </div>
+          {f.roleNames.map((name, i) => (
+            <div className="gate-row" key={name}>
+              <span>{name}</span>
+              {ticked[i].map((on, k) => (
+                <span key={k} className={on ? 'box on' : 'box'} />
+              ))}
+            </div>
+          ))}
+        </div>
+        <div className="gate-panel">
+          <div className="gate-add-title">
+            {f.add} <span className="gate-soon">{f.cohortSoon}</span>
+          </div>
+          <div className="gate-add">
+            <span className="gate-field">{f.search}</span>
+            <span className="gate-select">{f.level} ▾</span>
+            <span className="gate-btn">{f.button}</span>
+          </div>
+        </div>
+      </div>
+      <figcaption>{f.caption}</figcaption>
+    </figure>
+  );
+}
+
 export default async function InstallPage({ params }: Props) {
   const lang = asLocale((await params).lang);
   const t = getDict(lang).install;
@@ -24,6 +65,7 @@ export default async function InstallPage({ params }: Props) {
     ['connect', t.connectTitle],
     ['central', t.centralTitle],
     ['marketplace', t.marketTitle],
+    ['advanced', t.advancedTitle],
   ];
   return (
     <>
@@ -65,7 +107,7 @@ export default async function InstallPage({ params }: Props) {
 
         <section className="block" id="mode" aria-labelledby="h-mode">
           <h2 id="h-mode">{t.modesTitle}</h2>
-          <div className="grid grid-2">
+          <div className="grid" style={{ maxWidth: 820 }}>
             {t.modes.map((m) => (
               <article className="card" key={m.id}>
                 <h3>{m.title}</h3>
@@ -86,10 +128,13 @@ export default async function InstallPage({ params }: Props) {
               </article>
             ))}
           </div>
+          <p className="card-muted" style={{ marginTop: 14 }}>
+            <a href="#advanced">{t.otherMode}</a>
+          </p>
         </section>
 
         <section className="block" id="apikeys" aria-labelledby="h-apikeys">
-          <div className="split">
+          <div style={{ maxWidth: 820 }}>
             <div>
               <h2 id="h-apikeys">{t.apikeysTitle}</h2>
               <p className="card-muted">{t.apikeysText}</p>
@@ -101,30 +146,26 @@ export default async function InstallPage({ params }: Props) {
                 ))}
               </ul>
             </div>
-            <div className="card">
-              <p className="card-muted" style={{ margin: 0 }}>
-                <Rich text={t.apikeysSync} />
-              </p>
-            </div>
           </div>
         </section>
 
         <section className="block" id="gate" aria-labelledby="h-gate">
-          <div className="split">
+          <h2 id="h-gate">{t.gateTitle}</h2>
+          <p className="card-muted">{t.gateText}</p>
+          <div className="split gate-split">
+            <GateFigure f={t.gateFigure} />
             <div>
-              <h2 id="h-gate">{t.gateTitle}</h2>
-              <p className="card-muted">{t.gateText}</p>
-              <ul className="card-muted" style={{ paddingLeft: '1.2em' }}>
+              <ul className="gate-points">
                 {t.gatePoints.map((p) => (
                   <li key={p}>{p}</li>
                 ))}
               </ul>
-            </div>
-            <div className="card">
-              <h3>{t.familiesTitle}</h3>
-              <p className="card-muted" style={{ margin: 0 }}>
-                <Rich text={t.familiesText} />
-              </p>
+              <div className="card" style={{ marginTop: 18 }}>
+                <h3>{t.familiesTitle}</h3>
+                <p className="card-muted" style={{ margin: 0 }}>
+                  <Rich text={t.familiesText} />
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -192,6 +233,24 @@ export default async function InstallPage({ params }: Props) {
                 {t.marketSoon}
               </span>
             )}
+          </div>
+        </section>
+
+        <section className="block" id="advanced" aria-labelledby="h-advanced">
+          <h2 id="h-advanced" style={{ fontSize: '1.5rem' }}>
+            {t.advancedTitle}
+          </h2>
+          <div className="advanced">
+            {t.advanced.map((a) => (
+              <details key={a.id} id={a.id}>
+                <summary>
+                  <h3>{a.title}</h3>
+                </summary>
+                <p className="card-muted">
+                  <Rich text={a.text ?? ''} />
+                </p>
+              </details>
+            ))}
           </div>
         </section>
       </div>
