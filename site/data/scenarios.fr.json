@@ -40,5 +40,8 @@
   "course_year_end_archive": ["Archiver en fin d'année", "Masquer un cours et fixer sa date de fin, le ranger dans la catégorie d'archives, et en faire une sauvegarde sur demande, en disant combien de temps elle est gardée."],
   "storage_cleanup_run": ["Libérer de l'espace", "Supprimer les anciennes sauvegardes d'un cours et vider des corbeilles, par lots confirmés après un aperçu, avec l'espace libéré par chacun."],
   "storage_diagnosis": ["Diagnostic du stockage", "Trouver ce qui occupe l'espace du site, en lecture seule : les cours et fichiers les plus lourds, les cours inactifs et les comptes jamais connectés."],
-  "training_offer_structure": ["Structurer l'offre de formation", "Lire et façonner l'arbre des catégories : créer, renommer, déplacer ou fusionner des catégories, y placer des cours, ouvrir ou masquer une catégorie, ajouter un module d'un autre cours."]
+  "training_offer_structure": ["Structurer l'offre de formation", "Lire et façonner l'arbre des catégories : créer, renommer, déplacer ou fusionner des catégories, y placer des cours, ouvrir ou masquer une catégorie, ajouter un module d'un autre cours."],
+  "offline_grades_entry": ["Notes d'une évaluation hors Moodle", "Saisir pour toute la classe les notes d'un oral ou d'un TP sur papier dans un élément de notation manuel, en brouillon, les publier après accord, puis exporter le relevé de notes."],
+  "forum_questions_moderation": ["Répondre au forum et le modérer", "Trouver les questions des étudiants restées sans réponse dans les forums, publier les réponses convenues avec l'enseignant, puis verrouiller, épingler, modifier ou supprimer un message sur demande."],
+  "student_accommodation_apply": ["Aménagement d'un étudiant", "Appliquer le temps supplémentaire (tiers-temps) d'un étudiant à tous ses quiz, devoirs et leçons après un aperçu, et le retirer avec l'annulation."]
 }

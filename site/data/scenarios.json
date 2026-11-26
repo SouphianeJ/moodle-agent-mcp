@@ -1,6 +1,6 @@
 {
-    "source": "local_mcpcourse 2.5.2-dev",
-    "count": 41,
+    "source": "local_mcpcourse 2.5.4",
+    "count": 44,
     "scenarios": [
         {
             "slug": "course_full_build",
@@ -83,11 +83,27 @@
             "risk": "medium"
         },
         {
+            "slug": "forum_questions_moderation",
+            "family": "moodle-communicate-and-organize",
+            "title": "Answer and moderate the forum",
+            "summary": "Find the questions of the students that have no answer in the forums, post the answers the teacher agreed, then lock, pin, edit or delete a message on request.",
+            "goal": "Find the questions of the students that have no answer in the forums of a course, draft the answers and post them after the agreement of the teacher, then moderate: lock, pin, edit, or delete a message only on an explicit request.",
+            "risk": "medium"
+        },
+        {
             "slug": "group_differentiation",
             "family": "moodle-communicate-and-organize",
             "title": "Groups and extra time",
             "summary": "Create groups and groupings, place their members, and give a group extra time on a quiz or an assignment.",
             "goal": "Create groups and groupings, place members, and apply per-group quiz overrides or assignment extensions such as extra time.",
+            "risk": "medium"
+        },
+        {
+            "slug": "student_accommodation_apply",
+            "family": "moodle-communicate-and-organize",
+            "title": "Accommodation of a student",
+            "summary": "Apply the extra time of one student to all their quizzes, assignments and lessons after a preview, and take it back with the undo.",
+            "goal": "Apply the accommodation of one student (extra time, a third by default) to all their assessments of a course: more time on the quizzes and lessons with a time limit, an extension on the assignments and lessons with a deadline, shown first as a preview, applied after the agreement, and taken back by the undo.",
             "risk": "medium"
         },
         {
@@ -224,6 +240,14 @@
             "title": "Assignment grading",
             "summary": "Read the submissions of an assignment, draft grades and feedback, and publish them only once the teacher confirms.",
             "goal": "Read the instructions and the rubric, list the submissions, read the files, draft the grades and feedback, and commit only after teacher confirmation.",
+            "risk": "medium"
+        },
+        {
+            "slug": "offline_grades_entry",
+            "family": "moodle-grade-student-work",
+            "title": "Grades of an evaluation outside Moodle",
+            "summary": "Enter the grades of an oral or a practical on paper for the whole class in a manual grade item, as drafts, publish them after the agreement, then export the grade sheet.",
+            "goal": "Enter the grades of an evaluation done outside Moodle (an oral, a practical on paper) for the whole class in a manual grade item, as drafts first, publish them after the agreement of the teacher, then export the grade sheet.",
             "risk": "medium"
         },
         {
