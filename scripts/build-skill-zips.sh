@@ -18,6 +18,10 @@ for name in sorted(os.listdir(src)):
     folder = os.path.join(src, name)
     if not os.path.isfile(os.path.join(folder, 'SKILL.md')):
         continue
+    # A symbolic link would put a file of the build machine in a public zip: refuse it.
+    links = [os.path.join(d, n) for d, ds, fs in os.walk(folder) for n in ds + fs if os.path.islink(os.path.join(d, n))]
+    if os.path.islink(folder) or links:
+        sys.exit('ERROR: symbolic link in skills/' + name + ': ' + ', '.join(sorted(os.path.relpath(l, root) for l in links or [folder])))
     target = os.path.join(out, name + '.zip')
     with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED) as z:
         files = sorted(os.path.relpath(os.path.join(d, f), src) for d, _, fs in os.walk(folder) for f in fs)

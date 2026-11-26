@@ -22,6 +22,11 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
+# A relative --target would break the rollback and the purge guard (they compare it with readlink -f): make it absolute.
+target="$(realpath -m -- "$target")"
+case "$keep" in ''|*[!0-9]*) echo "ERROR: --keep takes a positive number." >&2; exit 2 ;; esac
+[ "$keep" -ge 1 ] || { echo "ERROR: --keep takes a positive number." >&2; exit 2; }
+
 releases="$target/releases"
 switch_to() {
   ln -sfn "$1" "$target/current.tmp"
@@ -49,6 +54,13 @@ else
     -v "$root:/repo" -w /repo/site node:22-slim sh -c 'npm ci --no-audit --no-fund && npm run build'
 fi
 [ -f "$root/site/out/fr/index.html" ] || { echo "ERROR: the build did not produce site/out/fr/index.html." >&2; exit 1; }
+
+# The CSP of the web server lists the hash of every inline script: refuse to publish pages the CSP would block.
+if command -v node >/dev/null 2>&1; then
+  node "$root/scripts/csp-hashes.mjs"
+else
+  docker run --rm --user "$(id -u):$(id -g)" -v "$root:/repo" -w /repo node:22-slim node scripts/csp-hashes.mjs
+fi
 
 revision="$(git -C "$root" rev-parse HEAD 2>/dev/null || echo unknown)"
 if [ "$revision" != unknown ] && [ -n "$(git -C "$root" status --porcelain 2>/dev/null)" ]; then
