@@ -36,12 +36,24 @@ $string = [];
 require($langfile);
 $strings = $string;
 
-foreach (['build', 'ops', 'tracking'] as $part) {
-    require_once($scenariodir . "/scenario_defs_$part.php");
+// Every scenario_defs_<part>.php of the plugin (build, ops, tracking, class since 2.5.4…): a new part is picked up without
+// changing this script.
+$defs = [];
+$parts = glob($scenariodir . '/scenario_defs_*.php');
+sort($parts);
+if (!$parts) {
+    fwrite(STDERR, "ERROR: no scenario_defs_*.php under $scenariodir\n");
+    exit(1);
 }
-$defs = \local_mcpcourse\local\scenario\scenario_defs_build::all()
-    + \local_mcpcourse\local\scenario\scenario_defs_ops::all()
-    + \local_mcpcourse\local\scenario\scenario_defs_tracking::all();
+foreach ($parts as $file) {
+    require_once($file);
+    $class = '\\local_mcpcourse\\local\\scenario\\' . basename($file, '.php');
+    if (!class_exists($class) || !method_exists($class, 'all')) {
+        fwrite(STDERR, "ERROR: $file does not define $class::all()\n");
+        exit(1);
+    }
+    $defs += $class::all();
+}
 
 // Families: one per published skill, read from skills/<name>/SKILL.md.
 $families = [];
