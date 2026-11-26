@@ -35,8 +35,8 @@ const fr: Dict = {
     ctaPrimary: "Voir comment l'installer",
     ctaSecondary: 'Parcourir des exemples',
     facts: [
-      { value: '41', label: 'scénarios guidés' },
-      { value: '542', label: 'outils Moodle' },
+      { value: '44', label: 'scénarios guidés' },
+      { value: '545', label: 'outils Moodle' },
       { value: '4.1 – 5.3', label: 'versions de Moodle' },
     ],
     benefitsTitle: 'Ce que vous y gagnez',
@@ -98,10 +98,10 @@ const fr: Dict = {
         text: "L'assistant choisit le scénario adapté. Demande claire : il agit étape par étape, puis vérifie et cite ce que Moodle répond. Demande floue : il pose une question courte. Il montre d'abord son plan si vous le lui demandez.",
       },
     ],
-    scenariosTitle: '41 scénarios pour les tâches qui reviennent',
+    scenariosTitle: '44 scénarios pour les tâches qui reviennent',
     scenariosText:
       "Construire, évaluer, corriger, suivre, communiquer, entretenir : chaque scénario dit à l'assistant quoi demander, dans quel ordre agir, quels garde-fous respecter et comment prouver que c'est fait.",
-    scenariosCta: 'Voir les 41 scénarios',
+    scenariosCta: 'Voir les 44 scénarios',
     trustTitle: 'Conçu pour la confiance',
     trustLead: "Cinq verrous qui se cumulent. Aucun ne s'ouvre tout seul.",
     trust: [
@@ -150,7 +150,7 @@ const fr: Dict = {
     scenario: 'Scénario',
   },
   scenarios: {
-    title: 'Les 41 scénarios',
+    title: 'Les 44 scénarios',
     lead:
       "Un scénario est un plan que le plugin donne à l'assistant : le but, les informations à demander, les étapes (lire, agir, vérifier), les garde-fous et le critère de réussite. L'assistant choisit le bon scénario à partir de votre demande.",
     generated: 'Liste générée depuis le catalogue du plugin ({source}).',
@@ -286,7 +286,7 @@ const fr: Dict = {
     gateText: "Fermée à l'installation, administrateurs compris. Vous l'ouvrez en deux niveaux : lecture, ou lecture et écriture.",
     gatePoints: [
       'Par rôle : cochez « Enseignant » en lecture pour commencer.',
-      "Par personne (et par cohorte à partir de 2.5.3) : ajoutez-les un à un, chacun avec son niveau.",
+      'Par personne ou par cohorte (depuis la 2.5.3) : ajoutez-les un à un, chacun avec son niveau.',
       "Les droits Moodle s'appliquent toujours en plus ; un retrait compte dès la requête suivante.",
     ],
     gateFigure: {
@@ -299,7 +299,7 @@ const fr: Dict = {
       search: 'Utilisateur ou cohorte…',
       level: 'Lecture',
       button: 'Ajouter',
-      cohortSoon: 'cohortes : à partir de 2.5.3',
+      cohortSoon: 'cohortes : depuis la 2.5.3',
     },
     familiesTitle: "Familles d'outils",
     familiesText:
@@ -376,9 +376,9 @@ const fr: Dict = {
     descriptions: {
       'moodle-build-course-content': 'Construire un cours, publier des ressources, une leçon, un glossaire, un wiki, une base de données, un SCORM, un H5P.',
       'moodle-create-assessment': 'Examen sécurisé, quiz d’entraînement, devoir et carnet de notes.',
-      'moodle-grade-student-work': 'Corriger des devoirs, les questions ouvertes d’un quiz, un atelier entre pairs.',
+      'moodle-grade-student-work': 'Corriger des devoirs, les questions ouvertes d’un quiz, un atelier entre pairs ; saisir et exporter les notes d’un oral.',
       'moodle-follow-class': 'Activité, remises manquantes, résultats, SCORM, plans, présences, rapports, journaux, certificats.',
-      'moodle-communicate-and-organize': 'Annonces, groupes et tiers-temps, inscriptions, classe virtuelle, ouverture de session.',
+      'moodle-communicate-and-organize': 'Annonces, réponses au forum, groupes, tiers-temps d’un étudiant, inscriptions, classe virtuelle, ouverture de session.',
       'moodle-maintain-course': 'Rentrée suivante, dates, réinitialisation, archivage, catégories, annulation, audit, stockage.',
     },
   },

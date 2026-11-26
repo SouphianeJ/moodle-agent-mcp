@@ -35,8 +35,8 @@ const en: Dict = {
     ctaPrimary: 'See how to install it',
     ctaSecondary: 'Browse examples',
     facts: [
-      { value: '41', label: 'guided scenarios' },
-      { value: '542', label: 'Moodle tools' },
+      { value: '44', label: 'guided scenarios' },
+      { value: '545', label: 'Moodle tools' },
       { value: '4.1 – 5.3', label: 'Moodle versions' },
     ],
     benefitsTitle: 'What you gain',
@@ -97,10 +97,10 @@ const en: Dict = {
         text: 'The assistant picks the right scenario. Clear request: it acts step by step, then checks and quotes what Moodle returns. Vague request: it asks one short question. It shows its plan first if you ask for it.',
       },
     ],
-    scenariosTitle: '41 scenarios for recurring tasks',
+    scenariosTitle: '44 scenarios for recurring tasks',
     scenariosText:
       'Build, assess, grade, follow, communicate, maintain: each scenario tells the assistant what to ask, in which order to act, which guards to respect and how to prove it is done.',
-    scenariosCta: 'See the 41 scenarios',
+    scenariosCta: 'See the 44 scenarios',
     trustTitle: 'Built for trust',
     trustLead: 'Five locks that add up. None of them opens by itself.',
     trust: [
@@ -141,7 +141,7 @@ const en: Dict = {
     scenario: 'Scenario',
   },
   scenarios: {
-    title: 'The 41 scenarios',
+    title: 'The 44 scenarios',
     lead:
       'A scenario is a plan that the plugin gives the assistant: the goal, the inputs to ask for, the steps (read, act, check), the guards and the success criterion. The assistant picks the right scenario from your request.',
     generated: 'List generated from the catalog of the plugin ({source}).',
@@ -274,7 +274,7 @@ const en: Dict = {
     gateText: 'Closed at installation, administrators included. You open it at two levels: read, or read and write.',
     gatePoints: [
       'By role: tick "Teacher" at the read level to start.',
-      'By person (and by cohort from 2.5.3): add them one by one, each with a level.',
+      'By person or by cohort (since 2.5.3): add them one by one, each with a level.',
       'Moodle permissions always apply on top; a removal counts from the next request.',
     ],
     gateFigure: {
@@ -287,7 +287,7 @@ const en: Dict = {
       search: 'User or cohort…',
       level: 'Read',
       button: 'Add',
-      cohortSoon: 'cohorts: from 2.5.3',
+      cohortSoon: 'cohorts: since 2.5.3',
     },
     familiesTitle: 'Tool families',
     familiesText:
@@ -361,9 +361,9 @@ const en: Dict = {
     descriptions: {
       'moodle-build-course-content': 'Build a course, publish resources, a lesson, a glossary, a wiki, a database, SCORM, H5P.',
       'moodle-create-assessment': 'Secure exam, practice quiz, assignment and gradebook.',
-      'moodle-grade-student-work': 'Grade assignments, the open questions of a quiz, a peer workshop.',
+      'moodle-grade-student-work': 'Grade assignments, the open questions of a quiz, a peer workshop; enter and export the grades of an oral.',
       'moodle-follow-class': 'Activity, missing submissions, results, SCORM, plans, attendance, reports, logs, certificates.',
-      'moodle-communicate-and-organize': 'Announcements, groups and extra time, enrolments, virtual classroom, opening a session.',
+      'moodle-communicate-and-organize': 'Announcements, forum answers, groups, extra time for a student, enrolments, virtual classroom, opening a session.',
       'moodle-maintain-course': 'Next term, dates, reset, archive, categories, undo, audit, storage.',
     },
   },

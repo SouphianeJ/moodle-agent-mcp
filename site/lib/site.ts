@@ -7,8 +7,8 @@ export const site = {
   /** The listing of the plugin in the Moodle plugins directory: null until it exists. */
   marketplace: null as string | null,
   contact: 'souphianejender@gmail.com',
-  pluginVersion: '2.5.2',
-  toolCount: 542,
+  pluginVersion: '2.5.4',
+  toolCount: 545,
   moodleRange: '4.1 – 5.3',
 };
 
