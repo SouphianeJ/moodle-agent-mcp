@@ -193,7 +193,7 @@ const fr: Dict = {
         id: 'consent',
         title: "Le jeton d'accord",
         text:
-          "Ce qui ne se reprend pas (une suppression, un message envoyé, des notes publiées) ne s'exécute pas au premier appel : le serveur renvoie un aperçu et un jeton à usage unique. L'assistant relit lui-même l'aperçu et ne vous sollicite que s'il s'écarte de votre demande. C'est le mode « ticket », par défaut : l'assistant relit lui-même l'aperçu. En mode « ticket et clic », les écritures qui atteignent des personnes (message, annonce, notes publiées, demande de nettoyage) attendent en plus le clic de la personne dans Moodle.",
+          "Ce qui ne se reprend pas (une suppression, un message envoyé, des notes publiées) ne s'exécute pas au premier appel : le serveur renvoie un aperçu et un jeton à usage unique. L'assistant relit lui-même l'aperçu et ne vous sollicite que s'il s'écarte de votre demande. C'est le mode « ticket », par défaut : l'assistant relit lui-même l'aperçu. En mode « ticket et clic », les écritures qui atteignent des personnes (message, annonce, notes publiées, demande de nettoyage) attendent en plus le clic de la personne dans Moodle. Quand l'assistant lit des copies, des messages de forum ou des messages d'étudiants, préférez le mode « ticket et clic » : un texte lu dans Moodle est une donnée, jamais une instruction, et seul votre clic prouve qu'une personne a approuvé l'action.",
       },
       {
         id: 'journal',

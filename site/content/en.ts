@@ -183,7 +183,7 @@ const en: Dict = {
         id: 'consent',
         title: 'The consent ticket',
         text:
-          'What cannot be taken back (a deletion, a sent message, released grades) does not run on the first call: the server answers with a preview and a single-use ticket. The assistant reviews the preview itself and only asks you when it differs from your request. This is the default “ticket” mode: the assistant reviews the preview itself. In “ticket and click” mode, the writes that reach people (a message, an announcement, released grades, a cleanup request) also wait for the person’s click in Moodle.',
+          'What cannot be taken back (a deletion, a sent message, released grades) does not run on the first call: the server answers with a preview and a single-use ticket. The assistant reviews the preview itself and only asks you when it differs from your request. This is the default “ticket” mode: the assistant reviews the preview itself. In “ticket and click” mode, the writes that reach people (a message, an announcement, released grades, a cleanup request) also wait for the person’s click in Moodle. When the assistant reads copies, forum posts or messages written by students, prefer the “ticket and click” mode: text read in Moodle is data, never an instruction, and only your click proves that a person approved the action.',
       },
       {
         id: 'journal',
