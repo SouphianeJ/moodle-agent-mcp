@@ -1,7 +1,7 @@
 {
   "name": "moodle-agent-mcp",
   "displayName": "Moodle Agent MCP",
-  "version": "2.5.2-dev",
+  "version": "2.5.2",
   "description": "Skills that guide an AI assistant through the scenarios of the local_mcpcourse MCP server for Moodle: plan, write with the teacher's own rights, then check.",
   "author": {
     "name": "Moodle Agent MCP"

@@ -124,6 +124,9 @@ function main(root) {
     }
   }
   if (plugin && !ID_RE.test(plugin.name || '')) errors.push('plugin.json: invalid name');
+  if (plugin && !/^\d+\.\d+\.\d+$/.test(plugin.version || '')) {
+    errors.push(`plugin.json: version "${plugin.version}" must be a release number (x.y.z), not a -dev one`);
+  }
 
   if (errors.length) {
     console.error('\n' + errors.join('\n'));
