@@ -69,6 +69,9 @@ jobs:
               test -f "out/$lang/${page}index.html" || { echo "missing out/$lang/${page}index.html"; exit 1; }
             done
           done
+      - name: Every inline script has its hash in the CSP of deploy/Caddyfile.site
+        working-directory: .
+        run: node scripts/csp-hashes.mjs
       - name: No external resource in the pages
         run: |
           if grep -rhoE '(src|href)="https?://[^"]+"' out --include=*.html | grep -E '^src=' ; then

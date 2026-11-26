@@ -14,9 +14,12 @@ moodle-mcp.petits-detours.fr {
 		Referrer-Policy "strict-origin-when-cross-origin"
 		Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=(), browsing-topics=()"
 		Cross-Origin-Opener-Policy "same-origin"
-		# Next.js inlines its bootstrap scripts and the theme script: 'unsafe-inline' is needed for script-src.
+		# The CSP lists the SHA-256 of every inline script of the export (Next.js bootstrap, theme script) instead of
+		# 'unsafe-inline'. The list depends on the content of the pages: regenerate it with `node scripts/csp-hashes.mjs --write`
+		# after each build that changes a page (CI fails on a missing hash), and reload Caddy before switching `current`.
+		# style-src keeps 'unsafe-inline': the pages carry style="" attributes, which only that keyword allows.
 		# Nothing is loaded from another origin.
-		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-+xGRqyO9wsuDsHxP2VTHECTo5Vd34hy5v4odFSxISTo=' 'sha256-/MnkcLgSuh9m9xp6Ud5ZoJT8P5Md8GkH46GuemlgGhE=' 'sha256-5xRej02xU2ZUmvowaXmt/za9DbTjUsfaYt0PLn/qKGU=' 'sha256-9cU61lilm5QmbAQZh3xz+c4eLxRFGXDQ3Rryzep1Grs=' 'sha256-A3cB/Zoam2MJbBA8/7NBaS3JDXv/z4V0hesNofFdTO4=' 'sha256-Dhfu5oJaTFiQ8UFHiXy4mtTYqQqI88E670i2yaWC5jg=' 'sha256-DwkVNnPCFclF1znbAo8cHtCcu/CVuPi8caRWtmK5SeM=' 'sha256-Ln7e7Oy0ytsAzWSHcIxByTzqM9k9DhiUaqbwVugAjK8=' 'sha256-MSttFg2OKdcvCF0sP3H0DVme/EBUIYAt+JtP0BYVn/g=' 'sha256-NQLwQbi6Q8rkZOtzm0Jtn8O0BS7S3FxXXirOK7evcaU=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-OUaDi5t6Wr9MgW9qjai0F3c8jduHbNQUC3NgaRwdWzA=' 'sha256-RvTh1CtbkxHLKgekhmIjjqc5gSB9eo+as64nAMXaEcM=' 'sha256-SPCKtJb7vbkE0oGUlUkbSW9lKlfV2+hrafPs14RM2sA=' 'sha256-XIyymcCWFHvMB40iHlnaxwH7q8PnQHMJtjcv5WtMfX8=' 'sha256-Xd5CVKQh1eLy5HrC+ZnNOBLf4AGTCghVm+mOWUmIbTo=' 'sha256-gzwefQCKO0nc7USDGrYaQc+YcNtZ2OrsSjx0et5ZXfk=' 'sha256-j1Hyrw6WiAFajSqmOMkB7TYf0YZYMqXp7xwW6/S4hs8=' 'sha256-jGo2CFlyx2HVGJH30MPzF/lvT2FQhlTHyCTF2lUU6y8=' 'sha256-nwqjWG/A79C1FIqnUiaTKitPJAta5cLBWtRO/KmRzHI=' 'sha256-sQYgJMnAjO3/6KkVNpTuT0yk0wg7hVY9K/HuMQtQuOQ=' 'sha256-t/bVCZAwgIn8EMGVH62V23HUdmOU0nWd/vG+znWutj4=' 'sha256-x6tndrNSLih5UeuHKfvsAKsQBfUuoodJRYtd/yWQRjo=' 'sha256-yAA+F+D6rEoUg2z9+yslZ23Ybbht/vRRZogxfy28VPU=' 'sha256-zeT38NSyh0VO2VVthBUk0/dWVS04I0ZoV0uZySplBs8='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
 	}
 	# Outside the header block: a block with a deferred operation (-Server) is applied only to the responses that the
 	# handlers write, and the 404 of handle_errors lost every security header.
