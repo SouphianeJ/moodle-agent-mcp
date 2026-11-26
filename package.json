@@ -7,10 +7,10 @@
   "description": "Checks of the published skills (the site has its own package in site/).",
   "scripts": {
     "check:skills": "node scripts/check-skills.mjs",
-    "test": "node --test scripts/check-skills.test.mjs"
+    "test": "node --test scripts/check-skills.test.mjs scripts/shell-scripts.test.mjs"
   },
   "devDependencies": {
-    "yaml": "2.8.1"
+    "yaml": "2.9.1"
   },
   "engines": {
     "node": ">=20.9"
