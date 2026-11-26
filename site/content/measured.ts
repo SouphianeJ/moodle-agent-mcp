@@ -169,7 +169,7 @@ export const measured: Record<Locale, Measured> = {
     method: [
       'Le 26 novembre 2026, sur un Moodle 5.3 de test, plugin 2.5.4 (en développement) ; un cours et des élèves fictifs (« Élève A » à « Élève L »).',
       'Un agent neuf pour chaque demande. Le résultat se lit dans le journal du serveur et dans l’état de Moodle, pas dans le récit de l’agent.',
-      'Appels : requêtes reçues par le serveur du plugin. Tokens de travail : la taille de la conversation de l’agent à la fin, moins celle d’un agent identique à vide (le contexte fixe de l’outil d’agent : ≈ 67 000 tokens avec Sonnet, ≈ 52 000 avec Haiku). Dans un client MCP comme Claude.ai ou ChatGPT, ce contexte fixe est différent.',
+      'Appels : requêtes reçues par le serveur du plugin. Durée : du premier au dernier appel, lue dans le journal du serveur. Tokens de travail : la taille de la conversation de l’agent à la fin, moins celle d’un agent identique à vide (le contexte fixe de l’outil d’agent : ≈ 67 000 tokens avec Sonnet, ≈ 52 000 avec Haiku). Dans un client MCP comme Claude.ai ou ChatGPT, ce contexte fixe est différent.',
       'Un passage de la correction a été écarté et rejoué : notre script de préparation du banc avait désactivé le texte en ligne de deux copies.',
       'Un défaut trouvé : pour le tiers-temps, l’assistant a choisi le scénario des groupes au lieu de celui des aménagements individuels. Il sera corrigé.',
     ],
@@ -303,7 +303,7 @@ export const measured: Record<Locale, Measured> = {
     method: [
       'On 26 November 2026, on a Moodle 5.3 test site, plugin 2.5.4 (in development); a fictitious course and fictitious students ("Student A" to "Student L").',
       'A fresh agent for each request. The result is read in the server log and the state of Moodle, not in the agent’s own account.',
-      'Calls: requests received by the plugin server. Work tokens: the size of the agent’s conversation at the end, minus that of an identical empty agent (the fixed context of the agent tool: ≈ 67,000 tokens with Sonnet, ≈ 52,000 with Haiku). In an MCP client such as Claude.ai or ChatGPT, that fixed context is different.',
+      'Calls: requests received by the plugin server. Duration: from the first to the last call, read in the server log. Work tokens: the size of the agent’s conversation at the end, minus that of an identical empty agent (the fixed context of the agent tool: ≈ 67,000 tokens with Sonnet, ≈ 52,000 with Haiku). In an MCP client such as Claude.ai or ChatGPT, that fixed context is different.',
       'One grading run was discarded and replayed: our bench preparation script had switched off online text for two submissions.',
       'One flaw found: for the extra time, the assistant picked the groups scenario instead of the individual accommodations one. It will be fixed.',
     ],
