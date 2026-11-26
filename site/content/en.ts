@@ -123,14 +123,15 @@ const en: Dict = {
       { tag: 'Log and stop switch', title: "Who did what, and when? It's all written down.", text: 'Every write logged, undo, emergency switch.' },
     ],
     trustCta: 'Read the security page',
-    testsLine: 'Which model should you pick? We measured Claude Haiku, Sonnet and Opus on real Moodle tasks.',
+    testsLine: 'What it really does: six requests measured on a test Moodle, with their calls, time and tokens. And which model to pick.',
     testsCta: 'See the model tests',
+    measuredCta: 'See measured examples',
     startCta: 'Installation guide',
   },
   examples: {
     title: 'Example requests',
     lead:
-      "Ten requests from teachers, training managers and administrators, with the assistant's typical answer. Each follows a real scenario of the plugin: same steps, same guards.",
+      "First, six requests really run on a test Moodle, measured. Then ten requests from teachers, training managers and administrators, with the assistant's typical answer: each follows a real scenario of the plugin, same steps, same guards.",
     disclaimer:
       'Illustrative, synthetic examples: courses, people and figures are made up. Real answers depend on your site, your rights and your assistant.',
     request: 'Request',

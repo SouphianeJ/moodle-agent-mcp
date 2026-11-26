@@ -83,6 +83,7 @@ export type Dict = {
     trustCta: string;
     testsLine: string;
     testsCta: string;
+    measuredCta: string;
     startCta: string;
   };
   examples: { title: string; lead: string; disclaimer: string; request: string; plan: string; result: string; guard: string; scenario: string };

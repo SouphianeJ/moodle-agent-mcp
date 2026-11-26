@@ -226,9 +226,14 @@ export default async function Home({ params }: Props) {
         <div className="container">
           <div className="callout">
             <p className="teaser-line">{t.testsLine}</p>
-            <Link className="btn btn-primary" href={href(lang, 'model-tests')}>
-              {t.testsCta} <Arrow />
-            </Link>
+            <div className="actions" style={{ marginTop: 0 }}>
+              <Link className="btn btn-primary" href={href(lang, 'examples', 'mesures')}>
+                {t.measuredCta} <Arrow />
+              </Link>
+              <Link className="btn btn-ghost" href={href(lang, 'model-tests')}>
+                {t.testsCta} <Arrow />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

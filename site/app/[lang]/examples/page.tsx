@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { examples } from '@/content/examples';
-import { Info, Shield } from '@/components/Icons';
+import { measured, roundTokens } from '@/content/measured';
+import { Arrow, Check, Info, Shield } from '@/components/Icons';
 import { Rich } from '@/components/Rich';
 import { getDict } from '@/lib/dict';
 import { asLocale, href } from '@/lib/i18n';
@@ -18,8 +19,9 @@ export async function generateMetadata({ params }: Props) {
 export default async function ExamplesPage({ params }: Props) {
   const lang = asLocale((await params).lang);
   const t = getDict(lang).examples;
-  const [open, close] = lang === 'fr' ? ['« ', ' »'] : ['“', '”'];
+  const [open, close] = lang === 'fr' ? ['«\u00a0', '\u00a0»'] : ['“', '”'];
   const colon = lang === 'fr' ? ' : ' : ': ';
+  const m = measured[lang];
   const titles = new Map(scenarioFamilies(lang).flatMap((f) => f.scenarios.map((s) => [s.slug, s.title] as const)));
   return (
     <>
@@ -29,8 +31,91 @@ export default async function ExamplesPage({ params }: Props) {
           <p className="lead">{t.lead}</p>
         </div>
       </section>
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section className="section" style={{ paddingTop: 0 }} aria-labelledby="mesures">
         <div className="container">
+          <div className="section-head">
+            <h2 id="mesures">{m.title}</h2>
+            <p className="lead">{m.lead}</p>
+          </div>
+          <div className="grid grid-3 measured">
+            {m.runs.map((r) => (
+              <article key={r.id} id={r.id} className="card voice measured-card">
+                <h3>{r.title}</h3>
+                <p className="mini-title">{m.request}</p>
+                <blockquote className="quote">
+                  {open}
+                  {r.request}
+                  {close}
+                </blockquote>
+                <p className="mini-title">{m.done}</p>
+                <ul className="done">
+                  {r.done.map((d) => (
+                    <li key={d}>
+                      <Check />
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+                <dl className="figures">
+                  <div>
+                    <dt>{m.calls}</dt>
+                    <dd>{r.calls}</dd>
+                  </div>
+                  <div>
+                    <dt>{m.seconds}</dt>
+                    <dd>{r.seconds}</dd>
+                  </div>
+                  <div>
+                    <dt>{m.tokens}</dt>
+                    <dd>{roundTokens(r.tokens, lang)}</dd>
+                  </div>
+                </dl>
+              </article>
+            ))}
+          </div>
+
+          <aside className="haiku" aria-labelledby="haiku">
+            <h2 id="haiku">{m.haikuTitle}</h2>
+            <p className="card-muted">{m.haikuLead}</p>
+            <ul className="haiku-list">
+              {m.haiku.map((h) => (
+                <li key={h.id} className={h.ok ? 'ok' : 'gap'}>
+                  <span className={`tag ${h.ok ? 'risk-none' : 'risk-high'}`}>{h.ok ? m.haikuOk : m.haikuGap}</span>
+                  <div>
+                    <p className="haiku-req">
+                      {open}
+                      {h.request}
+                      {close}
+                    </p>
+                    <p className="card-muted">{h.verdict}</p>
+                    <p className="haiku-fig">
+                      {h.calls} {m.calls} · {h.seconds} {m.seconds} · {roundTokens(h.tokens, lang)} {m.tokens}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <Link className="btn btn-ghost" href={href(lang, 'model-tests')}>
+              {m.haikuCta} <Arrow />
+            </Link>
+          </aside>
+
+          <div className="method-box">
+            <h2>{m.methodTitle}</h2>
+            <ul className="prose-list">
+              {m.method.map((x) => (
+                <li key={x}>{x}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="section alt" aria-labelledby="illustratifs">
+        <div className="container">
+          <div className="section-head">
+            <h2 id="illustratifs">{m.illustrativeTitle}</h2>
+          </div>
           <p className="notice" role="note">
             <Info />
             <span>{t.disclaimer}</span>
@@ -39,9 +124,9 @@ export default async function ExamplesPage({ params }: Props) {
             {examples[lang].map((ex) => (
               <article key={ex.id} id={ex.id} className="card example" aria-labelledby={`ex-${ex.id}`}>
                 <div className="example-head">
-                  <h2 className="persona" id={`ex-${ex.id}`}>
+                  <h3 className="persona" id={`ex-${ex.id}`}>
                     {ex.persona}
-                  </h2>
+                  </h3>
                   <Link className="tag" href={href(lang, 'scenarios', ex.scenario)}>
                     {t.scenario}
                     {colon}
