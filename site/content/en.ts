@@ -505,6 +505,10 @@ const en: Dict = {
     lead: 'The ones people ask before letting an AI into their course. Short answers; the details are in the guides shipped with the plugin.',
     items: [
       {
+        q: "Can it set up my whole training structure: categories, courses and enrolments?",
+        a: "Yes. In one request, the assistant creates or reorganises the categories, creates new courses or duplicates them from a template course (for a new session, with shifted dates), then enrols the participants: by cohort, by list or in groups. It does so with your Moodle rights to create courses and enrol, once the administrator has turned on the matching tool families. Enrolments made in a batch are undone in one call.",
+      },
+      {
         q: "Can the AI do more than I can?",
         a: "No. Every call runs with your Moodle permissions, then the access gate, the open families and the opening of the course restrict further. No setting gives the assistant a right you do not have.",
       },

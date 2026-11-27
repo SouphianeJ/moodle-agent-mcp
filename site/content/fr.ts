@@ -520,6 +520,10 @@ const fr: Dict = {
     lead: "Celles qu'on se pose avant de laisser une IA entrer dans son cours. Les réponses courtes ; le détail est dans les guides fournis avec le plugin.",
     items: [
       {
+        q: "Peut-elle monter toute ma maquette de formation : catégories, cours et inscriptions ?",
+        a: "Oui. Dans une même demande, l'assistant crée ou réorganise les catégories, crée les cours neufs ou les duplique depuis un cours modèle (pour une nouvelle session, avec les dates décalées), puis inscrit les participants : par cohorte, par liste ou en groupes. Il le fait avec vos droits Moodle de création et d'inscription, une fois que l'administrateur a ouvert les familles d'outils correspondantes. Les inscriptions faites par lot s'annulent en un appel.",
+      },
+      {
         q: "L'IA peut-elle faire plus que moi ?",
         a: "Non. Chaque appel s'exécute avec vos permissions Moodle, puis la porte d'accès, les familles ouvertes et l'ouverture du cours restreignent encore. Aucun réglage ne donne à l'assistant un droit que vous n'avez pas.",
       },
