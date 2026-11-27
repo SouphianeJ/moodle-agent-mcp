@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { examples } from '@/content/examples';
-import { measured, roundTokens } from '@/content/measured';
+import { duration, measured, money } from '@/content/measured';
 import { Arrow, Check, Info, Shield } from '@/components/Icons';
 import { Rich } from '@/components/Rich';
 import { getDict } from '@/lib/dict';
@@ -37,7 +37,7 @@ export default async function ExamplesPage({ params }: Props) {
             <h2 id="mesures">{m.title}</h2>
             <p className="lead">{m.lead}</p>
           </div>
-          <div className="grid grid-3 measured">
+          <div className="grid grid-2 measured">
             {m.runs.map((r) => (
               <article key={r.id} id={r.id} className="card voice measured-card">
                 <h3>{r.title}</h3>
@@ -58,18 +58,27 @@ export default async function ExamplesPage({ params }: Props) {
                 </ul>
                 <dl className="figures">
                   <div>
+                    <dt>{m.cost}</dt>
+                    <dd>{money(r.cost, lang)}</dd>
+                  </div>
+                  <div>
                     <dt>{m.calls}</dt>
                     <dd>{r.calls}</dd>
                   </div>
                   <div>
-                    <dt>{m.seconds}</dt>
-                    <dd>{r.seconds}</dd>
+                    <dt>{m.duration}</dt>
+                    <dd>{duration(r.seconds)}</dd>
                   </div>
                   <div>
-                    <dt>{m.tokens}</dt>
-                    <dd>{roundTokens(r.tokens, lang)}</dd>
+                    <dt>{m.wins}</dt>
+                    <dd>{r.wins}</dd>
                   </div>
                 </dl>
+                <p className="haiku-fig">
+                  {m.noCache}
+                  {colon}
+                  {money(r.costNoCache, lang)}
+                </p>
               </article>
             ))}
           </div>
@@ -89,12 +98,16 @@ export default async function ExamplesPage({ params }: Props) {
                     </p>
                     <p className="card-muted">{h.verdict}</p>
                     <p className="haiku-fig">
-                      {h.calls} {m.calls} · {h.seconds} {m.seconds} · {roundTokens(h.tokens, lang)} {m.tokens}
+                      {h.wins} {m.wins} · {money(h.cost, lang)}
                     </p>
                   </div>
                 </li>
               ))}
             </ul>
+            <p className="card-muted">{m.haikuRest}</p>
+            <p>
+              <strong>{m.haikuConclusion}</strong>
+            </p>
             <Link className="btn btn-ghost" href={href(lang, 'model-tests')}>
               {m.haikuCta} <Arrow />
             </Link>
@@ -104,6 +117,16 @@ export default async function ExamplesPage({ params }: Props) {
             <h2>{m.methodTitle}</h2>
             <ul className="prose-list">
               {m.method.map((x) => (
+                <li key={x}>{x}</li>
+              ))}
+            </ul>
+            <p className="notice" role="note">
+              <Info />
+              <span>{m.tip}</span>
+            </p>
+            <h2>{m.limitsTitle}</h2>
+            <ul className="prose-list">
+              {m.limits.map((x) => (
                 <li key={x}>{x}</li>
               ))}
             </ul>

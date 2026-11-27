@@ -132,7 +132,7 @@ const fr: Dict = {
       },
     ],
     trustCta: 'Lire la page sécurité',
-    testsLine: 'Ce que ça donne vraiment : six demandes mesurées sur un Moodle de test, avec leurs appels, leur durée et leurs tokens. Et quel modèle choisir.',
+    testsLine: 'Ce que ça donne vraiment : huit demandes mesurées sur un cours de 200 étudiants, avec ce qui a été fait, leur coût réel et leur durée. Et quel modèle choisir.',
     testsCta: 'Voir les essais des modèles',
     measuredCta: 'Voir des exemples mesurés',
     startCta: "Guide d'installation",
@@ -140,7 +140,7 @@ const fr: Dict = {
   examples: {
     title: 'Exemples de demandes',
     lead:
-      "D'abord six demandes réellement passées sur un Moodle de test, mesurées. Puis dix demandes d'enseignants, de responsables de formation et d'administrateurs, avec la réponse type de l'assistant : chacune suit un scénario réel du plugin, mêmes étapes, mêmes garde-fous.",
+      "D'abord huit demandes réellement passées sur un cours de 200 étudiants, mesurées. Puis dix demandes d'enseignants, de responsables de formation et d'administrateurs, avec la réponse type de l'assistant : chacune suit un scénario réel du plugin, mêmes étapes, mêmes garde-fous.",
     disclaimer:
       'Exemples illustratifs : les cours, personnes et chiffres sont inventés. Les réponses réelles dépendent de votre site, de vos droits et de votre assistant.',
     request: 'Demande',
