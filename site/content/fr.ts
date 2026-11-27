@@ -18,6 +18,7 @@ const fr: Dict = {
     skills: 'Skills',
     tests: 'Essais',
     faq: 'FAQ',
+    plugins: 'Éditeurs de plugins',
     legal: 'Mentions légales',
     otherLang: 'EN',
     otherLangLabel: 'Read this page in English',
@@ -472,6 +473,48 @@ const fr: Dict = {
     lead: "Même l'outil d'annulation ne la ramènera pas : cette adresse n'existe pas ou plus.",
     back: "Retour à l'accueil",
   },
+  plugins: {
+    title: 'Éditeurs de plugins',
+    description:
+      "Vous éditez un plugin Moodle et voulez que l'assistant sache s'en servir ? Contactez-nous pour que nous ajoutions son support.",
+    sections: [
+      {
+        id: 'intro',
+        title: 'Votre plugin, utilisable par l’assistant',
+        text:
+          "Vous éditez un plugin Moodle (activité, bloc, type de question, format…) et voulez que l'assistant sache s'en servir ? Contactez-nous pour qu'on ajoute son support.",
+      },
+      {
+        id: 'support',
+        title: 'Ce que le support apporte',
+        points: [
+          "L'assistant appelle les fonctions de votre plugin avec les droits Moodle de la personne.",
+          "Cela vaut quand le plugin est installé, activé et assez récent. Sinon, ses outils sont masqués.",
+          'Les autres verrous du site (porte d’accès, familles d’outils, cours ouvert) restent en place.',
+        ],
+      },
+      {
+        id: 'needs',
+        title: 'Ce dont nous avons besoin',
+        points: [
+          'Le nom du composant, par exemple `mod_monplugin`.',
+          'Les versions de Moodle et du plugin que vous prenez en charge.',
+          "L'API publique : classes ou services web que l'on peut appeler.",
+          'Les droits Moodle (capacités) qui protègent chaque action.',
+        ],
+      },
+      {
+        id: 'covered',
+        title: 'Déjà couverts',
+        points: ['`mod_attendance`', '`mod_customcert`', '`tool_certificate`', '`qtype_multichoiceset`'],
+      },
+      {
+        id: 'contact',
+        title: 'Contact',
+        text: 'souphianejender@gmail.com',
+      },
+    ],
+  },
   faq: {
     title: 'Questions fréquentes',
     lead: "Celles qu'on se pose avant de laisser une IA entrer dans son cours. Les réponses courtes ; le détail est dans les guides fournis avec le plugin.",
@@ -481,44 +524,140 @@ const fr: Dict = {
         a: "Non. Chaque appel s'exécute avec vos permissions Moodle, puis la porte d'accès, les familles ouvertes et l'ouverture du cours restreignent encore. Aucun réglage ne donne à l'assistant un droit que vous n'avez pas.",
       },
       {
-        q: 'Quel assistant faut-il ?',
-        a: 'Tout client compatible MCP : Claude, ChatGPT, Mistral Le Chat, Claude Code, ou un autre. La possibilité d’ajouter un connecteur personnalisé dépend de l’offre du fournisseur.',
+        q: "Quel assistant faut-il ?",
+        a: "Tout client compatible MCP : Claude, ChatGPT, Mistral Le Chat, Claude Code, ou un autre. La possibilité d’ajouter un connecteur personnalisé dépend de l’offre du fournisseur.",
       },
       {
-        q: 'Mes données servent-elles à entraîner des modèles ?',
-        a: "Cela ne dépend pas du plugin mais de l'offre souscrite auprès du fournisseur de l'assistant. Vérifiez ses documents contractuels ; préférez une offre professionnelle avec accord de traitement des données (DPA).",
+        q: "Puis-je restreindre l'accès par rôle ou par utilisateur ?",
+        a: "Oui. Vous cochez les rôles du site, y compris les rôles personnalisés, et les administrateurs. Vous pouvez aussi ajouter des personnes une à une, sur la page des utilisateurs autorisés. Rien de coché, aucune personne, aucune cohorte : personne n'entre, administrateurs compris. Les rôles qui ouvriraient l'accès à tout le monde (invité, utilisateur authentifié, page d'accueil) ne sont pas proposés.",
       },
       {
-        q: 'Et si l’assistant se trompe\u00a0? (Ça arrive.)',
-        a: "Demandez-lui d'annuler : l'outil d'annulation défait une grande partie des écritures, avec vos droits. Pour un changement large, un instantané de cours pris avant permet de revenir en arrière. Ce qui ne se reprend pas (message envoyé, suppression définitive) passe d'abord par un aperçu et un jeton d'accord du serveur.",
+        q: "Puis-je autoriser une cohorte ?",
+        a: "Oui. Sur la même page, vous autorisez une cohorte, du site ou d'une catégorie, avec son niveau d'accès. Ses membres passent dès leur requête suivante ; un membre retiré de la cohorte est refusé, sauf si un rôle coché ou la liste le laisse passer.",
       },
       {
-        q: 'Me demande-t-il la permission à chaque fois\u00a0?',
-        a: "Non. Si la demande est claire, il agit, puis vérifie et vous cite ce que Moodle répond ; si elle ne l'est pas, il est réglé pour poser une question courte. Demandez-lui son plan d'abord si vous préférez le valider. Pour ce qui ne se reprend pas (suppressions, messages, notes publiées), le serveur exige un jeton d'accord : l'assistant relit l'aperçu et ne vous sollicite qu'en cas d'écart ; l'établissement peut exiger en plus votre clic dans Moodle.",
+        q: "Puis-je limiter l'assistant à la lecture seule ?",
+        a: "Oui. Il y a deux niveaux, lecture, ou lecture et écriture, par rôle, par personne ou par cohorte. Il n'y a pas de niveau « écriture seule ». En lecture, les outils qui modifient sont masqués, et un appel direct est refusé (403). Le niveau le plus large qui s'applique l'emporte.",
       },
       {
-        q: 'Les notes sont-elles publiées automatiquement ?',
-        a: "Non. Les notes proposées par l'assistant sont des brouillons. Leur publication exige que l'administrateur ait ouvert la famille de publication des notes, puis passe par un aperçu et un jeton d'accord ; si l'établissement a choisi le mode « ticket et clic », elle attend aussi votre clic dans Moodle.",
+        q: "Puis-je choisir les familles d'outils ouvertes ?",
+        a: "Oui. Chaque famille a sa case. Seule la famille des cours et des activités est cochée au départ ; les notes, les inscriptions, les cohortes, les comptes du site, les certificats et les outils d'autres plugins restent fermés jusqu'à votre décision. La publication des notes n'est offerte que si la famille des notes est ouverte aussi.",
       },
       {
-        q: 'Faut-il toucher au cœur de Moodle\u00a0? (Votre administrateur retient son souffle.)',
-        a: "Non. C'est un plugin local standard, sans service web de Moodle. En mode OAuth, deux règles de réécriture sont à ajouter au serveur web, ou le relais de découverte s'en charge.",
+        q: "L'assistant peut-il télécharger un fichier depuis une adresse web ?",
+        a: "Non, tant que l'administrateur n'a pas coché l'outil prévu pour cela. Il est décoché par défaut. Une fois coché, le serveur télécharge un fichier depuis une adresse HTTPS publique choisie par l'IA.",
       },
       {
-        q: 'Mon Moodle est hébergé chez un prestataire : est-ce possible ?',
-        a: "Oui. Le zip s'installe par l'interface. Si l'hébergeur ne permet pas d'ajouter les règles `/.well-known/…`, l'enregistrement central publie le document de découverte à sa place. Une fiche à transmettre à l'hébergeur est fournie avec le plugin.",
+        q: "Puis-je décider quels cours l'assistant peut modifier ?",
+        a: "Oui. Tout cours est fermé par défaut : l'assistant y lit ce que vous lisez, sans rien écrire. Un enseignant (droit « ouvrir le cours », donné par défaut aux enseignants et aux gestionnaires) ouvre son cours depuis la page « Assistant IA » du cours. L'administrateur ouvre des cours, ou une catégorie avec ses sous-catégories, depuis la page des cours ouverts à l'agent.",
       },
       {
-        q: 'Que sont les skills, et sont-elles obligatoires ?',
+        q: "L'assistant peut-il ouvrir un cours lui-même ?",
+        a: "Non. Aucun outil n'ouvre ni ne ferme un cours existant. Un cours que l'assistant crée lui-même est ouvert dès sa création, pour qu'il le remplisse. Un cours restauré ou copié par Moodle est fermé.",
+      },
+      {
+        q: "Le réglage Moodle « Activer les outils IA » est-il respecté ?",
+        a: "Oui, dès Moodle 5.1. Dans un cours ou une activité réglés sur Non, rien n'est lu ni écrit, pour personne, administrateurs compris ; les listes les passent sous silence. Avant Moodle 5.1, ce réglage n'existe pas.",
+      },
+      {
+        q: "Puis-je exiger la politique IA du site ?",
+        a: "Oui, dès Moodle 4.5. Cochée, chaque personne doit accepter la politique IA du site avant que l'assistant travaille pour elle, sans exception, administrateurs compris. Elle est décochée par défaut. Avant Moodle 4.5, le réglage est absent.",
+      },
+      {
+        q: "Puis-je utiliser une clé d'API ?",
+        a: "Oui. L'administrateur coche « Accepter les clés d'API » (décoché par défaut). Chaque enseignant ou gestionnaire crée alors ses propres clés sur la page « Mes clés d'API » : un nom, lecture seule ou lecture et écriture, une durée (jusqu'à 365 jours, selon la limite fixée par l'administrateur). La clé est montrée une seule fois. Elle agit comme son titulaire, sous la porte d'accès, l'arrêt d'urgence, la limite de requêtes et ses droits Moodle. Personne ne crée de clé pour un autre ; l'administrateur voit toutes les clés et peut les révoquer.",
+      },
+      {
+        q: "Quels modes d'authentification sont possibles ?",
+        a: "Trois. La passerelle signée est le défaut d'un nouveau site : une passerelle authentifie la personne et transmet son identité signée, que le plugin rapproche d'un seul compte actif (par e-mail, nom d'utilisateur, numéro d'identification ou identifiant Moodle). L'OAuth auto-hébergé fait du plugin son propre serveur d'autorisation : la personne autorise son assistant dans son navigateur. Les deux peuvent aussi être acceptés ensemble. L'OAuth ne s'active que si le contrôle de configuration est au vert.",
+      },
+      {
+        q: "Mon Moodle est hébergé chez un prestataire : est-ce possible ?",
+        a: "Oui. Le zip s'installe par l'interface. Si l'hébergeur ne permet pas d'ajouter les règles `/.well-known/…`, un service central de découverte publie à sa place le document que les assistants cherchent : vous liez votre site depuis une page du plugin. Il ne republie que ce document public ; la connexion, les jetons et les requêtes restent sur votre site. Une fiche à transmettre à l'hébergeur est fournie avec le plugin.",
+      },
+      {
+        q: "Faut-il toucher au cœur de Moodle ? (Votre administrateur retient son souffle.)",
+        a: "Non. C'est un plugin local standard, sans service web de Moodle. En mode OAuth, deux règles de réécriture sont à ajouter au serveur web, ou le service de découverte s'en charge.",
+      },
+      {
+        q: "Me demande-t-il la permission à chaque fois ?",
+        a: "Non. Si la demande est claire, il agit, puis vérifie et vous cite ce que Moodle répond ; si elle ne l'est pas, il est réglé pour poser une question courte. Demandez-lui son plan d'abord si vous préférez le valider. Pour ce qui ne se reprend pas (suppressions, messages, notes publiées), le serveur exige un jeton d'accord : l'assistant relit l'aperçu et ne vous sollicite qu'en cas d'écart.",
+      },
+      {
+        q: "Le jeton d'accord est-il réglable ?",
+        a: "Oui. Trois modes : désactivé (seul l'assistant est invité à confirmer), ticket, qui est le défaut d'un nouveau site, et ticket et clic. Un site mis à jour garde son comportement d'avant, désactivé. Le ticket est à usage unique, lié au compte, à l'outil et aux arguments, et vaut 10 minutes par défaut (de 1 à 120).",
+      },
+      {
+        q: "Puis-je exiger un clic de la personne dans Moodle ?",
+        a: "Oui. Avec « ticket et clic », un message personnel, une annonce, des notes publiées ou une demande de nettoyage attendent aussi que la personne les approuve, connectée à Moodle, sur une page du plugin qui montre le même aperçu. Les suppressions et les opérations de masse restent au ticket.",
+      },
+      {
+        q: "Les notes sont-elles publiées automatiquement ?",
+        a: "Non. Les notes proposées par l'assistant sont des brouillons. Leur publication exige que l'administrateur ait ouvert la famille de publication des notes, puis passe par un aperçu et un jeton d'accord ; en mode « ticket et clic », elle attend aussi votre clic dans Moodle.",
+      },
+      {
+        q: "Puis-je ajouter des consignes propres à mon établissement ?",
+        a: "Oui. Un champ de texte brut, vide au départ, de 2 000 caractères au plus, s'ajoute aux instructions que le serveur donne à l'assistant : noms des cours et des activités, ton des messages, règles de la maison. Il n'élargit jamais ses droits. Une case, cochée sur un nouveau site, exige la preuve que l'assistant a lu ces consignes avant de modifier un contenu de cours ; si elles changent, il doit les relire.",
+      },
+      {
+        q: "Et si l'assistant se trompe ? (Ça arrive.)",
+        a: "Demandez-lui d'annuler : l'outil d'annulation défait une grande partie des écritures, avec vos droits. Il est activé par défaut, et l'administrateur peut le retirer. Pour un changement large, un instantané de cours pris avant permet de revenir en arrière. Ce qui ne se reprend pas (message envoyé, suppression définitive) passe d'abord par un aperçu et un jeton d'accord.",
+      },
+      {
+        q: "Y a-t-il un journal de ce que fait l'assistant ?",
+        a: "Oui. Trois niveaux : les écritures seules, par défaut, avec leurs arguments ; tous les appels ; aucun, où chaque écriture laisse quand même une ligne minimale, pour qu'une nouvelle tentative ne s'exécute pas deux fois. La page « Activité de l'IA » compte les appels sans lire ni arguments ni réponses. Le journal est réservé au droit « voir les journaux », donné par défaut aux gestionnaires ; un enseignant retrouve seulement ses propres opérations annulables.",
+      },
+      {
+        q: "Le journal garde-t-il les réponses de l'assistant ?",
+        a: "Non, sauf si vous cochez la case prévue. Elle est décochée par défaut : une réponse peut contenir des notes, des retours ou des textes rendus. Cochée, elle reste dans le journal pendant la durée de conservation, et votre établissement doit l'inscrire à son registre RGPD.",
+      },
+      {
+        q: "Puis-je choisir la durée de conservation du journal ?",
+        a: "Oui. La durée est de 90 jours par défaut ; 0 garde sans limite. Elle vaut aussi pour le journal d'annulation et les brouillons publiés : passé ce délai, un envoi n'est plus reconnu et ne peut plus être annulé. Les instantanés (30 jours), les fichiers préparés (14 jours) et les sauvegardes de cours (30 jours) ont leur propre durée. L'administrateur peut aussi vider le journal d'un clic, après confirmation.",
+      },
+      {
+        q: "Puis-je couper l'assistant d'un geste ?",
+        a: "Oui. La case « arrêt d'urgence » refuse aussitôt les requêtes de tous les comptes (HTTP 503, message clair, refus noté dans le journal). Elle ne change aucun autre réglage : décochée, tout revient comme avant. Une autre case désactive le point d'accès MCP.",
+      },
+      {
+        q: "Y a-t-il une limite de requêtes ?",
+        a: "Oui. 120 requêtes par minute et par compte par défaut ; les suivantes sont refusées (HTTP 429). 0 supprime la limite, et la page des contrôles d'état le signale. C'est un frein pour un client qui s'emballe, pas un quota.",
+      },
+      {
+        q: "Puis-je signaler que le texte vient de l'IA ?",
+        a: "Oui. Une case, décochée par défaut, ajoute une mention, une seule fois, à ce que l'assistant écrit pour d'autres : annonce, message, discussion ou réponse de forum, page, étiquette, commentaire de retour, description d'activité. Le texte tient en une ligne de 200 caractères ; vide, c'est la phrase de la langue du lecteur. Une seconde case laisse l'enseignant retirer la mention, appel par appel ; sinon l'appel est refusé. C'est un outil, pas un avis juridique.",
+      },
+      {
+        q: "Mes données servent-elles à entraîner des modèles ?",
+        a: "Cela ne dépend pas du plugin mais de l'offre souscrite auprès du fournisseur de l'assistant. Vérifiez ses documents contractuels ; préférez une offre professionnelle avec accord de traitement des données (DPA). Le plugin n'appelle lui-même aucune IA.",
+      },
+      {
+        q: "Le plugin est-il compatible avec le RGPD ?",
+        a: "Il s'appuie sur l'API de confidentialité de Moodle : il déclare ses tables et ses fichiers, et l'outil de confidentialité exporte ou efface les données d'une personne (ses appels, ses entrées d'annulation, ses brouillons, ses fichiers préparés). Les données que l'assistant reçoit sortent de votre site vers son fournisseur : la politique IA du site et votre registre en parlent. Ce n'est pas un avis juridique ; demandez à votre délégué à la protection des données.",
+      },
+      {
+        q: "Quelles versions de Moodle sont prises en charge ?",
+        a: "De Moodle 4.1 à 5.3, sur toute base de données que Moodle prend en charge. 4.1 est le plancher ; Moodle ne la maintient plus. Deux réglages dépendent de la version : la politique IA (dès 4.5) et « Activer les outils IA » (dès 5.1).",
+      },
+      {
+        q: "Fonctionne-t-il avec des plugins tiers ?",
+        a: "Oui, pour certains : mod_attendance, mod_customcert, tool_certificate et qtype_multichoiceset. Leurs outils n'apparaissent que si le plugin est installé, activé et assez récent ; sinon ils sont masqués. La famille des certificats est fermée par défaut. Un plugin peut aussi déclarer ses propres outils : une famille fermée par défaut les accueille, avec la liste à relire sur la page des outils d'autres plugins. Vous éditez un plugin ? Voyez la page Éditeurs de plugins.",
+      },
+      {
+        q: "Peut-on désinstaller le plugin proprement ?",
+        a: "Oui. Moodle supprime les tables et les fichiers du plugin. Le plugin affiche d'abord ce qui reste, sans rien effacer : les sauvegardes de sécurité déplacées dans les sauvegardes privées d'une personne, et les liens vers des fichiers préparés écrits dans d'autres textes, qui seront rompus. Le contenu créé dans vos cours reste : c'est du contenu Moodle.",
+      },
+      {
+        q: "Que sont les skills, et sont-elles obligatoires ?",
         a: "Facultatives. Le serveur donne déjà à l'assistant le plan de chaque scénario. Les skills en sont une copie installable dans l'assistant, utile pour qu'il choisisse vite la bonne démarche.",
       },
       {
-        q: 'Combien ça coûte\u00a0? (La bonne nouvelle d’abord.)',
-        a: 'Le plugin est un logiciel libre sous licence GNU GPL v3. L’abonnement à l’assistant d’IA reste à la charge de votre organisme, auprès du fournisseur de son choix.',
+        q: "Combien ça coûte ? (La bonne nouvelle d’abord.)",
+        a: "Le plugin est un logiciel libre sous licence GNU GPL v3. L’abonnement à l’assistant d’IA reste à la charge de votre organisme, auprès du fournisseur de son choix.",
       },
       {
-        q: 'Qui contacter ?',
-        a: 'Écrivez à souphianejender@gmail.com pour une question, une démonstration ou un signalement de sécurité.',
+        q: "Qui contacter ?",
+        a: "Écrivez à souphianejender@gmail.com pour une question, une démonstration ou un signalement de sécurité.",
       },
     ],
   },

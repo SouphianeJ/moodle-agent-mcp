@@ -18,6 +18,7 @@ const en: Dict = {
     skills: 'Skills',
     tests: 'Model tests',
     faq: 'FAQ',
+    plugins: 'Plugin developers',
     legal: 'Legal notice',
     otherLang: 'FR',
     otherLangLabel: 'Lire cette page en français',
@@ -457,53 +458,191 @@ const en: Dict = {
     lead: 'Not even undo can bring this one back: the address does not exist, or no longer does.',
     back: 'Back to the home page',
   },
+  plugins: {
+    title: 'Plugin developers',
+    description:
+      'Do you publish a Moodle plugin and want the assistant to know how to use it? Contact us and we will add its support.',
+    sections: [
+      {
+        id: 'intro',
+        title: 'Your plugin, usable by the assistant',
+        text:
+          'Do you publish a Moodle plugin (activity, block, question type, format…) and want the assistant to know how to use it? Contact us and we will add its support.',
+      },
+      {
+        id: 'support',
+        title: 'What the support brings',
+        points: [
+          'The assistant calls the functions of your plugin with the Moodle permissions of the person.',
+          'This holds when the plugin is installed, enabled and recent enough. Otherwise, its tools are hidden.',
+          'The other locks of the site (access gate, tool families, open course) stay in place.',
+        ],
+      },
+      {
+        id: 'needs',
+        title: 'What we need',
+        points: [
+          'The name of the component, for example `mod_myplugin`.',
+          'The versions of Moodle and of the plugin that you support.',
+          'The public API: classes or web services that can be called.',
+          'The Moodle permissions (capabilities) that protect each action.',
+        ],
+      },
+      {
+        id: 'covered',
+        title: 'Already covered',
+        points: ['`mod_attendance`', '`mod_customcert`', '`tool_certificate`', '`qtype_multichoiceset`'],
+      },
+      {
+        id: 'contact',
+        title: 'Contact',
+        text: 'souphianejender@gmail.com',
+      },
+    ],
+  },
   faq: {
     title: 'Frequently asked questions',
     lead: 'The ones people ask before letting an AI into their course. Short answers; the details are in the guides shipped with the plugin.',
     items: [
       {
-        q: 'Can the AI do more than I can?',
-        a: 'No. Every call runs with your Moodle permissions, then the access gate, the open families and the opening of the course restrict further. No setting gives the assistant a right you do not have.',
+        q: "Can the AI do more than I can?",
+        a: "No. Every call runs with your Moodle permissions, then the access gate, the open families and the opening of the course restrict further. No setting gives the assistant a right you do not have.",
       },
       {
-        q: 'Which assistant do I need?',
-        a: 'Any MCP client: Claude, ChatGPT, Mistral Le Chat, Claude Code, or another. Whether you can add a custom connector depends on the plan of the provider.',
+        q: "Which assistant do I need?",
+        a: "Any MCP client: Claude, ChatGPT, Mistral Le Chat, Claude Code, or another. Whether you can add a custom connector depends on the plan of the provider.",
       },
       {
-        q: 'Is my data used to train models?',
-        a: "That does not depend on the plugin but on the plan subscribed with the assistant's provider. Check its contractual documents; prefer a business plan with a data processing agreement (DPA).",
+        q: "Can I restrict access by role or by user?",
+        a: "Yes. You check the roles of the site, custom ones included, and the administrators. You can also add people one by one, on the page of allowed users. With nothing checked, no person and no cohort, nobody gets in, administrators included. The roles that would open access to everyone (guest, authenticated user, front page) are not offered.",
       },
       {
-        q: 'What if the assistant makes a mistake? (It happens.)',
-        a: 'Ask it to undo: the undo tool reverts many writes, with your rights. For a wide change, a course snapshot taken before lets you go back. What cannot be taken back (a sent message, a permanent deletion) first goes through a preview and a server consent ticket.',
+        q: "Can I allow a cohort?",
+        a: "Yes. On the same page, you allow a cohort, of the site or of a category, with its access level. Its members get in from their next request; a member removed from the cohort is refused, unless a checked role or the list lets them through.",
       },
       {
-        q: 'Does it ask for permission every time?',
-        a: 'No. When the request is clear, it acts, then checks and quotes what Moodle returns; when it is not, it is tuned to ask one short question. Ask for its plan first if you prefer to approve it. For what cannot be taken back (deletions, messages, released grades), the server requires a consent ticket: the assistant reviews the preview and only asks you when something differs; your institution can also require your click in Moodle.',
+        q: "Can I limit the assistant to read-only?",
+        a: "Yes. There are two levels, read, or read and write, by role, by person or by cohort. There is no write-only level. At the read level, the tools that change data are hidden, and a direct call is refused (403). The widest level that applies wins.",
       },
       {
-        q: 'Are grades published automatically?',
-        a: 'No. Grades proposed by the assistant are drafts. Releasing them needs the grade release family, opened by the administrator, then goes through a preview and a consent ticket; if your institution chose the “ticket and click” mode, it also waits for your click in Moodle.',
+        q: "Can I choose which tool families are open?",
+        a: "Yes. Each family has its own checkbox. Only the courses and activities family is checked at the start; grades, enrolments, cohorts, site accounts, certificates and the tools of other plugins stay closed until you decide. Releasing grades is offered only when the grades family is open too.",
       },
       {
-        q: 'Do we have to touch Moodle core? (Your administrator is holding their breath.)',
-        a: 'No. It is a standard local plugin, without Moodle web services. In OAuth mode, two rewrite rules go into the web server, or the discovery relay takes care of it.',
+        q: "Can the assistant download a file from a web address?",
+        a: "No, until the administrator checks the tool made for it. It is unchecked by default. Once checked, the server downloads a file from a public HTTPS address chosen by the AI.",
       },
       {
-        q: 'My Moodle is hosted by a provider: can I use it?',
-        a: 'Yes. The zip installs through the interface. If the host does not allow the `/.well-known/…` rules, the central registration publishes the discovery document instead. A sheet for your host ships with the plugin.',
+        q: "Can I decide which courses the assistant may change?",
+        a: "Yes. Every course is closed by default: the assistant reads what you read there and writes nothing. A teacher (the “open the course” right, given by default to teachers and managers) opens their course from the “AI assistant” page of the course. The administrator opens courses, or a category with its subcategories, from the page of courses open to the agent.",
       },
       {
-        q: 'What are skills, and are they required?',
-        a: 'Optional. The server already gives the assistant the plan of each scenario. The skills are an installable copy of it, useful for the assistant to pick the right approach quickly.',
+        q: "Can the assistant open a course itself?",
+        a: "No. No tool opens or closes an existing course. A course the assistant creates itself is open from its creation, so it can fill it. A course restored or copied by Moodle is closed.",
       },
       {
-        q: 'How much does it cost? (Good news first.)',
-        a: 'The plugin is free software under the GNU GPL v3. The subscription to the AI assistant is up to your institution, with the provider of its choice.',
+        q: "Is the Moodle setting “Enable AI tools” respected?",
+        a: "Yes, from Moodle 5.1. In a course or an activity set to No, nothing is read or written, for anyone, administrators included; lists leave them out. Before Moodle 5.1, that setting does not exist.",
       },
       {
-        q: 'Who do I contact?',
-        a: 'Write to souphianejender@gmail.com for a question, a demo or a security report.',
+        q: "Can I require the AI policy of the site?",
+        a: "Yes, from Moodle 4.5. When checked, each person must accept the AI policy of the site before the assistant works for them, with no exception, administrators included. It is unchecked by default. Before Moodle 4.5, the setting is absent.",
+      },
+      {
+        q: "Can I use an API key?",
+        a: "Yes. The administrator checks “Accept API keys” (unchecked by default). Each teacher or manager then creates their own keys on the “My API keys” page: a name, read only or read and write, and a lifetime (up to 365 days, within the limit set by the administrator). The key is shown once. It acts as its owner, under the access gate, the emergency cut-off, the rate limit and their Moodle permissions. Nobody creates a key for someone else; the administrator sees every key and can revoke them.",
+      },
+      {
+        q: "Which authentication modes are available?",
+        a: "Three. The signed gateway is the default of a new site: a gateway authenticates the person and forwards their signed identity, which the plugin matches to a single active account (by e-mail, username, ID number or Moodle ID). Self-hosted OAuth makes the plugin its own authorization server: the person authorizes their assistant in their browser. Both can also be accepted together. OAuth turns on only when the configuration check is green.",
+      },
+      {
+        q: "My Moodle is hosted by a provider: can I use it?",
+        a: "Yes. The zip installs through the interface. If the host does not allow the `/.well-known/…` rules, a central discovery service publishes in their place the document that assistants look for: you link your site from a page of the plugin. It republishes only that public document; sign-in, tokens and requests stay on your site. A sheet for your host ships with the plugin.",
+      },
+      {
+        q: "Do we have to touch Moodle core? (Your administrator is holding their breath.)",
+        a: "No. It is a standard local plugin, without Moodle web services. In OAuth mode, two rewrite rules go into the web server, or the discovery service takes care of it.",
+      },
+      {
+        q: "Does it ask for permission every time?",
+        a: "No. When the request is clear, it acts, then checks and quotes what Moodle returns; when it is not, it is tuned to ask one short question. Ask for its plan first if you prefer to approve it. For what cannot be taken back (deletions, messages, released grades), the server requires a consent ticket: the assistant reviews the preview and only asks you when something differs.",
+      },
+      {
+        q: "Can the consent ticket be configured?",
+        a: "Yes. Three modes: off (only the assistant is asked to confirm), ticket, the default of a new site, and ticket and click. An upgraded site keeps its earlier behaviour, off. A ticket is single-use, bound to the account, the tool and the arguments, and lasts 10 minutes by default (1 to 120).",
+      },
+      {
+        q: "Can I require a click from the person in Moodle?",
+        a: "Yes. With “ticket and click”, a personal message, an announcement, released grades or a cleanup request also wait for the person to approve them, signed in to Moodle, on a page of the plugin that shows the same preview. Deletions and mass operations stay on the ticket.",
+      },
+      {
+        q: "Are grades published automatically?",
+        a: "No. Grades proposed by the assistant are drafts. Releasing them needs the grade release family, opened by the administrator, then goes through a preview and a consent ticket; in “ticket and click” mode, it also waits for your click in Moodle.",
+      },
+      {
+        q: "Can I add instructions specific to my institution?",
+        a: "Yes. A plain-text field, empty at the start, of 2,000 characters at most, is added to the instructions the server gives the assistant: naming of courses and activities, tone of messages, house rules. It never widens its rights. A checkbox, checked on a new site, requires proof that the assistant read these instructions before it changes course content; if they change, it must read them again.",
+      },
+      {
+        q: "What if the assistant makes a mistake? (It happens.)",
+        a: "Ask it to undo: the undo tool reverts many writes, with your rights. It is on by default, and the administrator can turn it off. For a wide change, a course snapshot taken before lets you go back. What cannot be taken back (a sent message, a permanent deletion) first goes through a preview and a consent ticket.",
+      },
+      {
+        q: "Is there a log of what the assistant does?",
+        a: "Yes. Three levels: writes only, the default, with their arguments; all calls; none, where each write still leaves a minimal row, so that a retry does not run twice. The “AI activity” page counts the calls without reading arguments or replies. The log is reserved for the “view logs” right, given by default to managers; a teacher finds only their own operations that can be undone.",
+      },
+      {
+        q: "Does the log keep the replies of the assistant?",
+        a: "No, unless you check the box made for it. It is unchecked by default: a reply can hold grades, feedback or submitted texts. Checked, it stays in the log for the retention period, and your institution must record it in its GDPR register.",
+      },
+      {
+        q: "Can I choose how long the log is kept?",
+        a: "Yes. The default is 90 days; 0 keeps it without limit. It also covers the undo journal and the published drafts: after that, a write is no longer recognised and can no longer be undone. Snapshots (30 days), staged files (14 days) and course backups (30 days) have their own duration. The administrator can also clear the log in one click, after a confirmation.",
+      },
+      {
+        q: "Can I cut the assistant off at once?",
+        a: "Yes. The “emergency cut-off” checkbox immediately refuses the requests of every account (HTTP 503, a clear message, the refusal noted in the log). It changes no other setting: unchecked, everything is back as it was. Another checkbox turns off the MCP endpoint.",
+      },
+      {
+        q: "Is there a request limit?",
+        a: "Yes. 120 requests per minute and per account by default; the ones beyond are refused (HTTP 429). 0 removes the limit, and the status checks page flags it. It is a brake for a runaway client, not a quota.",
+      },
+      {
+        q: "Can I mark that the text comes from the AI?",
+        a: "Yes. A checkbox, unchecked by default, adds a mention, once, to what the assistant writes for others: an announcement, a message, a forum discussion or reply, a page, a label, a feedback comment, the description of an activity. The text is one line of 200 characters; empty, it is the sentence of the reader's language. A second checkbox lets the teacher remove the mention, one call at a time; otherwise the call is refused. It is a tool, not legal advice.",
+      },
+      {
+        q: "Is my data used to train models?",
+        a: "That does not depend on the plugin but on the plan subscribed with the assistant's provider. Check its contractual documents; prefer a business plan with a data processing agreement (DPA). The plugin itself calls no AI.",
+      },
+      {
+        q: "Is the plugin GDPR-compatible?",
+        a: "It relies on the Moodle Privacy API: it declares its tables and files, and the privacy tool exports or erases the data of a person (their calls, undo entries, drafts, staged files). The data the assistant receives leave your site for its provider: the AI policy of the site and your register cover that. This is not legal advice; ask your data protection officer.",
+      },
+      {
+        q: "Which Moodle versions are supported?",
+        a: "Moodle 4.1 to 5.3, on any database that Moodle supports. 4.1 is the floor; Moodle no longer maintains it. Two settings depend on the version: the AI policy (from 4.5) and “Enable AI tools” (from 5.1).",
+      },
+      {
+        q: "Does it work with third-party plugins?",
+        a: "Yes, for some: mod_attendance, mod_customcert, tool_certificate and qtype_multichoiceset. Their tools appear only when the plugin is installed, enabled and recent enough; otherwise they are hidden. The certificates family is closed by default. A plugin can also declare its own tools: a family closed by default holds them, with the list to review on the page of the tools of other plugins. Do you publish a plugin? See the Plugin developers page.",
+      },
+      {
+        q: "Can the plugin be uninstalled cleanly?",
+        a: "Yes. Moodle drops the tables and files of the plugin. The plugin first reports what stays, and deletes nothing: the safety backups moved to a person's private backups, and the links to staged files written into other texts, which will break. The content created in your courses stays: it is Moodle content.",
+      },
+      {
+        q: "What are skills, and are they required?",
+        a: "Optional. The server already gives the assistant the plan of each scenario. The skills are an installable copy of it, useful for the assistant to pick the right approach quickly.",
+      },
+      {
+        q: "How much does it cost? (Good news first.)",
+        a: "The plugin is free software under the GNU GPL v3. The subscription to the AI assistant is up to your institution, with the provider of its choice.",
+      },
+      {
+        q: "Who do I contact?",
+        a: "Write to souphianejender@gmail.com for a question, a demo or a security report.",
       },
     ],
   },

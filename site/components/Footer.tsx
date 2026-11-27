@@ -14,6 +14,7 @@ export function Footer({ lang, t, nav }: { lang: Locale; t: Dict['footer']; nav:
           </div>
           <nav aria-label="Footer">
             <Link href={href(lang, 'faq')}>{nav.faq}</Link>
+            <Link href={href(lang, 'plugins')}>{nav.plugins}</Link>
             <Link href={href(lang, 'legal')}>{nav.legal}</Link>
             <a href={`mailto:${site.contact}`}>{t.contact}</a>
             <a href={site.repo} rel="noopener">{t.source}</a>

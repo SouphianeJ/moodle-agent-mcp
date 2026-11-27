@@ -41,6 +41,7 @@ export type Dict = {
     skills: string;
     tests: string;
     faq: string;
+    plugins: string;
     legal: string;
     otherLang: string;
     otherLangLabel: string;
@@ -182,6 +183,7 @@ export type Dict = {
     othersText: string;
   };
   missing: { kicker: string; title: string; lead: string; back: string };
+  plugins: { title: string; description: string; sections: Section[] };
   faq: { title: string; lead: string; items: { q: string; a: string }[] };
   legal: { title: string; description: string; sections: Section[] };
   footer: { tagline: string; licence: string; contact: string; source: string; noCookies: string };
