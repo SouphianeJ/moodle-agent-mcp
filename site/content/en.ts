@@ -123,7 +123,7 @@ const en: Dict = {
       { tag: 'Log and stop switch', title: "Who did what, and when? It's all written down.", text: 'Every write logged, undo, emergency switch.' },
     ],
     trustCta: 'Read the security page',
-    testsLine: 'What it really does: eight requests measured on a 200-student course, with what was done, their real cost and their duration. And which model to pick.',
+    testsLine: 'What it really does: eight requests measured on a 200-student course, with what was done, their tokens and their duration. And which model to pick.',
     testsCta: 'See the model tests',
     measuredCta: 'See measured examples',
     startCta: 'Installation guide',

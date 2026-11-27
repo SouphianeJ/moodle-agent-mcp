@@ -132,7 +132,7 @@ const fr: Dict = {
       },
     ],
     trustCta: 'Lire la page sécurité',
-    testsLine: 'Ce que ça donne vraiment : huit demandes mesurées sur un cours de 200 étudiants, avec ce qui a été fait, leur coût réel et leur durée. Et quel modèle choisir.',
+    testsLine: 'Ce que ça donne vraiment : huit demandes mesurées sur un cours de 200 étudiants, avec ce qui a été fait, leurs tokens et leur durée. Et quel modèle choisir.',
     testsCta: 'Voir les essais des modèles',
     measuredCta: 'Voir des exemples mesurés',
     startCta: "Guide d'installation",

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { examples } from '@/content/examples';
-import { duration, measured, money } from '@/content/measured';
+import { duration, measured, tokens } from '@/content/measured';
 import { Arrow, Check, Info, Shield } from '@/components/Icons';
 import { Rich } from '@/components/Rich';
 import { getDict } from '@/lib/dict';
@@ -58,8 +58,8 @@ export default async function ExamplesPage({ params }: Props) {
                 </ul>
                 <dl className="figures">
                   <div>
-                    <dt>{m.cost}</dt>
-                    <dd>{money(r.cost, lang)}</dd>
+                    <dt>{m.tokens}</dt>
+                    <dd>{tokens(r.tokens, lang)}</dd>
                   </div>
                   <div>
                     <dt>{m.calls}</dt>
@@ -75,9 +75,7 @@ export default async function ExamplesPage({ params }: Props) {
                   </div>
                 </dl>
                 <p className="haiku-fig">
-                  {m.noCache}
-                  {colon}
-                  {money(r.costNoCache, lang)}
+                  {r.cachePct} % {m.cacheRead} · {tokens(r.output, lang)} {m.produced}
                 </p>
               </article>
             ))}
@@ -98,7 +96,7 @@ export default async function ExamplesPage({ params }: Props) {
                     </p>
                     <p className="card-muted">{h.verdict}</p>
                     <p className="haiku-fig">
-                      {h.wins} {m.wins} · {money(h.cost, lang)}
+                      {h.wins} {m.wins} · {tokens(h.tokens, lang)}
                     </p>
                   </div>
                 </li>
