@@ -253,7 +253,7 @@ export const measured: Record<Locale, Measured> = {
       '88 % des tokens d’entrée sont lus depuis le cache. Le cache rend ces relectures bien moins chères.',
     ],
     tip:
-      'Sans recherche d’outils, la liste complète des outils pèse environ 294 000 tokens à chaque appel, et Haiku ne peut pas la charger. Claude Code et Claude.ai la font d’eux-mêmes : ne la désactivez pas. Avec un autre client, vérifiez qu’il la propose, et n’ouvrez dans le plugin que les familles d’outils utiles.',
+      'Sans recherche d’outils, la liste complète des outils pèse environ 294\u202fK tokens à chaque appel, et Haiku ne peut pas la charger. Claude Code et Claude.ai la font d’eux-mêmes : ne la désactivez pas. Avec un autre client, vérifiez qu’il la propose, et n’ouvrez dans le plugin que les familles d’outils utiles.',
     limitsTitle: 'Limites',
     limits: [
       'Peu de passages : 3 par demande avec Sonnet, 2 avec Haiku. Les moyennes donnent un ordre de grandeur.',
@@ -460,7 +460,7 @@ export const measured: Record<Locale, Measured> = {
       '88 % of input tokens are read from the cache. The cache makes these re-reads much cheaper.',
     ],
     tip:
-      'Without tool search, the full list of tools weighs about 294,000 tokens on every call, and Haiku cannot load it. Claude Code and Claude.ai do it on their own: do not turn it off. With another client, check that it offers it, and open only the tool families you need in the plugin.',
+      'Without tool search, the full list of tools weighs about 294K tokens on every call, and Haiku cannot load it. Claude Code and Claude.ai do it on their own: do not turn it off. With another client, check that it offers it, and open only the tool families you need in the plugin.',
     limitsTitle: 'Limits',
     limits: [
       'Few runs: 3 per request with Sonnet, 2 with Haiku. The averages give an order of magnitude.',
@@ -471,10 +471,15 @@ export const measured: Record<Locale, Measured> = {
   },
 };
 
-/** Token count written for the locale: "1 073 000 tokens" or "1,073,000 tokens". */
+/** Token count rounded for the locale: thousands in K, millions in M ("405 K tokens", "1,1 M tokens"; "1.1M tokens"). */
 export function tokens(n: number, lang: Locale): string {
-  const sep = lang === 'fr' ? '\u202f' : ',';
-  return `${String(n).replace(/\B(?=(\d{3})+(?!\d))/g, sep)} tokens`;
+  const fr = lang === 'fr';
+  if (n >= 1_000_000) {
+    const m = (Math.round(n / 100_000) / 10).toString();
+    return fr ? `${m.replace('.', ',')}\u202fM tokens` : `${m}M tokens`;
+  }
+  const k = Math.round(n / 1000);
+  return fr ? `${k}\u202fK tokens` : `${k}K tokens`;
 }
 
 /** Duration in seconds (already rounded to ten), written short: "40 s" or "2 min 40 s". */
