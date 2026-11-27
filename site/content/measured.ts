@@ -94,7 +94,7 @@ export const measured: Record<Locale, Measured> = {
         request: 'Mets un tiers-temps à l’Élève C sur tout le cours',
         done: [
           'Quiz 1 : de 30 à 40 minutes pour l’Élève C seul, par une dérogation individuelle, vérifiée.',
-          'Devoir 1 non prolongé : aucune nouvelle date n’était donnée, l’assistant vous la demande.',
+          'Devoir 1 non prolongé : aucune nouvelle date n’était donnée : dans ce passage, l’assistant l’a demandée, comme il y est réglé (une forte tendance, pas une certitude).',
           'Défaut relevé : le scénario des groupes a été choisi au lieu de celui des aménagements individuels. Il sera corrigé.',
         ],
         calls: 14,
@@ -230,7 +230,7 @@ export const measured: Record<Locale, Measured> = {
         request: 'Give Student C extra time across the whole course',
         done: [
           'Quiz 1: from 30 to 40 minutes for Student C only, through an individual override, checked.',
-          'Assignment 1 not extended: no new date was given, the assistant asks you for one.',
+          'Assignment 1 not extended: no new date was given: in this run the assistant asked for one, as it is tuned to (a strong tendency, not a certainty).',
           'Flaw found: the groups scenario was picked instead of the individual accommodations one. It will be fixed.',
         ],
         calls: 14,

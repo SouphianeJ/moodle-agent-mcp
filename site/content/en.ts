@@ -29,9 +29,9 @@ const en: Dict = {
     eyebrow: 'Free Moodle plugin · GPL v3',
     title: 'Moodle Agent, at your service.',
     titleAccent: 'at your service',
-    aside: 'Clear: it acts, then checks. Vague: it asks.',
+    aside: 'Clear: it acts, then checks. Vague: it is tuned to ask.',
     lead:
-      'Ask in plain words for what you would do by hand: build a course, grade submissions, remind a group. When the request is clear, the assistant acts with **your** Moodle rights and nothing more, then checks the result; when it is not, it asks you.',
+      'Ask in plain words for what you would do by hand: build a course, grade submissions, remind a group. When the request is clear, the assistant acts with **your** Moodle rights and nothing more, then checks the result; when it is not, it is tuned to ask you (a strong tendency, not a guarantee: check what matters).',
     ctaPrimary: 'See how to install it',
     ctaSecondary: 'Browse examples',
     facts: [
@@ -94,7 +94,7 @@ const en: Dict = {
       {
         tag: 'You ask, it acts, it checks',
         title: 'Do it. Then prove it.',
-        text: 'The assistant picks the right scenario. Clear request: it acts step by step, then checks and quotes what Moodle returns. Vague request: it asks one short question. It shows its plan first if you ask for it.',
+        text: 'The assistant picks the right scenario. Clear request: it acts step by step, then checks and quotes what Moodle returns. Vague request: it is tuned to ask one short question (usually, not always). It shows its plan first if you ask for it.',
       },
     ],
     scenariosTitle: '44 scenarios for recurring tasks',
@@ -479,7 +479,7 @@ const en: Dict = {
       },
       {
         q: 'Does it ask for permission every time?',
-        a: 'No. When the request is clear, it acts, then checks and quotes what Moodle returns; when it is not, it asks one short question. Ask for its plan first if you prefer to approve it. For what cannot be taken back (deletions, messages, released grades), the server requires a consent ticket: the assistant reviews the preview and only asks you when something differs; your institution can also require your click in Moodle.',
+        a: 'No. When the request is clear, it acts, then checks and quotes what Moodle returns; when it is not, it is tuned to ask one short question (usually, not always). Ask for its plan first if you prefer to approve it. For what cannot be taken back (deletions, messages, released grades), the server requires a consent ticket: the assistant reviews the preview and only asks you when something differs; your institution can also require your click in Moodle.',
       },
       {
         q: 'Are grades published automatically?',

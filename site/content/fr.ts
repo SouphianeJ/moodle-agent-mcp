@@ -29,9 +29,9 @@ const fr: Dict = {
     eyebrow: 'Plugin Moodle libre · GPL v3',
     title: 'Agent Moodle, pour vous servir.',
     titleAccent: 'pour vous servir',
-    aside: 'Clair : il agit, puis vérifie. Flou : il demande.',
+    aside: 'Clair : il agit, puis vérifie. Flou : il est réglé pour demander.',
     lead:
-      "Demandez en français ce que vous feriez à la main : construire un cours, corriger des copies, relancer un groupe. Quand c'est clair, l'assistant agit avec **vos** droits Moodle et rien de plus, puis vérifie le résultat ; quand ça ne l'est pas, il vous pose la question.",
+      "Demandez en français ce que vous feriez à la main : construire un cours, corriger des copies, relancer un groupe. Quand c'est clair, l'assistant agit avec **vos** droits Moodle et rien de plus, puis vérifie le résultat ; quand ça ne l'est pas, il est réglé pour vous poser la question (une forte tendance, pas une garantie : relisez ce qui compte).",
     ctaPrimary: "Voir comment l'installer",
     ctaSecondary: 'Parcourir des exemples',
     facts: [
@@ -95,7 +95,7 @@ const fr: Dict = {
       {
         tag: 'Vous demandez, il agit, il vérifie',
         title: 'Fais-le. Et prouve\u2011le\u2011moi.',
-        text: "L'assistant choisit le scénario adapté. Demande claire : il agit étape par étape, puis vérifie et cite ce que Moodle répond. Demande floue : il pose une question courte. Il montre d'abord son plan si vous le lui demandez.",
+        text: "L'assistant choisit le scénario adapté. Demande claire : il agit étape par étape, puis vérifie et cite ce que Moodle répond. Demande floue : il est réglé pour poser une question courte (le plus souvent, pas toujours). Il montre d'abord son plan si vous le lui demandez.",
       },
     ],
     scenariosTitle: '44 scénarios pour les tâches qui reviennent',
@@ -494,7 +494,7 @@ const fr: Dict = {
       },
       {
         q: 'Me demande-t-il la permission à chaque fois\u00a0?',
-        a: "Non. Si la demande est claire, il agit, puis vérifie et vous cite ce que Moodle répond ; si elle ne l'est pas, il pose une question courte. Demandez-lui son plan d'abord si vous préférez le valider. Pour ce qui ne se reprend pas (suppressions, messages, notes publiées), le serveur exige un jeton d'accord : l'assistant relit l'aperçu et ne vous sollicite qu'en cas d'écart ; l'établissement peut exiger en plus votre clic dans Moodle.",
+        a: "Non. Si la demande est claire, il agit, puis vérifie et vous cite ce que Moodle répond ; si elle ne l'est pas, il est réglé pour poser une question courte (le plus souvent, pas toujours). Demandez-lui son plan d'abord si vous préférez le valider. Pour ce qui ne se reprend pas (suppressions, messages, notes publiées), le serveur exige un jeton d'accord : l'assistant relit l'aperçu et ne vous sollicite qu'en cas d'écart ; l'établissement peut exiger en plus votre clic dans Moodle.",
       },
       {
         q: 'Les notes sont-elles publiées automatiquement ?',
