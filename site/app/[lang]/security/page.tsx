@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: Props) {
 function Locks({ lang }: { lang: 'fr' | 'en' }) {
   const labels =
     lang === 'fr'
-      ? ['Authentification', "Porte d'accès", "Familles d'outils", 'Barrière _EDITABLE', 'Droits Moodle']
-      : ['Authentication', 'Access gate', 'Tool families', '_EDITABLE barrier', 'Moodle permissions'];
+      ? ['Authentification', "Porte d'accès", "Familles d'outils", 'Cours ouvert', 'Droits Moodle']
+      : ['Authentication', 'Access gate', 'Tool families', 'Open course', 'Moodle permissions'];
   const title = lang === 'fr' ? 'Cinq verrous qui se cumulent' : 'Five locks that add up';
   return (
     <figure className="card" style={{ margin: '0 0 8px' }}>

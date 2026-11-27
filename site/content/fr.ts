@@ -111,9 +111,9 @@ const fr: Dict = {
         text: 'Droits natifs de Moodle appliqués à chaque appel.',
       },
       {
-        tag: 'Marqueur `_EDITABLE`',
+        tag: 'Interrupteur par cours',
         title: 'Ce cours-là, pas touche. Sauf si je te le confie.',
-        text: "Un cours n'est modifiable par l'IA que si une personne l'a ouvert (marqueur `_EDITABLE`).",
+        text: "Un cours n'est modifiable par l'IA que si une personne l'a ouvert : un interrupteur sur la page du cours, ou par catégorie pour l'administrateur.",
       },
       {
         tag: "Porte d'accès",
@@ -174,9 +174,9 @@ const fr: Dict = {
       },
       {
         id: 'editable',
-        title: 'La barrière `_EDITABLE`',
+        title: 'Le cours ouvert à l\'IA',
         text:
-          "Un cours n'accepte les écritures de l'IA que si son nom abrégé contient `_EDITABLE`. Seule une personne peut l'ajouter, dans les paramètres du cours ; l'IA ne peut pas s'ouvrir un cours elle-même. Les lectures restent possibles partout où la personne peut lire.",
+          "Un cours n'accepte les écritures de l'IA que si une personne l'a ouvert : l'enseignant, d'un interrupteur sur la page « Assistant IA » du cours, ou l'administrateur, cours par cours ou par catégorie entière. Fermé par défaut ; l'IA ne peut ni ouvrir ni fermer un cours existant, seuls les cours qu'elle crée elle-même lui sont ouverts. Sur Moodle 5.1 et plus, le réglage « Activer les outils IA » du cours l'emporte : sur Non, l'assistant ne lit ni n'écrit rien dans ce cours, pour personne. Jusqu'à la version 2.5.4, l'ouverture passait par le marqueur `_EDITABLE` dans le nom abrégé.",
       },
       {
         id: 'gate',
@@ -254,7 +254,7 @@ const fr: Dict = {
       {
         title: 'Vérifier',
         text:
-          "Le plugin s'installe fermé : mode passerelle sans secret, porte d'accès vide, seule la famille du contenu des cours active, marqueur `_EDITABLE` exigé.",
+          "Le plugin s'installe fermé : mode passerelle sans secret, porte d'accès vide, seule la famille du contenu des cours active, tous les cours fermés à l'IA.",
       },
     ],
     download: 'Obtenir le plugin : bientôt sur Moodle Marketplace ; en attendant, sur demande, avec son empreinte SHA-256 :',
@@ -279,7 +279,7 @@ const fr: Dict = {
       "Pour un client qui ne sait ni OAuth ni passer par une passerelle (un script, un outil en ligne de commande), chaque personne peut créer ses propres clés, en plus du mode choisi. Le réglage « Accepter les clés d'API » est décoché par défaut.",
     apikeysPoints: [
       "Chacun crée les siennes sur « Mes clés d'API » (enseignants éditeurs et gestionnaires par défaut) : un nom, une portée lecture seule ou lecture et écriture, une expiration obligatoire (90 jours par défaut, 365 au plus). La clé n'est montrée qu'une fois.",
-      "Mêmes barrières que tout le reste : la clé agit au nom de son propriétaire, sous la porte d'accès et son niveau, les familles, `_EDITABLE`, les droits Moodle, le journal et l'arrêt d'urgence.",
+      "Mêmes barrières que tout le reste : la clé agit au nom de son propriétaire, sous la porte d'accès et son niveau, les familles, le cours ouvert, les droits Moodle, le journal et l'arrêt d'urgence.",
       "La personne révoque ses clés ; l'administrateur voit et révoque toutes les clés du site. Aucune clé n'est créée pour autrui.",
     ],
     gateTitle: "Ouvrir la porte d'accès",
@@ -478,7 +478,7 @@ const fr: Dict = {
     items: [
       {
         q: "L'IA peut-elle faire plus que moi ?",
-        a: "Non. Chaque appel s'exécute avec vos permissions Moodle, puis la porte d'accès, les familles ouvertes et la barrière `_EDITABLE` restreignent encore. Aucun réglage ne donne à l'assistant un droit que vous n'avez pas.",
+        a: "Non. Chaque appel s'exécute avec vos permissions Moodle, puis la porte d'accès, les familles ouvertes et l'ouverture du cours restreignent encore. Aucun réglage ne donne à l'assistant un droit que vous n'avez pas.",
       },
       {
         q: 'Quel assistant faut-il ?',

@@ -106,9 +106,9 @@ const en: Dict = {
     trust: [
       { tag: "Moodle's own permissions", title: "It can't do anything I couldn't. Not even sneakily.", text: "Moodle's own permissions on every call." },
       {
-        tag: 'The `_EDITABLE` marker',
+        tag: 'A switch per course',
         title: 'Hands off that course. Unless I hand it over.',
-        text: 'A course accepts AI writes only once a person opened it (the `_EDITABLE` marker).',
+        text: 'A course accepts AI writes only once a person opened it: a switch on the course page, or by category for the administrator.',
       },
       {
         tag: 'Access gate',
@@ -164,9 +164,9 @@ const en: Dict = {
       },
       {
         id: 'editable',
-        title: 'The `_EDITABLE` barrier',
+        title: 'The course open to the AI',
         text:
-          'A course accepts AI writes only when its short name contains `_EDITABLE`. Only a person can add it, in the course settings; the AI cannot open a course for itself. Reads stay possible wherever the person may read.',
+          'A course accepts AI writes only once a person opened it: the teacher, with a switch on the “AI assistant” page of the course, or the administrator, course by course or a whole category. Closed by default; the AI can neither open nor close an existing course, only the courses it creates itself are open to it. On Moodle 5.1 and later, the course setting “Enable AI tools” wins: set to No, the assistant reads and writes nothing in that course, for anybody. Up to version 2.5.4, a course was opened by the `_EDITABLE` marker in its short name.',
       },
       {
         id: 'gate',
@@ -243,7 +243,7 @@ const en: Dict = {
       },
       {
         title: 'Check',
-        text: 'The plugin installs closed: gateway mode without secrets, empty access gate, only the course content family on, `_EDITABLE` marker required.',
+        text: 'The plugin installs closed: gateway mode without secrets, empty access gate, only the course content family on, every course closed to the AI.',
       },
     ],
     download: 'Get the plugin: coming soon on Moodle Marketplace; until then, on request, with its SHA-256 checksum:',
@@ -267,7 +267,7 @@ const en: Dict = {
       'For a client that speaks neither OAuth nor through a gateway (a script, a command-line tool), each person can create their own keys, on top of the chosen mode. The setting “Accept API keys” is off by default.',
     apikeysPoints: [
       'Each person creates their own on “My API keys” (editing teachers and managers by default): a name, a scope, read only or read and write, and a mandatory expiry (90 days by default, 365 at most). The key is shown once.',
-      'The same barriers as everything else: the key acts for its owner, under the access gate and its level, the families, `_EDITABLE`, the Moodle permissions, the log and the emergency cut-off.',
+      'The same barriers as everything else: the key acts for its owner, under the access gate and its level, the families, the open course, the Moodle permissions, the log and the emergency cut-off.',
       'People revoke their own keys; the administrator sees and revokes every key of the site. No key is ever created for someone else.',
     ],
     gateTitle: 'Open the access gate',
@@ -463,7 +463,7 @@ const en: Dict = {
     items: [
       {
         q: 'Can the AI do more than I can?',
-        a: 'No. Every call runs with your Moodle permissions, then the access gate, the open families and the `_EDITABLE` barrier restrict further. No setting gives the assistant a right you do not have.',
+        a: 'No. Every call runs with your Moodle permissions, then the access gate, the open families and the opening of the course restrict further. No setting gives the assistant a right you do not have.',
       },
       {
         q: 'Which assistant do I need?',
