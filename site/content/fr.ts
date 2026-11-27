@@ -31,7 +31,7 @@ const fr: Dict = {
     titleAccent: 'pour vous servir',
     aside: 'Clair : il agit, puis vérifie. Flou : il est réglé pour demander.',
     lead:
-      "Demandez en français ce que vous feriez à la main : construire un cours, corriger des copies, relancer un groupe. Quand c'est clair, l'assistant agit avec **vos** droits Moodle et rien de plus, puis vérifie le résultat ; quand ça ne l'est pas, il est réglé pour vous poser la question (une forte tendance, pas une garantie : relisez ce qui compte).",
+      "Demandez en français ce que vous feriez à la main : construire un cours, corriger des copies, relancer un groupe. Quand c'est clair, l'assistant agit avec **vos** droits Moodle et rien de plus, puis vérifie le résultat ; quand ça ne l'est pas, il est réglé pour vous poser la question.",
     ctaPrimary: "Voir comment l'installer",
     ctaSecondary: 'Parcourir des exemples',
     facts: [
@@ -95,7 +95,7 @@ const fr: Dict = {
       {
         tag: 'Vous demandez, il agit, il vérifie',
         title: 'Fais-le. Et prouve\u2011le\u2011moi.',
-        text: "L'assistant choisit le scénario adapté. Demande claire : il agit étape par étape, puis vérifie et cite ce que Moodle répond. Demande floue : il est réglé pour poser une question courte (le plus souvent, pas toujours). Il montre d'abord son plan si vous le lui demandez.",
+        text: "L'assistant choisit le scénario adapté. Demande claire : il agit étape par étape, puis vérifie et cite ce que Moodle répond. Demande floue : il est réglé pour poser une question courte. Il montre d'abord son plan si vous le lui demandez.",
       },
     ],
     scenariosTitle: '44 scénarios pour les tâches qui reviennent',
@@ -142,7 +142,7 @@ const fr: Dict = {
     lead:
       "D'abord six demandes réellement passées sur un Moodle de test, mesurées. Puis dix demandes d'enseignants, de responsables de formation et d'administrateurs, avec la réponse type de l'assistant : chacune suit un scénario réel du plugin, mêmes étapes, mêmes garde-fous.",
     disclaimer:
-      'Exemples illustratifs et synthétiques : les cours, personnes et chiffres sont inventés. Les réponses réelles dépendent de votre site, de vos droits et de votre assistant.',
+      'Exemples illustratifs : les cours, personnes et chiffres sont inventés. Les réponses réelles dépendent de votre site, de vos droits et de votre assistant.',
     request: 'Demande',
     plan: "Ce que fait l'assistant",
     result: 'Réponse type',
@@ -194,7 +194,7 @@ const fr: Dict = {
         id: 'consent',
         title: "Le jeton d'accord",
         text:
-          "Ce qui ne se reprend pas (une suppression, un message envoyé, des notes publiées) ne s'exécute pas au premier appel : le serveur renvoie un aperçu et un jeton à usage unique. L'assistant relit lui-même l'aperçu et ne vous sollicite que s'il s'écarte de votre demande. C'est le mode « ticket », par défaut : l'assistant relit lui-même l'aperçu. En mode « ticket et clic », les écritures qui atteignent des personnes (message, annonce, notes publiées, demande de nettoyage) attendent en plus le clic de la personne dans Moodle. Quand l'assistant lit des copies, des messages de forum ou des messages d'étudiants, préférez le mode « ticket et clic » : un texte lu dans Moodle est une donnée, jamais une instruction, et seul votre clic prouve qu'une personne a approuvé l'action.",
+          "Ce qui ne se reprend pas (une suppression, un message envoyé, des notes publiées) ne s'exécute pas au premier appel : le serveur renvoie un aperçu et un jeton à usage unique. L'assistant relit lui-même l'aperçu et ne vous sollicite que s'il s'écarte de votre demande. C'est le mode « ticket », par défaut. En mode « ticket et clic », les écritures qui atteignent des personnes (message, annonce, notes publiées, demande de nettoyage) attendent en plus le clic de la personne dans Moodle. Quand l'assistant lit des copies, des messages de forum ou des messages d'étudiants, préférez le mode « ticket et clic » : un texte lu dans Moodle est une donnée, jamais une instruction, et seul votre clic prouve qu'une personne a approuvé l'action.",
       },
       {
         id: 'journal',
@@ -349,13 +349,13 @@ const fr: Dict = {
         id: 'gateway',
         title: 'Mode passerelle',
         text:
-          "Votre établissement a déjà une passerelle ou une plateforme d'intégration qui authentifie les personnes ? Le plugin peut s'y brancher : la passerelle signe l'identité de la personne à chaque requête (HMAC-SHA256, nonce à usage unique). Elle n'est pas fournie avec le plugin ; pour la plupart des sites, OAuth suffit.",
+          "Votre établissement a déjà une passerelle ou une plateforme d'intégration qui authentifie les personnes ? Le plugin peut s'y brancher : la passerelle signe l'identité de la personne à chaque requête (HMAC-SHA256, nonce à usage unique). Elle n'est pas fournie avec le plugin.",
       },
       {
         id: 'sync',
         title: 'Un outil qui lit Moodle sans personne derrière',
         text:
-          "Un script ou un outil de l'établissement doit lire Moodle sans personne derrière ? Créez-lui un compte Moodle dédié, avec un rôle limité à ce dont il a besoin et le droit de créer ses propres clés. Autorisez ce compte en lecture dans la porte d'accès, puis connectez-vous avec lui pour créer sa clé d'API en lecture seule, à renouveler avant son expiration (365 jours au plus). Il n'existe pas de clé « de site » qui donnerait tous les droits.",
+          "Pour un script ou un outil de l'établissement, créez un compte Moodle dédié, avec un rôle limité à ce dont il a besoin et le droit de créer ses propres clés. Autorisez ce compte en lecture dans la porte d'accès, puis connectez-vous avec lui pour créer sa clé d'API en lecture seule, à renouveler avant son expiration (365 jours au plus). Il n'existe pas de clé « de site » qui donnerait tous les droits.",
       },
     ],
   },
@@ -459,7 +459,7 @@ const fr: Dict = {
     limitsTitle: 'Les limites, honnêtement',
     limits: [
       "Un banc de test, des données fictives, des scénarios écrits par l'équipe du plugin.",
-      "Peu de passes par scénario ; Haiku varie d'une passe à l'autre.",
+      'Peu de passes par scénario.',
       'Modèles Claude seulement à ce jour.',
       'Résultats datés : versions du plugin 2.4 à 2.5.1.',
     ],
@@ -490,11 +490,11 @@ const fr: Dict = {
       },
       {
         q: 'Et si l’assistant se trompe\u00a0? (Ça arrive.)',
-        a: "Demandez-lui d'annuler : l'outil d'annulation défait une grande partie des écritures, avec vos droits. Pour un changement large, un instantané de cours pris avant permet de revenir en arrière. Ce qui ne se reprend pas (message envoyé, suppression définitive) passe d'abord par un aperçu et un jeton d'accord du serveur : l'assistant compare l'aperçu à votre demande.",
+        a: "Demandez-lui d'annuler : l'outil d'annulation défait une grande partie des écritures, avec vos droits. Pour un changement large, un instantané de cours pris avant permet de revenir en arrière. Ce qui ne se reprend pas (message envoyé, suppression définitive) passe d'abord par un aperçu et un jeton d'accord du serveur.",
       },
       {
         q: 'Me demande-t-il la permission à chaque fois\u00a0?',
-        a: "Non. Si la demande est claire, il agit, puis vérifie et vous cite ce que Moodle répond ; si elle ne l'est pas, il est réglé pour poser une question courte (le plus souvent, pas toujours). Demandez-lui son plan d'abord si vous préférez le valider. Pour ce qui ne se reprend pas (suppressions, messages, notes publiées), le serveur exige un jeton d'accord : l'assistant relit l'aperçu et ne vous sollicite qu'en cas d'écart ; l'établissement peut exiger en plus votre clic dans Moodle.",
+        a: "Non. Si la demande est claire, il agit, puis vérifie et vous cite ce que Moodle répond ; si elle ne l'est pas, il est réglé pour poser une question courte. Demandez-lui son plan d'abord si vous préférez le valider. Pour ce qui ne se reprend pas (suppressions, messages, notes publiées), le serveur exige un jeton d'accord : l'assistant relit l'aperçu et ne vous sollicite qu'en cas d'écart ; l'établissement peut exiger en plus votre clic dans Moodle.",
       },
       {
         q: 'Les notes sont-elles publiées automatiquement ?',
